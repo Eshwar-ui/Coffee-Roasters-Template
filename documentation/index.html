@@ -2,50 +2,313 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Espresso Elite Documentation</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentation | Espresso Elite HTML Template</title>
+    <!-- Tailwind CSS for documentation styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        body { font-family: -apple-system, sans-serif; line-height: 1.6; max-w: 800px; margin: 40px auto; padding: 20px; color: #333; }
-        h1, h2 { color: #6F4E37; }
-        code { background: #eee; padding: 2px 4px; border-radius: 4px; }
-        .block { background: #f9f9f9; border-left: 4px solid #C4A484; padding: 10px; margin: 20px 0; }
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap');
+        
+        :root {
+            --primary: #6F4E37;
+        }
+        
+        body { font-family: 'Inter', sans-serif; background-color: #F8FAFC; color: #1E293B; }
+        h1, h2, h3, h4, .font-heading { font-family: 'Playfair Display', serif; }
+        
+        .nav-link.active {
+            color: var(--primary);
+            font-weight: 600;
+            border-left: 2px solid var(--primary);
+        }
+        
+        pre {
+            background-color: #0F172A;
+            color: #E2E8F0;
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            overflow-x: auto;
+            margin: 1rem 0;
+            font-family: monospace;
+            font-size: 0.875rem;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+        }
+        
+        code {
+            background-color: #E2E8F0;
+            color: #0F172A;
+            padding: 0.2rem 0.4rem;
+            border-radius: 0.25rem;
+            font-size: 0.875em;
+        }
+        
+        pre code {
+            background-color: transparent;
+            color: inherit;
+            padding: 0;
+        }
+        
+        .section-block {
+            background: white;
+            border-radius: 1rem;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+            border: 1px solid #E2E8F0;
+        }
+
+        .anchor {
+            scroll-margin-top: 5rem;
+        }
     </style>
 </head>
-<body>
-    <h1>Espresso Elite | Documentation</h1>
-    <p>A ThemeForest-quality Specialty Coffee Roaster template.</p>
+<body class="antialiased">
 
-    <h2>Installation Guide</h2>
-    <div class="block">
-        No complicated build tools required. Open <code>pages/index.html</code> in any modern web browser or serve via Live Server.
+    <!-- Header -->
+    <header class="bg-white border-b border-gray-200 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <div class="w-8 h-8 rounded-lg bg-[#6F4E37] flex items-center justify-center text-white font-bold font-heading">E</div>
+                <h1 class="font-heading font-bold text-xl">Espresso Elite Docs</h1>
+            </div>
+            <a href="../index.html" class="text-sm font-medium text-gray-500 hover:text-[#6F4E37] transition-colors flex items-center gap-2">
+                View Template <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </a>
+        </div>
+    </header>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex items-start gap-8">
+        
+        <!-- Sidebar Navigation -->
+        <aside class="w-64 shrink-0 hidden lg:block sticky top-24">
+            <nav class="space-y-1">
+                <div class="font-semibold text-xs uppercase tracking-wider text-gray-400 mb-3 px-3">Getting Started</div>
+                <a href="#intro" class="nav-link block px-3 py-2 text-sm text-gray-600 hover:bg-gray-50 rounded-lg">Introduction</a>
+                <a href="#structure" class="nav-link block px-3 py-2 text-sm text-gray-600 hover:bg-gray-50 rounded-lg">Folder Structure</a>
+                
+                <div class="font-semibold text-xs uppercase tracking-wider text-gray-400 mb-3 px-3 mt-8">Configuration</div>
+                <a href="#styling" class="nav-link block px-3 py-2 text-sm text-gray-600 hover:bg-gray-50 rounded-lg">Styling & Colors</a>
+                <a href="#dark-mode" class="nav-link block px-3 py-2 text-sm text-gray-600 hover:bg-gray-50 rounded-lg">Dark Mode</a>
+                <a href="#rtl" class="nav-link block px-3 py-2 text-sm text-gray-600 hover:bg-gray-50 rounded-lg">RTL Support</a>
+                
+                <div class="font-semibold text-xs uppercase tracking-wider text-gray-400 mb-3 px-3 mt-8">Resources</div>
+                <a href="#dependencies" class="nav-link block px-3 py-2 text-sm text-gray-600 hover:bg-gray-50 rounded-lg">Dependencies</a>
+                <a href="#icons" class="nav-link block px-3 py-2 text-sm text-gray-600 hover:bg-gray-50 rounded-lg">Icons</a>
+                <a href="#seo" class="nav-link block px-3 py-2 text-sm text-gray-600 hover:bg-gray-50 rounded-lg">SEO & Accessibility</a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="flex-1 min-w-0">
+            
+            <section id="intro" class="section-block anchor">
+                <h2 class="text-3xl font-bold mb-4">Introduction</h2>
+                <p class="text-gray-600 mb-4 leading-relaxed">
+                    Thank you for choosing <strong>Espresso Elite</strong>, a premium specialty coffee roaster HTML template. Built directly inside the browser using HTML5, advanced Vanilla CSS variables, and the Tailwind CSS CDN, this template is incredibly lightweight, blindingly fast, and requires <strong>zero build tools</strong> to modify or deploy.
+                </p>
+                <div class="bg-[#6F4E37]/10 border border-[#6F4E37]/20 rounded-lg p-4 mt-6">
+                    <p class="text-[#6F4E37] text-sm font-medium m-0">
+                        <strong>Quick Start:</strong> Simply open <code>index.html</code> (or any file in the <code>pages/</code> directory) directly in your web browser. No local server, Webpack, or npm install is required.
+                    </p>
+                </div>
+            </section>
+
+            <section id="structure" class="section-block anchor">
+                <h2 class="text-3xl font-bold mb-4">Folder Structure</h2>
+                <p class="text-gray-600 mb-6">The template is organized cleanly so you quickly know where everything is.</p>
+<pre><code>template-name/
+├── index.html                  # Root index file (redirects or serves as Home 1)
+├── README.md                   # Basic project readme
+├── documentation/              # This documentation directory
+│   └── index.html
+├── pages/                      # All HTML template views
+│   ├── index-2.html            # Theme alternative homepage
+│   ├── about.html              # Story and mission
+│   ├── shop.html               # Product catalog
+│   ├── product-single.html     # Single product details
+│   ├── cart.html               # Shopping cart
+│   ├── checkout.html           # Checkout flow
+│   ├── dashboard-user.html     # Customer dashboard
+│   ├── dashboard-admin.html    # Staff management dashboard
+│   ├── blog.html               # Journal/Blog index
+│   └── ...                     # (And various other pages)
+└── assets/
+    ├── css/
+    │   ├── style.css           # Contains base variables & Tailwind overrides
+    │   ├── dark-mode.css       # Dark mode scoping classes
+    │   └── rtl.css             # Left-To-Right inversions
+    ├── js/
+    │   └── main.js             # Global logic (Nav, Dark Mode, RTL, Sliders)
+    ├── images/                 # All optimized local imagery (.webp formats)
+    └── fonts/                  # (If any local fonts are stored)
+</code></pre>
+            </section>
+
+            <section id="styling" class="section-block anchor">
+                <h2 class="text-3xl font-bold mb-4">Styling & Custom Colors</h2>
+                <p class="text-gray-600 mb-4">
+                    The visual identity is controlled primarily via native CSS variables found inside <code>assets/css/style.css</code>. 
+                    We leverage Tailwind CDN on top of these variables for spacing, typography, and utility classes in the HTML structure.
+                </p>
+                
+                <h4 class="font-bold text-lg mt-8 mb-2">Changing the Theme Colors</h4>
+                <p class="text-gray-600 mb-4 text-sm">Open <code>assets/css/style.css</code> and modify the <code>:root</code> block. This controls global coloring instantly.</p>
+<pre><code>:root {
+  --primary: #6F4E37;      /* Coffee Brown - Main brand color */
+  --secondary: #C4A484;    /* Light Latte - Background accents */
+  --accent: #D4A373;       /* Warm Accent - Secondary buttons */
+  --bg: #F5F3EF;           /* Light Paper - Main body background */
+  --text: #1C1C1C;         /* Espresso - Main text color */
+}</code></pre>
+
+                <h4 class="font-bold text-lg mt-8 mb-2">Tailwind CSS Configuration</h4>
+                <p class="text-gray-600 mb-4 text-sm">
+                    In the <code>&lt;head&gt;</code> of every HTML page, a Tailwind configuration script automatically maps our CSS variables to Tailwind utility classes (e.g., <code>text-primary</code>, <code>bg-primary</code>). 
+                    If you wish to change the primary font families, do it inside the HTML script tag:
+                </p>
+<pre><code>&lt;script&gt;
+    tailwind.config = {
+        darkMode: 'class',
+        theme: {
+            extend: {
+                colors: { primary: '#6F4E37', secondary: '#C4A484', ... },
+                fontFamily: { 
+                    heading: ['Playfair Display', 'serif'], 
+                    body: ['Inter', 'sans-serif'] 
+                }
+            }
+        }
+    }
+&lt;/script&gt;</code></pre>
+            </section>
+
+            <section id="dark-mode" class="section-block anchor">
+                <h2 class="text-3xl font-bold mb-4">Dark Mode</h2>
+                <p class="text-gray-600 mb-4">
+                    Dark mode is built-in natively, leveraging Tailwind's <code>dark:</code> variant and the <code>assets/css/dark-mode.css</code> stylesheet.
+                </p>
+                <div class="grid md:grid-cols-2 gap-6 mt-6">
+                    <div>
+                        <h4 class="font-bold mb-2">1. The Toggle System</h4>
+                        <p class="text-sm text-gray-600">
+                            The toggle functionality is powered by <code>assets/js/main.js</code>. Whenever a user clicks a button with the ID <code>#dark-mode-toggle</code>, the script adds the class <code>.dark</code> to the root <code>&lt;html&gt;</code> element.
+                        </p>
+                    </div>
+                    <div>
+                        <h4 class="font-bold mb-2">2. Persistence</h4>
+                        <p class="text-sm text-gray-600">
+                            The JS checks the user's OS preference (<code>prefers-color-scheme: dark</code>) on first load. It then saves manual toggles to the browser's <code>localStorage</code> so the theme choice persists across all pages.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="rtl" class="section-block anchor">
+                <h2 class="text-3xl font-bold mb-4">RTL Support (Right-To-Left)</h2>
+                <p class="text-gray-600 mb-4">
+                    Extensive care was taken to support RTL languages natively (Arabic, Hebrew, etc.).
+                </p>
+                <p class="text-gray-600 mb-4">
+                    The template includes an RTL switch on every navbar (the globe/languages icon). When clicked, it sets <code>dir="rtl"</code> on the HTML element. 
+                    The CSS inside <code>assets/css/rtl.css</code> immediately flips paddings, margins, grid orders, and directional icons.
+                </p>
+                <div class="bg-gray-100 rounded-lg p-4 font-mono text-sm">
+                    // Manual RTL testing:<br>
+                    &lt;html lang="ar" dir="rtl"&gt;
+                </div>
+            </section>
+
+            <section id="dependencies" class="section-block anchor">
+                <h2 class="text-3xl font-bold mb-4">Dependencies & Plugins</h2>
+                <p class="text-gray-600 mb-6">We use CDN links for all third-party libraries so there is no setup required.</p>
+                
+                <div class="space-y-6">
+                    <div class="border-b border-gray-100 pb-4">
+                        <div class="flex items-center gap-2 mb-1">
+                            <h4 class="font-bold">TailwindCSS JS CDN</h4>
+                            <span class="bg-gray-100 text-xs px-2 py-0.5 rounded text-gray-600">Core Styling</span>
+                        </div>
+                        <p class="text-sm text-gray-500">Provides utility classes compiled synchronously in the browser.</p>
+                    </div>
+                    
+                    <div class="border-b border-gray-100 pb-4">
+                        <div class="flex items-center gap-2 mb-1">
+                            <h4 class="font-bold">GSAP & ScrollTrigger</h4>
+                            <span class="bg-gray-100 text-xs px-2 py-0.5 rounded text-gray-600">Animation</span>
+                        </div>
+                        <p class="text-sm text-gray-500">For complex timeline animations (like the Home 2 video background zoom).</p>
+                    </div>
+
+                    <div class="border-b border-gray-100 pb-4">
+                        <div class="flex items-center gap-2 mb-1">
+                            <h4 class="font-bold">AOS (Animate On Scroll)</h4>
+                            <span class="bg-gray-100 text-xs px-2 py-0.5 rounded text-gray-600">Animation</span>
+                        </div>
+                        <p class="text-sm text-gray-500">For the fluid slide-up reveal functionality on text elements as you scroll.</p>
+                    </div>
+
+                    <div class="border-b border-gray-100 pb-4">
+                        <div class="flex items-center gap-2 mb-1">
+                            <h4 class="font-bold">Swiper JS</h4>
+                            <span class="bg-gray-100 text-xs px-2 py-0.5 rounded text-gray-600">Sliders</span>
+                        </div>
+                        <p class="text-sm text-gray-500">Used for product carousels, testimonials, and brand sliders.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="icons" class="section-block anchor">
+                <h2 class="text-3xl font-bold mb-4">Lucide Icons</h2>
+                <p class="text-gray-600 mb-4">
+                    We use <strong>Lucide Icons</strong> (a popular open-source SVG icon library). 
+                    Instead of loading massive font files, Lucide renders crisp SVGs dynamically at runtime.
+                </p>
+                <p class="text-gray-600 mb-4 text-sm">To add an icon, use an <code>&lt;i&gt;</code> tag with the <code>data-lucide</code> attribute that matches the icon name:</p>
+<pre><code>&lt;!-- Example of rendering a coffee icon --&gt;
+&lt;i data-lucide="coffee" class="w-6 h-6 text-primary"&gt;&lt;/i&gt;</code></pre>
+                <p class="text-sm text-gray-500 mt-2">You can find the full list of available icon names at <a href="https://lucide.dev/icons" target="_blank" class="text-[#6F4E37] hover:underline">lucide.dev</a>.</p>
+            </section>
+            
+            <section id="seo" class="section-block anchor">
+                <h2 class="text-3xl font-bold mb-4">SEO & Accessibility</h2>
+                <p class="text-gray-600 mb-4">
+                    Espresso Elite is fully optimized for top-tier Google PageSpeed scores natively.
+                </p>
+                <ul class="list-disc list-inside space-y-2 text-gray-600 text-sm">
+                    <li>Images utilizing <code>loading="lazy"</code> on all below-the-fold media chunks.</li>
+                    <li>WCAG 2.1 AA compliant semantic elements (<code>&lt;nav&gt;</code>, <code>&lt;main&gt;</code>, etc).</li>
+                    <li><code>aria-label</code> tags on all interactive icons and button toggles.</li>
+                    <li>Injected <strong>JSON-LD Organization Schema</strong> in the document head for rich search results.</li>
+                    <li>OpenGraph meta properties configured for brilliant link sharing previews.</li>
+                </ul>
+            </section>
+
+            <footer class="pt-8 pb-16 text-center text-sm text-gray-500 border-t border-gray-200">
+                &copy; 2026 Espresso Elite Themes. Built with care for Specialty Roasters.
+            </footer>
+        </main>
     </div>
 
-    <h2>Customization Guide</h2>
-    <ul>
-        <li><b>Colors:</b> We utilize Tailwind CSS in JIT mode. To update the primary/secondary colors, modify the <code>tailwind.config</code> object found in the <code>&lt;head&gt;</code> script tags of the HTML files.</li>
-        <li><b>Dark Mode:</b> <code>main.js</code> handles the dark mode preference via <code>localStorage</code>. Modifying <code>assets/css/dark-mode.css</code> updates the inverted styles dynamically.</li>
-        <li><b>RTL System:</b> Setting <code>&lt;html dir="rtl"&gt;</code> recalculates logic for CSS grids, swiper navigation, and icon direction via <code>assets/css/rtl.css</code>.</li>
-    </ul>
+    <!-- Simple Scroll Spy Script -->
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    document.querySelectorAll('.nav-link').forEach(link => {
+                        link.classList.remove('active', 'bg-gradient-to-r', 'from-[#6F4E37]/10', 'to-transparent');
+                    });
+                    const id = entry.target.getAttribute('id');
+                    const activeLink = document.querySelector(`a[href="#${id}"]`);
+                    if(activeLink) {
+                        activeLink.classList.add('active', 'bg-gradient-to-r', 'from-[#6F4E37]/10', 'to-transparent');
+                    }
+                }
+            });
+        }, { rootMargin: '-20% 0px -70% 0px' });
 
-    <h2>Page Explanations</h2>
-    <ul>
-        <li><code>index.html</code> - Home 1: Product focus (capsule carousels, CTA subscriptions)</li>
-        <li><code>index-2.html</code> - Home 2: Storytelling focus (video background, roaster background)</li>
-        <li><code>shop.html</code> - Grid filtering system, interactive sidebars, sort tools</li>
-        <li><code>product-single.html</code> - Subscription integration, roast charts, flavor maps</li>
-        <li><code>dashboard-admin.html</code> - Comprehensive UI for shop management (sidebar, widgets, reports charts)</li>
-        <li><code>dashboard-user.html</code> - Customer-facing management (active subscription status)</li>
-    </ul>
-
-    <h2>Credits</h2>
-    <ul>
-        <li>TailwindCSS (Styling engine)</li>
-        <li>Lucide Icons (SVG library)</li>
-        <li>AOS.js (Scroll animations)</li>
-        <li>Swiper.js (Touch carousels)</li>
-        <li>Unsplash (Placeholder Imagery downloaded locally)</li>
-    </ul>
-
-    <h2>Support Instructions</h2>
-    <p>If you encounter specific module behavior changes needed, use <code>assets/js/main.js</code> as the root API controller for DOM scripts.</p>
+        document.querySelectorAll('section').forEach(section => {
+            observer.observe(section);
+        });
+    </script>
 </body>
 </html>
