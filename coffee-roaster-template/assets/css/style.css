@@ -1,0 +1,89 @@
+/* 
+* Coffee Roaster Template
+* Custom Styles (Tailwind overrides & base styles)
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+
+/* Local Font Fallbacks */
+@font-face {
+    font-family: 'Inter';
+    src: url('../fonts/inter-regular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Playfair Display';
+    src: url('../fonts/playfair-display-regular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    color: #1C1C1C;
+    background-color: #F5F3EF;
+}
+
+h1, h2, h3, h4, h5, h6, .font-heading {
+    font-family: 'Playfair Display', serif;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background: #F5F3EF; 
+}
+::-webkit-scrollbar-thumb {
+    background: #C4A484; 
+    border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #6F4E37; 
+}
+
+/* Swiper Customizations */
+.swiper-pagination-bullet {
+    background-color: #C4A484;
+}
+.swiper-pagination-bullet-active {
+    background-color: #6F4E37;
+}
+.swiper-button-next, .swiper-button-prev {
+    color: #6F4E37 !important;
+}
+
+/* Product Card Interactions */
+.product-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.product-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 25px rgba(111, 78, 55, 0.15);
+}
+
+/* Coffee textures and gradients */
+.texture-bg {
+    background-image: url('../images/ui/map-bg.webp');
+    background-size: cover;
+    background-position: center;
+    background-blend-mode: overlay;
+    background-color: rgba(245, 243, 239, 0.85); /* background var mixed */
+}
+.warm-gradient {
+    background: linear-gradient(135deg, #F5F3EF 0%, #D4A373 100%);
+}
+
+/* Smooth transitions */
+.transition-smooth {
+    transition: all 0.3s ease-in-out;
+}

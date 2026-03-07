@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Espresso Elite Documentation</title>
+    <style>
+        body { font-family: -apple-system, sans-serif; line-height: 1.6; max-w: 800px; margin: 40px auto; padding: 20px; color: #333; }
+        h1, h2 { color: #6F4E37; }
+        code { background: #eee; padding: 2px 4px; border-radius: 4px; }
+        .block { background: #f9f9f9; border-left: 4px solid #C4A484; padding: 10px; margin: 20px 0; }
+    </style>
+</head>
+<body>
+    <h1>Espresso Elite | Documentation</h1>
+    <p>A ThemeForest-quality Specialty Coffee Roaster template.</p>
+
+    <h2>Installation Guide</h2>
+    <div class="block">
+        No complicated build tools required. Open <code>pages/index.html</code> in any modern web browser or serve via Live Server.
+    </div>
+
+    <h2>Customization Guide</h2>
+    <ul>
+        <li><b>Colors:</b> We utilize Tailwind CSS in JIT mode. To update the primary/secondary colors, modify the <code>tailwind.config</code> object found in the <code>&lt;head&gt;</code> script tags of the HTML files.</li>
+        <li><b>Dark Mode:</b> <code>main.js</code> handles the dark mode preference via <code>localStorage</code>. Modifying <code>assets/css/dark-mode.css</code> updates the inverted styles dynamically.</li>
+        <li><b>RTL System:</b> Setting <code>&lt;html dir="rtl"&gt;</code> recalculates logic for CSS grids, swiper navigation, and icon direction via <code>assets/css/rtl.css</code>.</li>
+    </ul>
+
+    <h2>Page Explanations</h2>
+    <ul>
+        <li><code>index.html</code> - Home 1: Product focus (capsule carousels, CTA subscriptions)</li>
+        <li><code>index-2.html</code> - Home 2: Storytelling focus (video background, roaster background)</li>
+        <li><code>shop.html</code> - Grid filtering system, interactive sidebars, sort tools</li>
+        <li><code>product-single.html</code> - Subscription integration, roast charts, flavor maps</li>
+        <li><code>dashboard-admin.html</code> - Comprehensive UI for shop management (sidebar, widgets, reports charts)</li>
+        <li><code>dashboard-user.html</code> - Customer-facing management (active subscription status)</li>
+    </ul>
+
+    <h2>Credits</h2>
+    <ul>
+        <li>TailwindCSS (Styling engine)</li>
+        <li>Lucide Icons (SVG library)</li>
+        <li>AOS.js (Scroll animations)</li>
+        <li>Swiper.js (Touch carousels)</li>
+        <li>Unsplash (Placeholder Imagery downloaded locally)</li>
+    </ul>
+
+    <h2>Support Instructions</h2>
+    <p>If you encounter specific module behavior changes needed, use <code>assets/js/main.js</code> as the root API controller for DOM scripts.</p>
+</body>
+</html>

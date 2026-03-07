@@ -1,0 +1,332 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog | Espresso Elite</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/dark-mode.css">
+    <link rel="stylesheet" href="../assets/css/rtl.css">
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: { primary: '#6F4E37', secondary: '#C4A484', accent: '#D4A373', background: '#F5F3EF', dark: '#1C1C1C' },
+                    fontFamily: { heading: ['Playfair Display', 'serif'], body: ['Inter', 'sans-serif'] }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="antialiased bg-[#F5F3EF] dark:bg-dark text-gray-900 dark:text-gray-100 transition-colors duration-300">
+
+<!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-white/90 dark:bg-[#161616]/90 backdrop-blur-md border-b border-gray-200 dark:border-gray-800 transition-colors duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <!-- Logo -->
+                <a href="../index.html" class="flex items-center gap-2">
+                    <i data-lucide="coffee" class="text-primary h-8 w-8"></i>
+                    <span class="font-heading font-bold text-2xl tracking-tight hidden sm:block">Espresso Elite</span>
+                </a>
+
+                <!-- Desktop Menu -->
+                <div class="hidden lg:flex items-center gap-6">
+                    
+                    <!-- Home -->
+                    <div class="relative group">
+                        <button class="text-sm font-medium hover:text-primary transition flex items-center gap-1 py-8">Home <i data-lucide="chevron-down" class="w-4 h-4"></i></button>
+                        <div class="absolute top-20 left-0 w-48 bg-white dark:bg-[#2A2A2A] border border-gray-100 dark:border-gray-800 rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 flex flex-col pt-2 pb-2">
+                            <a href="../index.html" class="px-4 py-2 text-sm hover:text-primary hover:bg-gray-50 dark:hover:bg-[#161616] transition-colors">Home 1 (Capsules)</a>
+                            <a href="index-2.html" class="px-4 py-2 text-sm hover:text-primary hover:bg-gray-50 dark:hover:bg-[#161616] transition-colors">Home 2 (Story)</a>
+                        </div>
+                    </div>
+
+                    <!-- Shop -->
+                    <div class="relative group">
+                        <button class="text-sm font-medium hover:text-primary transition flex items-center gap-1 py-8">Shop <i data-lucide="chevron-down" class="w-4 h-4"></i></button>
+                        <div class="absolute top-20 left-0 w-48 bg-white dark:bg-[#2A2A2A] border border-gray-100 dark:border-gray-800 rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 flex flex-col pt-2 pb-2">
+                            <a href="shop.html" class="px-4 py-2 text-sm hover:text-primary hover:bg-gray-50 dark:hover:bg-[#161616] transition-colors">Shop Grid</a>
+                            <a href="product-single.html" class="px-4 py-2 text-sm hover:text-primary hover:bg-gray-50 dark:hover:bg-[#161616] transition-colors">Product Details</a>
+                            <a href="cart.html" class="px-4 py-2 text-sm hover:text-primary hover:bg-gray-50 dark:hover:bg-[#161616] transition-colors">Cart</a>
+                            <a href="checkout.html" class="px-4 py-2 text-sm hover:text-primary hover:bg-gray-50 dark:hover:bg-[#161616] transition-colors">Checkout</a>
+                        </div>
+                    </div>
+
+                    <!-- Categories -->
+                    <div class="relative group">
+                        <button class="text-sm font-medium hover:text-primary transition flex items-center gap-1 py-8">Categories <i data-lucide="chevron-down" class="w-4 h-4"></i></button>
+                        <div class="absolute top-20 left-0 w-48 bg-white dark:bg-[#2A2A2A] border border-gray-100 dark:border-gray-800 rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 flex flex-col pt-2 pb-2">
+                            <a href="shop.html?category=capsules" class="px-4 py-2 text-sm hover:text-primary hover:bg-gray-50 dark:hover:bg-[#161616] transition-colors">Coffee Capsules</a>
+                            <a href="shop.html?category=beans" class="px-4 py-2 text-sm hover:text-primary hover:bg-gray-50 dark:hover:bg-[#161616] transition-colors">Whole Beans</a>
+                            <a href="shop.html?category=equipment" class="px-4 py-2 text-sm hover:text-primary hover:bg-gray-50 dark:hover:bg-[#161616] transition-colors">Brewing Equipment</a>
+                        </div>
+                    </div>
+
+                    <!-- Deals -->
+                    <a href="shop.html?deals=true" class="text-sm font-medium hover:text-primary transition py-8 flex items-center gap-1">Deals <span class="bg-red-500 text-white text-[10px] font-bold px-1.5 py-0.5 rounded uppercase">Sale</span></a>
+
+                    <!-- Blog -->
+                    <div class="relative group">
+                        <button class="text-sm font-medium hover:text-primary transition flex items-center gap-1 py-8">Blog <i data-lucide="chevron-down" class="w-4 h-4"></i></button>
+                        <div class="absolute top-20 left-0 w-48 bg-white dark:bg-[#2A2A2A] border border-gray-100 dark:border-gray-800 rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 flex flex-col pt-2 pb-2">
+                            <a href="blog.html" class="px-4 py-2 text-sm hover:text-primary hover:bg-gray-50 dark:hover:bg-[#161616] transition-colors">Journal Grid</a>
+                            <a href="blog-single.html" class="px-4 py-2 text-sm hover:text-primary hover:bg-gray-50 dark:hover:bg-[#161616] transition-colors">Single Post</a>
+                        </div>
+                    </div>
+
+                    <!-- Account -->
+                    <div class="relative group">
+                        <button class="text-sm font-medium hover:text-primary transition flex items-center gap-1 py-8">Account <i data-lucide="chevron-down" class="w-4 h-4"></i></button>
+                        <div class="absolute top-20 right-0 w-48 bg-white dark:bg-[#2A2A2A] border border-gray-100 dark:border-gray-800 rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 flex flex-col pt-2 pb-2">
+                            <a href="dashboard-user.html" class="px-4 py-2 text-sm hover:text-primary hover:bg-gray-50 dark:hover:bg-[#161616] transition-colors">User Dashboard</a>
+                            <a href="dashboard-admin.html" class="px-4 py-2 text-sm hover:text-primary hover:bg-gray-50 dark:hover:bg-[#161616] transition-colors">Admin Dashboard</a>
+                            <div class="border-t border-gray-100 dark:border-gray-800 my-1"></div>
+                            <a href="dashboard-user.html?tab=orders" class="px-4 py-2 text-sm hover:text-primary hover:bg-gray-50 dark:hover:bg-[#161616] transition-colors">Track Order</a>
+                            <a href="dashboard-user.html?tab=wishlist" class="px-4 py-2 text-sm hover:text-primary hover:bg-gray-50 dark:hover:bg-[#161616] transition-colors">My Wishlist</a>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Action Icons -->
+                <div class="flex items-center gap-2">
+                    <button id="dark-mode-toggle" class="p-2 hover:bg-black/5 dark:hover:bg-white/10 rounded-full transition relative block">
+                        <i data-lucide="moon" class="w-5 h-5"></i>
+                    </button>
+                    <!-- Wishlist Icon -->
+                    <a href="dashboard-user.html?tab=wishlist" class="p-2 hover:bg-black/5 dark:hover:bg-white/10 rounded-full transition relative hidden sm:block">
+                        <i data-lucide="heart" class="w-5 h-5"></i>
+                    </a>
+                    <a href="cart.html" class="p-2 hover:bg-black/5 dark:hover:bg-white/10 rounded-full transition relative block">
+                        <i data-lucide="shopping-bag" class="w-5 h-5"></i>
+                        <span class="absolute top-0 right-0 h-4 w-4 bg-primary text-white text-[10px] font-bold rounded-full flex items-center justify-center">2</span>
+                    </a>
+                    <button id="mobile-menu-btn" class="p-2 hover:bg-black/5 dark:hover:bg-white/10 rounded-full transition lg:hidden">
+                        <i data-lucide="menu" class="w-6 h-6"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Placeholder -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-white dark:bg-[#161616] border-t border-gray-200 dark:border-gray-800 p-4 absolute w-full transition-all duration-300 shadow-xl overflow-y-auto max-h-[80vh]">
+             <div class="flex flex-col gap-2 pb-6">
+                  <div class="font-bold text-gray-400 uppercase tracking-wider text-[10px] pt-4 pb-2 border-b border-gray-100 dark:border-gray-800">Home</div>
+                  <a href="../index.html" class="text-sm font-medium hover:text-primary pl-2 py-1">Home 1 (Capsules)</a>
+                  <a href="index-2.html" class="text-sm font-medium hover:text-primary pl-2 py-1">Home 2 (Story)</a>
+                  
+                  <div class="font-bold text-gray-400 uppercase tracking-wider text-[10px] pt-4 pb-2 border-b border-gray-100 dark:border-gray-800">Shop</div>
+                  <a href="shop.html" class="text-sm font-medium hover:text-primary pl-2 py-1">Shop Grid</a>
+                  <a href="product-single.html" class="text-sm font-medium hover:text-primary pl-2 py-1">Product Details</a>
+                  
+                  <div class="font-bold text-gray-400 uppercase tracking-wider text-[10px] pt-4 pb-2 border-b border-gray-100 dark:border-gray-800">Categories</div>
+                  <a href="shop.html?category=capsules" class="text-sm font-medium hover:text-primary pl-2 py-1">Coffee Capsules</a>
+                  <a href="shop.html?category=beans" class="text-sm font-medium hover:text-primary pl-2 py-1">Whole Beans</a>
+                  
+                  <a href="shop.html?deals=true" class="font-bold text-primary tracking-wider text-[12px] pt-4 pb-2 border-b border-gray-100 dark:border-gray-800 uppercase flex items-center gap-2">Deals <span class="bg-red-500 text-white px-1.5 py-0.5 rounded">Sale</span></a>
+                  
+                  <div class="font-bold text-gray-400 uppercase tracking-wider text-[10px] pt-4 pb-2 border-b border-gray-100 dark:border-gray-800">Blog</div>
+                  <a href="blog.html" class="text-sm font-medium hover:text-primary pl-2 py-1">Journal Grid</a>
+                  <a href="blog-single.html" class="text-sm font-medium hover:text-primary pl-2 py-1">Single Post</a>
+                  
+                  <div class="font-bold text-gray-400 uppercase tracking-wider text-[10px] pt-4 pb-2 border-b border-gray-100 dark:border-gray-800">Account</div>
+                  <a href="dashboard-user.html" class="text-sm font-medium hover:text-primary pl-2 py-1">User Dashboard</a>
+                  <a href="dashboard-admin.html" class="text-sm font-medium hover:text-primary pl-2 py-1">Admin Dashboard</a>
+                  <a href="dashboard-user.html?tab=orders" class="text-sm font-medium hover:text-primary pl-2 py-1">Track Order</a>
+             </div>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <section class="pt-32 pb-16 bg-white dark:bg-[#161616] border-b border-gray-200 dark:border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center" data-aos="fade-up">
+            <h1 class="text-4xl md:text-5xl font-heading font-bold mb-4">The Roaster's Journal</h1>
+            <p class="text-gray-500 max-w-2xl mx-auto">Brewing guides, farmer stories, and coffee culture straight from the experts.</p>
+        </div>
+    </section>
+
+    <!-- Featured Post -->
+    <section class="py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-white dark:bg-[#2A2A2A] rounded-3xl overflow-hidden shadow-md flex flex-col md:flex-row group border border-gray-100 dark:border-gray-800" data-aos="fade-up">
+                <div class="md:w-1/2 overflow-hidden">
+                    <img src="../assets/images/equipment/machine.webp" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 min-h-[400px]" alt="Featured Image">
+                </div>
+                <div class="md:w-1/2 p-10 md:p-16 flex flex-col justify-center">
+                    <div class="flex items-center gap-3 mb-6">
+                        <span class="bg-primary/10 text-primary font-bold px-3 py-1 rounded-full text-xs uppercase tracking-wider">Brewing Guide</span>
+                        <span class="text-sm text-gray-500">Oct 24, 2026</span>
+                    </div>
+                    <h2 class="text-3xl lg:text-4xl font-heading font-bold mb-4 hover:text-primary transition-colors cursor-pointer"><a href="blog-single.html">Dialing in the Perfect Espresso Shot at Home</a></h2>
+                    <p class="text-gray-600 dark:text-gray-400 mb-8 leading-relaxed">
+                        Understanding extraction time, dose, and yield can transform your morning routine. Learn our master roaster's secrets to the perfect crema.
+                    </p>
+                    <a href="blog-single.html" class="inline-flex items-center font-bold text-primary hover:text-gray-900 dark:hover:text-white transition-colors gap-2 uppercase text-sm tracking-wider">
+                        Read Story <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Recent Posts Grid -->
+    <section class="py-12 pb-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="flex justify-between items-center mb-10">
+                <h3 class="text-2xl font-bold font-heading">Latest Articles</h3>
+                <select class="bg-white dark:bg-[#2A2A2A] border border-gray-200 dark:border-gray-800 rounded-lg px-4 py-2 text-sm focus:outline-none w-[180px]">
+                    <option>All Topics</option>
+                    <option>Brewing Guides</option>
+                    <option>Origin Stories</option>
+                    <option>Culture</option>
+                </select>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Post 1 -->
+                <div class="bg-white dark:bg-[#2A2A2A] rounded-2xl overflow-hidden shadow-sm group border border-gray-100 dark:border-gray-800" data-aos="fade-up" data-aos-delay="0">
+                    <div class="overflow-hidden h-64">
+                        <img src="../assets/images/farmers/farm.webp" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center gap-3 mb-3">
+                            <span class="text-primary font-bold text-xs uppercase tracking-wider">Origin Stories</span>
+                            <span class="text-xs text-gray-500">Oct 18, 2026</span>
+                        </div>
+                        <h4 class="text-xl font-bold mb-3 line-clamp-2"><a href="blog-single.html" class="hover:text-primary transition-colors">Meeting the Farmers of the Gedeo Zone, Ethiopia</a></h4>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm mb-4 line-clamp-3">Our recent trip to East Africa highlighted the incredible dedication of our partner farmers. We spent two weeks touring washing stations.</p>
+                        <a href="blog-single.html" class="text-primary font-bold text-sm hover:underline">Read More</a>
+                    </div>
+                </div>
+
+                <!-- Post 2 -->
+                <div class="bg-white dark:bg-[#2A2A2A] rounded-2xl overflow-hidden shadow-sm group border border-gray-100 dark:border-gray-800" data-aos="fade-up" data-aos-delay="100">
+                    <div class="overflow-hidden h-64 bg-[#F5F3EF] dark:bg-[#161616] flex items-center justify-center p-6">
+                        <img src="../assets/images/coffee/capsule.webp" class="w-full h-full object-cover mix-blend-multiply dark:mix-blend-normal rounded-xl group-hover:scale-105 transition-transform duration-700">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center gap-3 mb-3">
+                            <span class="text-primary font-bold text-xs uppercase tracking-wider">Culture</span>
+                            <span class="text-xs text-gray-500">Oct 12, 2026</span>
+                        </div>
+                        <h4 class="text-xl font-bold mb-3 line-clamp-2"><a href="blog-single.html" class="hover:text-primary transition-colors">The Rise of Specialty Compostable Coffee Pods</a></h4>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm mb-4 line-clamp-3">Convenience no longer means sacrificing quality or the environment. Discover how we're changing the capsule game.</p>
+                        <a href="blog-single.html" class="text-primary font-bold text-sm hover:underline">Read More</a>
+                    </div>
+                </div>
+
+                <!-- Post 3 -->
+                <div class="bg-white dark:bg-[#2A2A2A] rounded-2xl overflow-hidden shadow-sm group border border-gray-100 dark:border-gray-800" data-aos="fade-up" data-aos-delay="200">
+                    <div class="overflow-hidden h-64">
+                        <img src="../assets/images/hero/hero-1.webp" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center gap-3 mb-3">
+                            <span class="text-primary font-bold text-xs uppercase tracking-wider">Brewing Guide</span>
+                            <span class="text-xs text-gray-500">Oct 05, 2026</span>
+                        </div>
+                        <h4 class="text-xl font-bold mb-3 line-clamp-2"><a href="blog-single.html" class="hover:text-primary transition-colors">Pour Over Fundamentals: V60 vs Chemex</a></h4>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm mb-4 line-clamp-3">Choosing your extraction device can alter the flavor profile entirely. We break down the differences between two iconic brewers.</p>
+                        <a href="blog-single.html" class="text-primary font-bold text-sm hover:underline">Read More</a>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Pagination -->
+            <div class="mt-16 flex justify-center gap-2">
+                <button class="w-10 h-10 rounded-lg border border-gray-200 dark:border-gray-800 flex items-center justify-center hover:border-primary text-gray-500"><i data-lucide="chevron-left" class="w-5 h-5"></i></button>
+                <button class="w-10 h-10 rounded-lg bg-primary text-white flex items-center justify-center font-bold">1</button>
+                <button class="w-10 h-10 rounded-lg border border-gray-200 dark:border-gray-800 flex items-center justify-center hover:border-primary">2</button>
+                <button class="w-10 h-10 rounded-lg border border-gray-200 dark:border-gray-800 flex items-center justify-center hover:border-primary">3</button>
+                <button class="w-10 h-10 rounded-lg border border-gray-200 dark:border-gray-800 flex items-center justify-center hover:border-primary text-gray-500"><i data-lucide="chevron-right" class="w-5 h-5"></i></button>
+            </div>
+            
+        </div>
+    </section>
+    <!-- Footer -->
+    <footer class="bg-white dark:bg-[#161616] pt-24 pb-12 border-t border-gray-200 dark:border-gray-800 mt-auto">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+                <!-- Brand Info -->
+                <div class="lg:col-span-1">
+                    <a href="../index.html" class="flex items-center gap-2 mb-6">
+                        <i data-lucide="coffee" class="text-primary w-8 h-8"></i>
+                        <span class="font-heading font-bold text-2xl tracking-tight">Espresso Elite</span>
+                    </a>
+                    <p class="text-gray-500 text-sm leading-relaxed mb-6">
+                        Ethically sourced, precision roasted specialty coffee. Delivering the perfect cup directly to your door.
+                    </p>
+                    <div class="flex gap-4">
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-100 dark:bg-gray-800 flex items-center justify-center text-gray-500 hover:bg-primary hover:text-white transition-colors"><i data-lucide="instagram" class="w-5 h-5"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-100 dark:bg-gray-800 flex items-center justify-center text-gray-500 hover:bg-primary hover:text-white transition-colors"><i data-lucide="twitter" class="w-5 h-5"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-100 dark:bg-gray-800 flex items-center justify-center text-gray-500 hover:bg-primary hover:text-white transition-colors"><i data-lucide="facebook" class="w-5 h-5"></i></a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="font-bold mb-6 uppercase tracking-wider text-sm text-gray-900 dark:text-white">Shop</h4>
+                    <ul class="space-y-4 text-sm text-gray-500">
+                        <li><a href="shop.html" class="hover:text-primary transition-colors">All Coffee</a></li>
+                        <li><a href="shop.html?category=capsules" class="hover:text-primary transition-colors">Espresso Capsules</a></li>
+                        <li><a href="shop.html?category=single-origin" class="hover:text-primary transition-colors">Single Origin</a></li>
+                        <li><a href="shop.html?category=equipment" class="hover:text-primary transition-colors">Brewing Equipment</a></li>
+                        <li><a href="subscriptions.html" class="hover:text-primary transition-colors">Coffee Club</a></li>
+                    </ul>
+                </div>
+
+                <!-- Keep Discovering -->
+                <div>
+                    <h4 class="font-bold mb-6 uppercase tracking-wider text-sm text-gray-900 dark:text-white">Discover</h4>
+                    <ul class="space-y-4 text-sm text-gray-500">
+                        <li><a href="about.html" class="hover:text-primary transition-colors">Our Story</a></li>
+                        <li><a href="blog.html" class="hover:text-primary transition-colors">The Roaster's Journal</a></li>
+                        <li><a href="contact.html" class="hover:text-primary transition-colors">Contact Us</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors">Wholesale Partners</a></li>
+                        <li><a href="dashboard-user.html" class="hover:text-primary transition-colors">My Account</a></li>
+                    </ul>
+                </div>
+
+                <!-- Newsletter -->
+                <div>
+                    <h4 class="font-bold mb-6 uppercase tracking-wider text-sm text-gray-900 dark:text-white">Stay Awake</h4>
+                    <p class="text-sm text-gray-500 mx-0 mb-4">Subscribe for early access to limited micro-lots and brew guides.</p>
+                    <form class="flex gap-2 relative">
+                        <input type="email" placeholder="Email address" class="w-full bg-[#F5F3EF] dark:bg-[#2A2A2A] border border-gray-300 dark:border-gray-700 focus:border-primary rounded-xl px-4 py-3 text-sm outline-none transition-colors">
+                        <button class="absolute right-2 top-1.5 bottom-1.5 px-3 bg-primary text-white rounded-lg hover:bg-gray-900 transition-colors flex items-center justify-center">
+                            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Bottom Note -->
+            <div class="pt-8 border-t border-gray-200 dark:border-gray-800 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-gray-400">
+                <p>&copy; 2026 Espresso Elite. All rights reserved.</p>
+                <div class="flex gap-4">
+                    <a href="#" class="hover:text-primary transition-colors">Privacy Policy</a>
+                    <a href="#" class="hover:text-primary transition-colors">Terms of Service</a>
+                    <a href="#" class="hover:text-primary transition-colors">Refund Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="../assets/js/main.js"></script>
+</body>
+</html>
+
+
+

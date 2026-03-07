@@ -1,0 +1,358 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Account | Espresso Elite</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/dark-mode.css">
+    <link rel="stylesheet" href="../assets/css/rtl.css">
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: { primary: '#6F4E37', secondary: '#C4A484', accent: '#D4A373', background: '#F5F3EF', dark: '#1C1C1C' },
+                    fontFamily: { heading: ['Playfair Display', 'serif'], body: ['Inter', 'sans-serif'] }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="antialiased bg-background dark:bg-dark text-gray-900 dark:text-gray-100 transition-colors duration-300">
+
+    <!-- Navbar Minimal -->
+<!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-white/90 dark:bg-[#161616]/90 backdrop-blur-md border-b border-gray-200 dark:border-gray-800 transition-colors duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <!-- Logo -->
+                <a href="../index.html" class="flex items-center gap-2">
+                    <i data-lucide="coffee" class="text-primary h-8 w-8"></i>
+                    <span class="font-heading font-bold text-2xl tracking-tight hidden sm:block">Espresso Elite</span>
+                </a>
+
+                <!-- Desktop Menu -->
+                <div class="hidden lg:flex items-center gap-6">
+                    
+                    <!-- Home -->
+                    <div class="relative group">
+                        <button class="text-sm font-medium hover:text-primary transition flex items-center gap-1 py-8">Home <i data-lucide="chevron-down" class="w-4 h-4"></i></button>
+                        <div class="absolute top-20 left-0 w-48 bg-white dark:bg-[#2A2A2A] border border-gray-100 dark:border-gray-800 rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 flex flex-col pt-2 pb-2">
+                            <a href="../index.html" class="px-4 py-2 text-sm hover:text-primary hover:bg-gray-50 dark:hover:bg-[#161616] transition-colors">Home 1 (Capsules)</a>
+                            <a href="index-2.html" class="px-4 py-2 text-sm hover:text-primary hover:bg-gray-50 dark:hover:bg-[#161616] transition-colors">Home 2 (Story)</a>
+                        </div>
+                    </div>
+
+                    <!-- Shop -->
+                    <div class="relative group">
+                        <button class="text-sm font-medium hover:text-primary transition flex items-center gap-1 py-8">Shop <i data-lucide="chevron-down" class="w-4 h-4"></i></button>
+                        <div class="absolute top-20 left-0 w-48 bg-white dark:bg-[#2A2A2A] border border-gray-100 dark:border-gray-800 rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 flex flex-col pt-2 pb-2">
+                            <a href="shop.html" class="px-4 py-2 text-sm hover:text-primary hover:bg-gray-50 dark:hover:bg-[#161616] transition-colors">Shop Grid</a>
+                            <a href="product-single.html" class="px-4 py-2 text-sm hover:text-primary hover:bg-gray-50 dark:hover:bg-[#161616] transition-colors">Product Details</a>
+                            <a href="cart.html" class="px-4 py-2 text-sm hover:text-primary hover:bg-gray-50 dark:hover:bg-[#161616] transition-colors">Cart</a>
+                            <a href="checkout.html" class="px-4 py-2 text-sm hover:text-primary hover:bg-gray-50 dark:hover:bg-[#161616] transition-colors">Checkout</a>
+                        </div>
+                    </div>
+
+                    <!-- Categories -->
+                    <div class="relative group">
+                        <button class="text-sm font-medium hover:text-primary transition flex items-center gap-1 py-8">Categories <i data-lucide="chevron-down" class="w-4 h-4"></i></button>
+                        <div class="absolute top-20 left-0 w-48 bg-white dark:bg-[#2A2A2A] border border-gray-100 dark:border-gray-800 rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 flex flex-col pt-2 pb-2">
+                            <a href="shop.html?category=capsules" class="px-4 py-2 text-sm hover:text-primary hover:bg-gray-50 dark:hover:bg-[#161616] transition-colors">Coffee Capsules</a>
+                            <a href="shop.html?category=beans" class="px-4 py-2 text-sm hover:text-primary hover:bg-gray-50 dark:hover:bg-[#161616] transition-colors">Whole Beans</a>
+                            <a href="shop.html?category=equipment" class="px-4 py-2 text-sm hover:text-primary hover:bg-gray-50 dark:hover:bg-[#161616] transition-colors">Brewing Equipment</a>
+                        </div>
+                    </div>
+
+                    <!-- Deals -->
+                    <a href="shop.html?deals=true" class="text-sm font-medium hover:text-primary transition py-8 flex items-center gap-1">Deals <span class="bg-red-500 text-white text-[10px] font-bold px-1.5 py-0.5 rounded uppercase">Sale</span></a>
+
+                    <!-- Blog -->
+                    <div class="relative group">
+                        <button class="text-sm font-medium hover:text-primary transition flex items-center gap-1 py-8">Blog <i data-lucide="chevron-down" class="w-4 h-4"></i></button>
+                        <div class="absolute top-20 left-0 w-48 bg-white dark:bg-[#2A2A2A] border border-gray-100 dark:border-gray-800 rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 flex flex-col pt-2 pb-2">
+                            <a href="blog.html" class="px-4 py-2 text-sm hover:text-primary hover:bg-gray-50 dark:hover:bg-[#161616] transition-colors">Journal Grid</a>
+                            <a href="blog-single.html" class="px-4 py-2 text-sm hover:text-primary hover:bg-gray-50 dark:hover:bg-[#161616] transition-colors">Single Post</a>
+                        </div>
+                    </div>
+
+                    <!-- Account -->
+                    <div class="relative group">
+                        <button class="text-sm font-medium hover:text-primary transition flex items-center gap-1 py-8">Account <i data-lucide="chevron-down" class="w-4 h-4"></i></button>
+                        <div class="absolute top-20 right-0 w-48 bg-white dark:bg-[#2A2A2A] border border-gray-100 dark:border-gray-800 rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 flex flex-col pt-2 pb-2">
+                            <a href="dashboard-user.html" class="px-4 py-2 text-sm hover:text-primary hover:bg-gray-50 dark:hover:bg-[#161616] transition-colors">User Dashboard</a>
+                            <a href="dashboard-admin.html" class="px-4 py-2 text-sm hover:text-primary hover:bg-gray-50 dark:hover:bg-[#161616] transition-colors">Admin Dashboard</a>
+                            <div class="border-t border-gray-100 dark:border-gray-800 my-1"></div>
+                            <a href="dashboard-user.html?tab=orders" class="px-4 py-2 text-sm hover:text-primary hover:bg-gray-50 dark:hover:bg-[#161616] transition-colors">Track Order</a>
+                            <a href="dashboard-user.html?tab=wishlist" class="px-4 py-2 text-sm hover:text-primary hover:bg-gray-50 dark:hover:bg-[#161616] transition-colors">My Wishlist</a>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Action Icons -->
+                <div class="flex items-center gap-2">
+                    <button id="dark-mode-toggle" class="p-2 hover:bg-black/5 dark:hover:bg-white/10 rounded-full transition relative block">
+                        <i data-lucide="moon" class="w-5 h-5"></i>
+                    </button>
+                    <!-- Wishlist Icon -->
+                    <a href="dashboard-user.html?tab=wishlist" class="p-2 hover:bg-black/5 dark:hover:bg-white/10 rounded-full transition relative hidden sm:block">
+                        <i data-lucide="heart" class="w-5 h-5"></i>
+                    </a>
+                    <a href="cart.html" class="p-2 hover:bg-black/5 dark:hover:bg-white/10 rounded-full transition relative block">
+                        <i data-lucide="shopping-bag" class="w-5 h-5"></i>
+                        <span class="absolute top-0 right-0 h-4 w-4 bg-primary text-white text-[10px] font-bold rounded-full flex items-center justify-center">2</span>
+                    </a>
+                    <button id="mobile-menu-btn" class="p-2 hover:bg-black/5 dark:hover:bg-white/10 rounded-full transition lg:hidden">
+                        <i data-lucide="menu" class="w-6 h-6"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Placeholder -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-white dark:bg-[#161616] border-t border-gray-200 dark:border-gray-800 p-4 absolute w-full transition-all duration-300 shadow-xl overflow-y-auto max-h-[80vh]">
+             <div class="flex flex-col gap-2 pb-6">
+                  <div class="font-bold text-gray-400 uppercase tracking-wider text-[10px] pt-4 pb-2 border-b border-gray-100 dark:border-gray-800">Home</div>
+                  <a href="../index.html" class="text-sm font-medium hover:text-primary pl-2 py-1">Home 1 (Capsules)</a>
+                  <a href="index-2.html" class="text-sm font-medium hover:text-primary pl-2 py-1">Home 2 (Story)</a>
+                  
+                  <div class="font-bold text-gray-400 uppercase tracking-wider text-[10px] pt-4 pb-2 border-b border-gray-100 dark:border-gray-800">Shop</div>
+                  <a href="shop.html" class="text-sm font-medium hover:text-primary pl-2 py-1">Shop Grid</a>
+                  <a href="product-single.html" class="text-sm font-medium hover:text-primary pl-2 py-1">Product Details</a>
+                  
+                  <div class="font-bold text-gray-400 uppercase tracking-wider text-[10px] pt-4 pb-2 border-b border-gray-100 dark:border-gray-800">Categories</div>
+                  <a href="shop.html?category=capsules" class="text-sm font-medium hover:text-primary pl-2 py-1">Coffee Capsules</a>
+                  <a href="shop.html?category=beans" class="text-sm font-medium hover:text-primary pl-2 py-1">Whole Beans</a>
+                  
+                  <a href="shop.html?deals=true" class="font-bold text-primary tracking-wider text-[12px] pt-4 pb-2 border-b border-gray-100 dark:border-gray-800 uppercase flex items-center gap-2">Deals <span class="bg-red-500 text-white px-1.5 py-0.5 rounded">Sale</span></a>
+                  
+                  <div class="font-bold text-gray-400 uppercase tracking-wider text-[10px] pt-4 pb-2 border-b border-gray-100 dark:border-gray-800">Blog</div>
+                  <a href="blog.html" class="text-sm font-medium hover:text-primary pl-2 py-1">Journal Grid</a>
+                  <a href="blog-single.html" class="text-sm font-medium hover:text-primary pl-2 py-1">Single Post</a>
+                  
+                  <div class="font-bold text-gray-400 uppercase tracking-wider text-[10px] pt-4 pb-2 border-b border-gray-100 dark:border-gray-800">Account</div>
+                  <a href="dashboard-user.html" class="text-sm font-medium hover:text-primary pl-2 py-1">User Dashboard</a>
+                  <a href="dashboard-admin.html" class="text-sm font-medium hover:text-primary pl-2 py-1">Admin Dashboard</a>
+                  <a href="dashboard-user.html?tab=orders" class="text-sm font-medium hover:text-primary pl-2 py-1">Track Order</a>
+             </div>
+        </div>
+    </nav>
+
+    <!-- User Dashboard Layout -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-16">
+        <div class="flex flex-col md:flex-row gap-8">
+            
+            <!-- Sidebar Navigation -->
+            <aside class="w-full md:w-64 flex-shrink-0">
+                <div class="bg-white dark:bg-[#2A2A2A] rounded-2xl shadow-sm p-6 border border-gray-100 dark:border-gray-800 sticky top-24">
+                    <div class="flex items-center gap-4 mb-8">
+                        <div class="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center text-primary font-bold text-xl border border-primary">
+                            JD
+                        </div>
+                        <div>
+                            <h3 class="font-bold">John Doe</h3>
+                            <p class="text-xs text-gray-500">Coffee Club Member</p>
+                        </div>
+                    </div>
+                    
+                    <nav class="flex flex-col gap-2 sidebar-nav">
+                        <a href="#dashboard" data-tab="dashboard" class="tab-link flex items-center gap-3 px-3 py-2 rounded-lg bg-primary/10 text-primary font-medium transition-colors">
+                            <i data-lucide="layout-dashboard" class="w-5 h-5"></i> Dashboard
+                        </a>
+                        <a href="#subscriptions" data-tab="subscriptions" class="tab-link flex items-center gap-3 px-3 py-2 rounded-lg text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
+                            <i data-lucide="coffee" class="w-5 h-5"></i> Subscriptions
+                        </a>
+                        <a href="#orders" data-tab="orders" class="tab-link flex items-center gap-3 px-3 py-2 rounded-lg text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
+                            <i data-lucide="shopping-bag" class="w-5 h-5"></i> Order History
+                        </a>
+                        <a href="#track" data-tab="track" class="tab-link flex items-center gap-3 px-3 py-2 rounded-lg text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
+                            <i data-lucide="truck" class="w-5 h-5"></i> Track Order
+                        </a>
+                        <a href="#wishlist" data-tab="wishlist" class="tab-link flex items-center gap-3 px-3 py-2 rounded-lg text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
+                            <i data-lucide="heart" class="w-5 h-5"></i> My Wishlist
+                        </a>
+                        <a href="#addresses" data-tab="addresses" class="tab-link flex items-center gap-3 px-3 py-2 rounded-lg text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
+                            <i data-lucide="map-pin" class="w-5 h-5"></i> Addresses
+                        </a>
+                        <a href="#settings" data-tab="settings" class="tab-link flex items-center gap-3 px-3 py-2 rounded-lg text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
+                            <i data-lucide="settings" class="w-5 h-5"></i> Account Settings
+                        </a>
+                    </nav>
+                </div>
+            </aside>
+
+            <!-- Main Content Area -->
+            <main class="flex-1">
+                
+                <!-- Dashboard Tab -->
+                <div id="dashboard" class="tab-content space-y-8">
+                    <h1 class="text-3xl font-heading font-bold">Welcome back, John</h1>
+                    
+                    <!-- Quick Stats -->
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                        <div class="bg-white dark:bg-[#2A2A2A] rounded-xl p-6 shadow-sm border border-gray-100 dark:border-gray-800 flex items-center gap-4">
+                            <div class="p-3 bg-primary/10 text-primary rounded-lg"><i data-lucide="package-check" class="w-6 h-6"></i></div>
+                            <div><p class="text-xs text-gray-500 uppercase font-bold tracking-wider">Total Orders</p><p class="text-2xl font-bold">14</p></div>
+                        </div>
+                        <div class="bg-white dark:bg-[#2A2A2A] rounded-xl p-6 shadow-sm border border-gray-100 dark:border-gray-800 flex items-center gap-4">
+                            <div class="p-3 bg-secondary/20 text-secondary rounded-lg"><i data-lucide="star" class="w-6 h-6"></i></div>
+                            <div><p class="text-xs text-gray-500 uppercase font-bold tracking-wider">Reward Points</p><p class="text-2xl font-bold">1,250</p></div>
+                        </div>
+                        <div class="bg-white dark:bg-[#2A2A2A] rounded-xl p-6 shadow-sm border border-gray-100 dark:border-gray-800 flex items-center gap-4">
+                            <div class="p-3 bg-green-100 text-green-600 dark:bg-green-900/30 rounded-lg"><i data-lucide="refresh-cw" class="w-6 h-6"></i></div>
+                            <div><p class="text-xs text-gray-500 uppercase font-bold tracking-wider">Active Subs</p><p class="text-2xl font-bold">1</p></div>
+                        </div>
+                    </div>
+
+                    <!-- Active Subscription Timeline -->
+                    <div class="bg-white dark:bg-[#2A2A2A] rounded-2xl shadow-sm border border-gray-100 dark:border-gray-800 p-6">
+                        <div class="flex justify-between items-center mb-6">
+                            <h2 class="text-xl font-bold">Active Subscription</h2>
+                            <span class="px-3 py-1 bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400 rounded-full text-xs font-bold">Active</span>
+                        </div>
+
+                        <div class="flex flex-col md:flex-row gap-6 items-center bg-gray-50 dark:bg-gray-800/50 p-6 rounded-xl border border-gray-100 dark:border-gray-700">
+                            <div class="w-24 h-24 rounded-xl bg-white dark:bg-gray-800 p-2 shadow-sm shrink-0">
+                                <img src="../assets/images/coffee/capsule.webp" class="w-full h-full object-cover rounded-lg" alt="Subscription Box">
+                            </div>
+                            <div class="flex-1">
+                                <h3 class="text-lg font-bold mb-1">Explorer Plan (Capsules)</h3>
+                                <p class="text-sm text-gray-500 dark:text-gray-400 mb-2">2 sleeves every 4 weeks. Custom selection.</p>
+                                <p class="font-bold text-primary">$36.00 / delivery</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Recent Orders List -->
+                    <div class="bg-white dark:bg-[#2A2A2A] rounded-2xl shadow-sm border border-gray-100 dark:border-gray-800 p-6">
+                        <div class="flex justify-between items-center mb-6">
+                            <h2 class="text-xl font-bold">Recent Orders</h2>
+                            <a href="#orders" class="text-sm font-medium text-primary hover:underline">View All</a>
+                        </div>
+                        
+                        <div class="space-y-4">
+                            <!-- Order Card -->
+                            <div class="flex flex-col md:flex-row gap-4 items-center justify-between p-4 border border-gray-100 dark:border-gray-700 rounded-xl hover:shadow-md transition-shadow">
+                                <div class="flex items-center gap-4">
+                                    <div class="p-3 bg-gray-100 dark:bg-gray-800 rounded-lg text-gray-500 shrink-0"><i data-lucide="package"></i></div>
+                                    <div>
+                                        <p class="font-bold text-sm mb-1">#ORD-0921 <span class="text-gray-400 font-normal">Â· Oct 24, 2023</span></p>
+                                        <p class="text-sm text-gray-500">2 Items Â· <span class="text-green-600 dark:text-green-400 font-medium">Delivered</span></p>
+                                    </div>
+                                </div>
+                                <span class="font-bold">$40.00</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Subscriptions Tab -->
+                <div id="subscriptions" class="tab-content hidden space-y-8">
+                    <h1 class="text-3xl font-heading font-bold">Manage Subscriptions</h1>
+                    <div class="bg-white dark:bg-[#2A2A2A] p-12 rounded-2xl text-center border border-gray-100 dark:border-gray-800">
+                        <i data-lucide="coffee" class="w-12 h-12 text-gray-300 mx-auto mb-4"></i>
+                        <h3 class="text-xl font-bold mb-2">Explorer Plan (Capsules)</h3>
+                        <p class="text-gray-500 mb-6 text-sm">Next delivery: Nov 12, 2023</p>
+                        <div class="flex justify-center gap-4">
+                            <button class="px-6 py-2 bg-primary text-white rounded-lg font-medium">Pause for now</button>
+                            <button class="px-6 py-2 border border-gray-200 dark:border-gray-700 rounded-lg font-medium">Cancel Plan</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Orders Tab -->
+                <div id="orders" class="tab-content hidden space-y-8">
+                    <h1 class="text-3xl font-heading font-bold">Order History</h1>
+                    <div class="space-y-4">
+                        <!-- Repeated Order Cards -->
+                        <div class="bg-white dark:bg-[#2A2A2A] p-6 rounded-2xl border border-gray-100 dark:border-gray-800 flex justify-between items-center">
+                            <div class="flex items-center gap-4">
+                                <div class="p-3 bg-gray-50 dark:bg-gray-800 rounded-xl"><i data-lucide="package" class="text-gray-400"></i></div>
+                                <div><p class="font-bold">#ORD-0921</p><p class="text-xs text-gray-500">Oct 24, 2023 Â· $40.00</p></div>
+                            </div>
+                            <button class="px-4 py-2 border border-gray-200 dark:border-gray-700 rounded-lg text-sm font-medium">View Invoice</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Track Orders Tab -->
+                <div id="track" class="tab-content hidden space-y-8">
+                    <h1 class="text-3xl font-heading font-bold">Track Shipment</h1>
+                    <div class="bg-white dark:bg-[#2A2A2A] p-8 rounded-2xl border border-gray-100 dark:border-gray-800">
+                        <div class="mb-8">
+                            <label class="block text-xs font-bold uppercase tracking-widest text-gray-400 mb-2">Enter Order or Tracking Number</label>
+                            <div class="flex gap-2">
+                                <input type="text" placeholder="e.g. #ORD-0921 or 1Z99..." class="flex-1 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl px-4 py-3 outline-none focus:border-primary transition-colors">
+                                <button class="bg-primary text-white px-8 rounded-xl font-bold">Track</button>
+                            </div>
+                        </div>
+                        <div class="p-6 bg-gray-50 dark:bg-gray-800 rounded-xl border border-dashed border-gray-200 dark:border-gray-700 text-center">
+                            <p class="text-sm text-gray-500 italic">Example track: Order #ORD-0921 is "Out for Delivery"</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Wishlist Tab -->
+                <div id="wishlist" class="tab-content hidden space-y-8">
+                    <h1 class="text-3xl font-heading font-bold">My Wishlist</h1>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <div class="bg-white dark:bg-[#2A2A2A] rounded-2xl overflow-hidden border border-gray-100 dark:border-gray-800 group shadow-sm">
+                            <div class="relative aspect-square bg-[#F5F3EF] dark:bg-[#161616] p-8">
+                                <img src="../assets/images/coffee/beans.webp" class="w-full h-full object-cover mix-blend-multiply dark:mix-blend-normal group-hover:scale-105 transition-transform duration-500" alt="Product">
+                                <button class="absolute top-4 right-4 p-2 bg-white dark:bg-gray-800 rounded-full text-red-500 shadow-sm transition-colors"><i data-lucide="trash-2" class="w-4 h-4"></i></button>
+                            </div>
+                            <div class="p-6 text-center">
+                                <h3 class="font-bold mb-1">Yirgacheffe Reserve</h3>
+                                <p class="text-primary font-bold mb-4">$22.00</p>
+                                <button class="w-full py-2 bg-primary text-white text-sm font-bold rounded-lg">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Addresses Tab -->
+                <div id="addresses" class="tab-content hidden space-y-8">
+                    <h1 class="text-3xl font-heading font-bold">Shipping Addresses</h1>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <div class="p-6 border-2 border-primary bg-primary/5 rounded-2xl relative">
+                            <span class="absolute top-4 right-4 text-[10px] font-bold uppercase bg-primary text-white px-2 py-0.5 rounded">Default</span>
+                            <h3 class="font-bold mb-2">Home</h3>
+                            <p class="text-sm text-gray-500 leading-relaxed">John Doe<br>123 Coffee Lane<br>Seattle, WA 98101<br>United States</p>
+                        </div>
+                        <button class="border-2 border-dashed border-gray-200 dark:border-gray-700 rounded-2xl flex flex-col items-center justify-center p-6 text-gray-400 hover:text-primary hover:border-primary transition-colors">
+                            <i data-lucide="plus" class="w-8 h-8 mb-2"></i>
+                            <span class="text-sm font-bold uppercase tracking-widest">Add New Address</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Settings Tab -->
+                <div id="settings" class="tab-content hidden space-y-8">
+                    <h1 class="text-3xl font-heading font-bold">Account Settings</h1>
+                    <div class="bg-white dark:bg-[#2A2A2A] p-8 rounded-2xl border border-gray-100 dark:border-gray-800 space-y-6">
+                        <div class="grid grid-cols-2 gap-6">
+                            <div><label class="block text-[10px] font-bold uppercase text-gray-400 mb-2">First Name</label><input type="text" value="John" class="w-full bg-gray-50 dark:bg-gray-800 rounded-xl px-4 py-3 outline-none focus:ring-1 focus:ring-primary"></div>
+                            <div><label class="block text-[10px] font-bold uppercase text-gray-400 mb-2">Last Name</label><input type="text" value="Doe" class="w-full bg-gray-50 dark:bg-gray-800 rounded-xl px-4 py-3 outline-none focus:ring-1 focus:ring-primary"></div>
+                        </div>
+                        <div><label class="block text-[10px] font-bold uppercase text-gray-400 mb-2">Email Address</label><input type="email" value="john@example.com" class="w-full bg-gray-50 dark:bg-gray-800 rounded-xl px-4 py-3 outline-none focus:ring-1 focus:ring-primary"></div>
+                        <button class="bg-primary text-white px-8 py-3 rounded-xl font-bold">Save Changes</button>
+                    </div>
+                </div>
+
+            </main>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="../assets/js/main.js"></script>
+    <script src="../assets/js/dashboard.js"></script>
+</body>
+</html>
+
+
+

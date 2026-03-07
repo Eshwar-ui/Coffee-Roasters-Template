@@ -1,0 +1,44 @@
+/* Dark Mode Overrides */
+html.dark body {
+    background-color: #1C1C1C;
+    color: #F5F3EF;
+}
+
+html.dark .texture-bg {
+    background-color: rgba(28, 28, 28, 0.95);
+    background-blend-mode: multiply;
+}
+
+html.dark .bg-white {
+    background-color: #2A2A2A !important;
+}
+
+html.dark .product-card {
+    background-color: #2A2A2A;
+    border: 1px solid #444;
+}
+
+html.dark .product-card:hover {
+    box-shadow: 0 10px 25px rgba(196, 164, 132, 0.15); /* Secondary color faint glow */
+    border-color: #C4A484;
+}
+
+html.dark input, html.dark textarea, html.dark select {
+    background-color: #333;
+    color: #FFF;
+    border-color: #555;
+}
+
+html.dark .card-bg {
+    background-color: #2A2A2A;
+    color: #F5F3EF;
+}
+
+html.dark .text-gray-800 { color: #E5E5E5 !important; }
+html.dark .text-gray-600 { color: #A3A3A3 !important; }
+html.dark .border-gray-200 { border-color: #404040 !important; }
+
+/* Invert icons where necessary or apply primary color fill */
+html.dark .icon-dark-invert {
+    filter: invert(1) hue-rotate(180deg);
+}
