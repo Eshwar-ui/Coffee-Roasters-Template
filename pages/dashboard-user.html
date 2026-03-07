@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Account | Espresso Elite</title>
+    <meta name="description" content="Manage your Espresso Elite account — view orders, saved items, messages, and account settings.">
+    <meta property="og:title" content="My Account | Espresso Elite">
+    <meta property="og:description" content="Manage your Espresso Elite account — view orders, saved items, messages, and account settings.">
+    <meta property="og:type" content="website">
     
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="../assets/css/style.css">
@@ -21,6 +25,20 @@
             }
         }
     </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Espresso Elite",
+  "url": "https://www.espressoelite.com",
+  "logo": "https://www.espressoelite.com/assets/images/ui/logo.webp",
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "+1-555-019-8472",
+    "contactType": "customer service"
+  }
+}
+</script>
 </head>
 <body class="antialiased bg-background dark:bg-dark text-gray-900 dark:text-gray-100 transition-colors duration-300">
 
@@ -96,18 +114,21 @@
 
                 <!-- Action Icons -->
                 <div class="flex items-center gap-2">
-                    <button id="dark-mode-toggle" class="p-2 hover:bg-black/5 dark:hover:bg-white/10 rounded-full transition relative block">
+                                        <button id="rtl-toggle" class="p-2 hover:bg-black/5 dark:hover:bg-white/10 rounded-full transition relative block" title="Toggle RTL" aria-label="Toggle RTL text direction">
+                        <i data-lucide="languages" class="w-5 h-5"></i>
+                    </button>
+<button id="dark-mode-toggle" class="p-2 hover:bg-black/5 dark:hover:bg-white/10 rounded-full transition relative block" aria-label="Toggle dark mode">
                         <i data-lucide="moon" class="w-5 h-5"></i>
                     </button>
                     <!-- Wishlist Icon -->
-                    <a href="dashboard-user.html?tab=wishlist" class="p-2 hover:bg-black/5 dark:hover:bg-white/10 rounded-full transition relative hidden sm:block">
+                    <a href="dashboard-user.html?tab=wishlist" class="p-2 hover:bg-black/5 dark:hover:bg-white/10 rounded-full transition relative hidden sm:block" aria-label="Wishlist">
                         <i data-lucide="heart" class="w-5 h-5"></i>
                     </a>
-                    <a href="cart.html" class="p-2 hover:bg-black/5 dark:hover:bg-white/10 rounded-full transition relative block">
+                    <a href="cart.html" class="p-2 hover:bg-black/5 dark:hover:bg-white/10 rounded-full transition relative block" aria-label="Shopping cart">
                         <i data-lucide="shopping-bag" class="w-5 h-5"></i>
                         <span class="absolute top-0 right-0 h-4 w-4 bg-primary text-white text-[10px] font-bold rounded-full flex items-center justify-center">2</span>
                     </a>
-                    <button id="mobile-menu-btn" class="p-2 hover:bg-black/5 dark:hover:bg-white/10 rounded-full transition lg:hidden">
+                    <button id="mobile-menu-btn" class="p-2 hover:bg-black/5 dark:hover:bg-white/10 rounded-full transition lg:hidden" aria-label="Open mobile menu">
                         <i data-lucide="menu" class="w-6 h-6"></i>
                     </button>
                 </div>
@@ -303,7 +324,7 @@
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                         <div class="bg-white dark:bg-[#2A2A2A] rounded-2xl overflow-hidden border border-gray-100 dark:border-gray-800 group shadow-sm">
                             <div class="relative aspect-square bg-[#F5F3EF] dark:bg-[#161616] p-8">
-                                <img src="../assets/images/coffee/beans.webp" class="w-full h-full object-cover mix-blend-multiply dark:mix-blend-normal group-hover:scale-105 transition-transform duration-500" alt="Product">
+                                <img src="../assets/images/coffee/beans.webp" class="w-full h-full object-cover mix-blend-multiply dark:mix-blend-normal group-hover:scale-105 transition-transform duration-500" alt="Product" loading="lazy">
                                 <button class="absolute top-4 right-4 p-2 bg-white dark:bg-gray-800 rounded-full text-red-500 shadow-sm transition-colors"><i data-lucide="trash-2" class="w-4 h-4"></i></button>
                             </div>
                             <div class="p-6 text-center">

@@ -43,6 +43,20 @@
             }
         }
     </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Espresso Elite",
+  "url": "https://www.espressoelite.com",
+  "logo": "https://www.espressoelite.com/assets/images/ui/logo.webp",
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "+1-555-019-8472",
+    "contactType": "customer service"
+  }
+}
+</script>
 </head>
 <body class="antialiased transition-colors duration-300">
 
@@ -117,21 +131,21 @@
 
                 <!-- Action Icons -->
                 <div class="flex items-center gap-2">
-                    <button id="rtl-toggle" class="p-2 hover:bg-black/5 dark:hover:bg-white/10 rounded-full transition relative block" title="Toggle RTL">
+                    <button id="rtl-toggle" class="p-2 hover:bg-black/5 dark:hover:bg-white/10 rounded-full transition relative block" title="Toggle RTL" aria-label="Toggle RTL text direction">
                         <i data-lucide="languages" class="w-5 h-5"></i>
                     </button>
-                    <button id="dark-mode-toggle" class="p-2 hover:bg-black/5 dark:hover:bg-white/10 rounded-full transition relative block">
+                    <button id="dark-mode-toggle" class="p-2 hover:bg-black/5 dark:hover:bg-white/10 rounded-full transition relative block" aria-label="Toggle dark mode">
                         <i data-lucide="moon" class="w-5 h-5"></i>
                     </button>
                     <!-- Wishlist Icon -->
-                    <a href="pages/dashboard-user.html?tab=wishlist" class="p-2 hover:bg-black/5 dark:hover:bg-white/10 rounded-full transition relative hidden sm:block">
+                    <a href="pages/dashboard-user.html?tab=wishlist" class="p-2 hover:bg-black/5 dark:hover:bg-white/10 rounded-full transition relative hidden sm:block" aria-label="Wishlist">
                         <i data-lucide="heart" class="w-5 h-5"></i>
                     </a>
-                    <a href="pages/cart.html" class="p-2 hover:bg-black/5 dark:hover:bg-white/10 rounded-full transition relative block">
+                    <a href="pages/cart.html" class="p-2 hover:bg-black/5 dark:hover:bg-white/10 rounded-full transition relative block" aria-label="Shopping cart">
                         <i data-lucide="shopping-bag" class="w-5 h-5"></i>
                         <span class="absolute top-0 right-0 h-4 w-4 bg-primary text-white text-[10px] font-bold rounded-full flex items-center justify-center">2</span>
                     </a>
-                    <button id="mobile-menu-btn" class="p-2 hover:bg-black/5 dark:hover:bg-white/10 rounded-full transition lg:hidden">
+                    <button id="mobile-menu-btn" class="p-2 hover:bg-black/5 dark:hover:bg-white/10 rounded-full transition lg:hidden" aria-label="Open mobile menu">
                         <i data-lucide="menu" class="w-6 h-6"></i>
                     </button>
                 </div>
@@ -303,7 +317,7 @@
                             <div class="absolute top-4 left-4 bg-white dark:bg-gray-800 text-xs font-bold px-3 py-1 rounded-full shadow-sm z-10">Bestseller</div>
                             <button class="absolute top-4 right-4 text-gray-400 hover:text-primary z-10"><i data-lucide="heart"></i></button>
                             
-                            <img src="assets/images/coffee/capsule.webp" alt="Intenso Blend" class="w-full h-48 object-cover rounded-xl mb-6 mix-blend-multiply dark:mix-blend-normal">
+                            <img src="assets/images/coffee/capsule.webp" alt="Intenso Blend" class="w-full h-48 object-cover rounded-xl mb-6 mix-blend-multiply dark:mix-blend-normal" loading="lazy">
                             
                             <div class="text-sm text-primary font-semibold mb-2">Blend â€¢ Dark Roast</div>
                             <h3 class="text-xl font-bold mb-2">Midnight Intenso</h3>
@@ -322,7 +336,7 @@
                         <div class="product-card bg-[#F5F3EF] dark:bg-[#2A2A2A] rounded-2xl p-6 relative group overflow-hidden border border-transparent dark:border-gray-800">
                             <button class="absolute top-4 right-4 text-gray-400 hover:text-primary z-10"><i data-lucide="heart"></i></button>
                             
-                            <img src="assets/images/coffee/beans.webp" alt="Ethiopia Yirgacheffe" class="w-full h-48 object-cover rounded-xl mb-6 mix-blend-multiply dark:mix-blend-normal">
+                            <img src="assets/images/coffee/beans.webp" alt="Ethiopia Yirgacheffe" class="w-full h-48 object-cover rounded-xl mb-6 mix-blend-multiply dark:mix-blend-normal" loading="lazy">
                             
                             <div class="text-sm text-primary font-semibold mb-2">Single Origin â€¢ Light</div>
                             <h3 class="text-xl font-bold mb-2">Ethiopia Flora</h3>
@@ -341,7 +355,7 @@
                         <div class="product-card bg-[#F5F3EF] dark:bg-[#2A2A2A] rounded-2xl p-6 relative group overflow-hidden border border-transparent dark:border-gray-800">
                             <button class="absolute top-4 right-4 text-gray-400 hover:text-primary z-10"><i data-lucide="heart"></i></button>
                             
-                            <img src="assets/images/coffee/capsule.webp" alt="Decaf Blend" class="w-full h-48 object-cover rounded-xl mb-6 mix-blend-multiply dark:mix-blend-normal">
+                            <img src="assets/images/coffee/capsule.webp" alt="Decaf Blend" class="w-full h-48 object-cover rounded-xl mb-6 mix-blend-multiply dark:mix-blend-normal" loading="lazy">
                             
                             <div class="text-sm text-primary font-semibold mb-2">Decaf â€¢ Medium</div>
                             <h3 class="text-xl font-bold mb-2">Twilight Swiss Water</h3>
@@ -361,7 +375,7 @@
                             <div class="absolute top-4 left-4 bg-primary text-white text-xs font-bold px-3 py-1 rounded-full shadow-sm z-10">Limited</div>
                             <button class="absolute top-4 right-4 text-gray-400 hover:text-primary z-10"><i data-lucide="heart"></i></button>
                             
-                            <img src="assets/images/coffee/beans.webp" alt="Colombia Geisha" class="w-full h-48 object-cover rounded-xl mb-6 mix-blend-multiply dark:mix-blend-normal">
+                            <img src="assets/images/coffee/beans.webp" alt="Colombia Geisha" class="w-full h-48 object-cover rounded-xl mb-6 mix-blend-multiply dark:mix-blend-normal" loading="lazy">
                             
                             <div class="text-sm text-primary font-semibold mb-2">Micro-Lot â€¢ Light</div>
                             <h3 class="text-xl font-bold mb-2">Colombia Geisha</h3>
@@ -394,7 +408,7 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="grid lg:grid-cols-2 gap-16 items-center">
                 <div data-aos="fade-up">
-                    <img src="assets/images/equipment/machine.webp" alt="Subscription Box" class="rounded-3xl shadow-2xl color-reveal">
+                    <img src="assets/images/equipment/machine.webp" alt="Subscription Box" class="rounded-3xl shadow-2xl color-reveal" loading="lazy">
                 </div>
                 <div data-aos="fade-up" data-aos-delay="200">
                     <h2 class="text-4xl lg:text-5xl font-heading font-bold mb-6 text-gray-900 dark:text-white">Never run out of great coffee.</h2>
@@ -431,9 +445,9 @@
                         Ethically sourced, precision roasted specialty coffee. Delivering the perfect cup directly to your door.
                     </p>
                     <div class="flex gap-4">
-                        <a href="#" class="w-10 h-10 rounded-full bg-gray-100 dark:bg-gray-800 flex items-center justify-center text-gray-500 hover:bg-primary hover:text-white transition-colors"><i data-lucide="instagram" class="w-5 h-5"></i></a>
-                        <a href="#" class="w-10 h-10 rounded-full bg-gray-100 dark:bg-gray-800 flex items-center justify-center text-gray-500 hover:bg-primary hover:text-white transition-colors"><i data-lucide="twitter" class="w-5 h-5"></i></a>
-                        <a href="#" class="w-10 h-10 rounded-full bg-gray-100 dark:bg-gray-800 flex items-center justify-center text-gray-500 hover:bg-primary hover:text-white transition-colors"><i data-lucide="facebook" class="w-5 h-5"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-100 dark:bg-gray-800 flex items-center justify-center text-gray-500 hover:bg-primary hover:text-white transition-colors" aria-label="Instagram"><i data-lucide="instagram" class="w-5 h-5"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-100 dark:bg-gray-800 flex items-center justify-center text-gray-500 hover:bg-primary hover:text-white transition-colors" aria-label="Twitter"><i data-lucide="twitter" class="w-5 h-5"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-100 dark:bg-gray-800 flex items-center justify-center text-gray-500 hover:bg-primary hover:text-white transition-colors" aria-label="Facebook"><i data-lucide="facebook" class="w-5 h-5"></i></a>
                     </div>
                 </div>
 

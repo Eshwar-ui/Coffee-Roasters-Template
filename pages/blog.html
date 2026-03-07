@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blog | Espresso Elite</title>
+    <meta name="description" content="Read brewing guides, farmer stories, and coffee culture articles from the Espresso Elite roasting team.">
+    <meta property="og:title" content="Blog | Espresso Elite">
+    <meta property="og:description" content="Read brewing guides, farmer stories, and coffee culture articles from the Espresso Elite roasting team.">
+    <meta property="og:type" content="website">
     
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
@@ -22,6 +26,20 @@
             }
         }
     </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Espresso Elite",
+  "url": "https://www.espressoelite.com",
+  "logo": "https://www.espressoelite.com/assets/images/ui/logo.webp",
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "+1-555-019-8472",
+    "contactType": "customer service"
+  }
+}
+</script>
 </head>
 <body class="antialiased bg-[#F5F3EF] dark:bg-dark text-gray-900 dark:text-gray-100 transition-colors duration-300">
 
@@ -96,18 +114,21 @@
 
                 <!-- Action Icons -->
                 <div class="flex items-center gap-2">
-                    <button id="dark-mode-toggle" class="p-2 hover:bg-black/5 dark:hover:bg-white/10 rounded-full transition relative block">
+                                        <button id="rtl-toggle" class="p-2 hover:bg-black/5 dark:hover:bg-white/10 rounded-full transition relative block" title="Toggle RTL" aria-label="Toggle RTL text direction">
+                        <i data-lucide="languages" class="w-5 h-5"></i>
+                    </button>
+<button id="dark-mode-toggle" class="p-2 hover:bg-black/5 dark:hover:bg-white/10 rounded-full transition relative block" aria-label="Toggle dark mode">
                         <i data-lucide="moon" class="w-5 h-5"></i>
                     </button>
                     <!-- Wishlist Icon -->
-                    <a href="dashboard-user.html?tab=wishlist" class="p-2 hover:bg-black/5 dark:hover:bg-white/10 rounded-full transition relative hidden sm:block">
+                    <a href="dashboard-user.html?tab=wishlist" class="p-2 hover:bg-black/5 dark:hover:bg-white/10 rounded-full transition relative hidden sm:block" aria-label="Wishlist">
                         <i data-lucide="heart" class="w-5 h-5"></i>
                     </a>
-                    <a href="cart.html" class="p-2 hover:bg-black/5 dark:hover:bg-white/10 rounded-full transition relative block">
+                    <a href="cart.html" class="p-2 hover:bg-black/5 dark:hover:bg-white/10 rounded-full transition relative block" aria-label="Shopping cart">
                         <i data-lucide="shopping-bag" class="w-5 h-5"></i>
                         <span class="absolute top-0 right-0 h-4 w-4 bg-primary text-white text-[10px] font-bold rounded-full flex items-center justify-center">2</span>
                     </a>
-                    <button id="mobile-menu-btn" class="p-2 hover:bg-black/5 dark:hover:bg-white/10 rounded-full transition lg:hidden">
+                    <button id="mobile-menu-btn" class="p-2 hover:bg-black/5 dark:hover:bg-white/10 rounded-full transition lg:hidden" aria-label="Open mobile menu">
                         <i data-lucide="menu" class="w-6 h-6"></i>
                     </button>
                 </div>
@@ -194,7 +215,7 @@
                 <!-- Post 1 -->
                 <div class="bg-white dark:bg-[#2A2A2A] rounded-2xl overflow-hidden shadow-sm group border border-gray-100 dark:border-gray-800" data-aos="fade-up" data-aos-delay="0">
                     <div class="overflow-hidden h-64">
-                        <img src="../assets/images/farmers/farm.webp" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                        <img src="../assets/images/farmers/farm.webp" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy">
                     </div>
                     <div class="p-6">
                         <div class="flex items-center gap-3 mb-3">
@@ -210,7 +231,7 @@
                 <!-- Post 2 -->
                 <div class="bg-white dark:bg-[#2A2A2A] rounded-2xl overflow-hidden shadow-sm group border border-gray-100 dark:border-gray-800" data-aos="fade-up" data-aos-delay="100">
                     <div class="overflow-hidden h-64 bg-[#F5F3EF] dark:bg-[#161616] flex items-center justify-center p-6">
-                        <img src="../assets/images/coffee/capsule.webp" class="w-full h-full object-cover mix-blend-multiply dark:mix-blend-normal rounded-xl group-hover:scale-105 transition-transform duration-700">
+                        <img src="../assets/images/coffee/capsule.webp" class="w-full h-full object-cover mix-blend-multiply dark:mix-blend-normal rounded-xl group-hover:scale-105 transition-transform duration-700" loading="lazy">
                     </div>
                     <div class="p-6">
                         <div class="flex items-center gap-3 mb-3">
@@ -226,7 +247,7 @@
                 <!-- Post 3 -->
                 <div class="bg-white dark:bg-[#2A2A2A] rounded-2xl overflow-hidden shadow-sm group border border-gray-100 dark:border-gray-800" data-aos="fade-up" data-aos-delay="200">
                     <div class="overflow-hidden h-64">
-                        <img src="../assets/images/hero/hero-1.webp" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                        <img src="../assets/images/hero/hero-1.webp" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy">
                     </div>
                     <div class="p-6">
                         <div class="flex items-center gap-3 mb-3">
@@ -266,9 +287,9 @@
                         Ethically sourced, precision roasted specialty coffee. Delivering the perfect cup directly to your door.
                     </p>
                     <div class="flex gap-4">
-                        <a href="#" class="w-10 h-10 rounded-full bg-gray-100 dark:bg-gray-800 flex items-center justify-center text-gray-500 hover:bg-primary hover:text-white transition-colors"><i data-lucide="instagram" class="w-5 h-5"></i></a>
-                        <a href="#" class="w-10 h-10 rounded-full bg-gray-100 dark:bg-gray-800 flex items-center justify-center text-gray-500 hover:bg-primary hover:text-white transition-colors"><i data-lucide="twitter" class="w-5 h-5"></i></a>
-                        <a href="#" class="w-10 h-10 rounded-full bg-gray-100 dark:bg-gray-800 flex items-center justify-center text-gray-500 hover:bg-primary hover:text-white transition-colors"><i data-lucide="facebook" class="w-5 h-5"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-100 dark:bg-gray-800 flex items-center justify-center text-gray-500 hover:bg-primary hover:text-white transition-colors" aria-label="Instagram"><i data-lucide="instagram" class="w-5 h-5"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-100 dark:bg-gray-800 flex items-center justify-center text-gray-500 hover:bg-primary hover:text-white transition-colors" aria-label="Twitter"><i data-lucide="twitter" class="w-5 h-5"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-100 dark:bg-gray-800 flex items-center justify-center text-gray-500 hover:bg-primary hover:text-white transition-colors" aria-label="Facebook"><i data-lucide="facebook" class="w-5 h-5"></i></a>
                     </div>
                 </div>
 

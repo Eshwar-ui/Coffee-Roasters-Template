@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Checkout | Espresso Elite</title>
+    <meta name="description" content="Complete your order of premium coffee capsules and beans. Secure checkout with multiple payment options.">
+    <meta property="og:title" content="Checkout | Espresso Elite">
+    <meta property="og:description" content="Complete your order of premium coffee capsules and beans.">
+    <meta property="og:type" content="website">
     
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="../assets/css/style.css">
@@ -21,6 +25,20 @@
             }
         }
     </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Espresso Elite",
+  "url": "https://www.espressoelite.com",
+  "logo": "https://www.espressoelite.com/assets/images/ui/logo.webp",
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "+1-555-019-8472",
+    "contactType": "customer service"
+  }
+}
+</script>
 </head>
 <body class="antialiased bg-[#F5F3EF] dark:bg-dark text-gray-900 dark:text-gray-100 transition-colors duration-300">
 
@@ -94,20 +112,22 @@
 
                 </div>
 
-                <!-- Action Icons -->
                 <div class="flex items-center gap-2">
-                    <button id="dark-mode-toggle" class="p-2 hover:bg-black/5 dark:hover:bg-white/10 rounded-full transition relative block">
+                    <button id="rtl-toggle" class="p-2 hover:bg-black/5 dark:hover:bg-white/10 rounded-full transition relative block" title="Toggle RTL" aria-label="Toggle RTL text direction">
+                        <i data-lucide="languages" class="w-5 h-5"></i>
+                    </button>
+                    <button id="dark-mode-toggle" class="p-2 hover:bg-black/5 dark:hover:bg-white/10 rounded-full transition relative block" aria-label="Toggle dark mode">
                         <i data-lucide="moon" class="w-5 h-5"></i>
                     </button>
                     <!-- Wishlist Icon -->
-                    <a href="dashboard-user.html?tab=wishlist" class="p-2 hover:bg-black/5 dark:hover:bg-white/10 rounded-full transition relative hidden sm:block">
+                    <a href="dashboard-user.html?tab=wishlist" class="p-2 hover:bg-black/5 dark:hover:bg-white/10 rounded-full transition relative hidden sm:block" aria-label="Wishlist">
                         <i data-lucide="heart" class="w-5 h-5"></i>
                     </a>
-                    <a href="cart.html" class="p-2 hover:bg-black/5 dark:hover:bg-white/10 rounded-full transition relative block">
+                    <a href="cart.html" class="p-2 hover:bg-black/5 dark:hover:bg-white/10 rounded-full transition relative block" aria-label="Shopping cart">
                         <i data-lucide="shopping-bag" class="w-5 h-5"></i>
                         <span class="absolute top-0 right-0 h-4 w-4 bg-primary text-white text-[10px] font-bold rounded-full flex items-center justify-center">2</span>
                     </a>
-                    <button id="mobile-menu-btn" class="p-2 hover:bg-black/5 dark:hover:bg-white/10 rounded-full transition lg:hidden">
+                    <button id="mobile-menu-btn" class="p-2 hover:bg-black/5 dark:hover:bg-white/10 rounded-full transition lg:hidden" aria-label="Open mobile menu">
                         <i data-lucide="menu" class="w-6 h-6"></i>
                     </button>
                 </div>
@@ -235,7 +255,7 @@
                         <div class="flex items-center gap-4">
                             <div class="relative w-16 h-16 bg-gray-100 dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 flex-shrink-0">
                                 <span class="absolute -top-2 -right-2 bg-gray-500 text-white w-5 h-5 flex items-center justify-center rounded-full text-xs font-bold z-10">1</span>
-                                <img src="../assets/images/coffee/capsule.webp" class="w-full h-full object-cover rounded-xl" alt="Product">
+                                <img src="../assets/images/coffee/capsule.webp" class="w-full h-full object-cover rounded-xl" alt="Product" loading="lazy">
                             </div>
                             <div class="flex-1">
                                 <h4 class="font-bold text-sm">Midnight Intenso Pods</h4>
@@ -248,7 +268,7 @@
                         <div class="flex items-center gap-4">
                             <div class="relative w-16 h-16 bg-gray-100 dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 flex-shrink-0">
                                 <span class="absolute -top-2 -right-2 bg-gray-500 text-white w-5 h-5 flex items-center justify-center rounded-full text-xs font-bold z-10">2</span>
-                                <img src="../assets/images/coffee/beans.webp" class="w-full h-full object-cover rounded-xl" alt="Product">
+                                <img src="../assets/images/coffee/beans.webp" class="w-full h-full object-cover rounded-xl" alt="Product" loading="lazy">
                             </div>
                             <div class="flex-1">
                                 <h4 class="font-bold text-sm">Yirgacheffe Reserve</h4>

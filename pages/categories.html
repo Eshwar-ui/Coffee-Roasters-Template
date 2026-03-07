@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Categories | Espresso Elite</title>
+    <meta name="description" content="Explore our curated coffee collections — capsules, whole beans, brewing equipment, and limited edition reserves.">
+    <meta property="og:title" content="Categories | Espresso Elite">
+    <meta property="og:description" content="Explore our curated coffee collections — capsules, whole beans, brewing equipment, and limited edition reserves.">
+    <meta property="og:type" content="website">
     
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
@@ -22,6 +26,20 @@
             }
         }
     </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Espresso Elite",
+  "url": "https://www.espressoelite.com",
+  "logo": "https://www.espressoelite.com/assets/images/ui/logo.webp",
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "+1-555-019-8472",
+    "contactType": "customer service"
+  }
+}
+</script>
 </head>
 <body class="antialiased transition-colors duration-300">
 
@@ -91,17 +109,17 @@
 
                 <!-- Action Icons -->
                 <div class="flex items-center gap-2">
-                    <button id="rtl-toggle" class="p-2 hover:bg-black/5 dark:hover:bg-white/10 rounded-full transition relative block" title="Toggle RTL">
+                    <button id="rtl-toggle" class="p-2 hover:bg-black/5 dark:hover:bg-white/10 rounded-full transition relative block" title="Toggle RTL" aria-label="Toggle RTL text direction">
                         <i data-lucide="languages" class="w-5 h-5"></i>
                     </button>
-                    <button id="dark-mode-toggle" class="p-2 hover:bg-black/5 dark:hover:bg-white/10 rounded-full transition relative block">
+                    <button id="dark-mode-toggle" class="p-2 hover:bg-black/5 dark:hover:bg-white/10 rounded-full transition relative block" aria-label="Toggle dark mode">
                         <i data-lucide="moon" class="w-5 h-5"></i>
                     </button>
-                    <a href="cart.html" class="p-2 hover:bg-black/5 dark:hover:bg-white/10 rounded-full transition relative block">
+                    <a href="cart.html" class="p-2 hover:bg-black/5 dark:hover:bg-white/10 rounded-full transition relative block" aria-label="Shopping cart">
                         <i data-lucide="shopping-bag" class="w-5 h-5"></i>
                         <span class="absolute top-0 right-0 h-4 w-4 bg-primary text-white text-[10px] font-bold rounded-full flex items-center justify-center">2</span>
                     </a>
-                    <button id="mobile-menu-btn" class="p-2 hover:bg-black/5 dark:hover:bg-white/10 rounded-full transition lg:hidden">
+                    <button id="mobile-menu-btn" class="p-2 hover:bg-black/5 dark:hover:bg-white/10 rounded-full transition lg:hidden" aria-label="Open mobile menu">
                         <i data-lucide="menu" class="w-6 h-6"></i>
                     </button>
                 </div>
@@ -137,7 +155,7 @@
 
                 <!-- Category 2: Whole Beans -->
                 <div class="group relative h-[450px] overflow-hidden rounded-3xl" data-aos="fade-up" data-aos-delay="200">
-                    <img src="../assets/images/coffee/beans.webp" alt="Whole Beans" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <img src="../assets/images/coffee/beans.webp" alt="Whole Beans" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
                     <div class="absolute bottom-10 left-10 right-10">
                         <div class="mb-2 inline-block px-3 py-1 rounded-full bg-secondary/20 backdrop-blur-md text-white border border-white/20 text-xs font-bold uppercase tracking-widest">Fresh Roasted</div>
@@ -151,7 +169,7 @@
 
                 <!-- Category 3: Equipment -->
                 <div class="group relative h-[450px] overflow-hidden rounded-3xl" data-aos="fade-up" data-aos-delay="300">
-                    <img src="../assets/images/equipment/machine.webp" alt="Brewing Equipment" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <img src="../assets/images/equipment/machine.webp" alt="Brewing Equipment" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
                     <div class="absolute bottom-10 left-10 right-10">
                         <div class="mb-2 inline-block px-3 py-1 rounded-full bg-accent/20 backdrop-blur-md text-white border border-white/20 text-xs font-bold uppercase tracking-widest">Tools</div>
@@ -165,7 +183,7 @@
 
                  <!-- Category 4: Limited Edition -->
                  <div class="group relative h-[450px] overflow-hidden rounded-3xl" data-aos="fade-up" data-aos-delay="400">
-                    <img src="../assets/images/coffee/beans-2.webp" alt="Limited Edition" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0">
+                    <img src="../assets/images/coffee/beans-2.webp" alt="Limited Edition" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0" loading="lazy">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
                     <div class="absolute bottom-10 left-10 right-10">
                         <div class="mb-2 inline-block px-3 py-1 rounded-full bg-red-500/20 backdrop-blur-md text-white border border-white/20 text-xs font-bold uppercase tracking-widest">Seasonal</div>

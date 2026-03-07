@@ -22,6 +22,15 @@
     font-display: swap;
 }
 
+/* Design System Variables */
+:root {
+    --primary: #6F4E37;
+    --secondary: #C4A484;
+    --accent: #D4A373;
+    --bg: #F5F3EF;
+    --text: #1C1C1C;
+}
+
 html {
     scroll-behavior: smooth;
 }

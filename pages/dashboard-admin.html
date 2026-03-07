@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Dashboard | Espresso Elite</title>
+    <meta name="description" content="Admin dashboard for managing users, orders, content, analytics, and system settings.">
+    <meta property="og:title" content="Admin Dashboard | Espresso Elite">
+    <meta property="og:description" content="Admin dashboard for managing users, orders, content, analytics, and system settings.">
+    <meta property="og:type" content="website">
     
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="../assets/css/style.css">
@@ -21,6 +25,20 @@
             }
         }
     </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Espresso Elite",
+  "url": "https://www.espressoelite.com",
+  "logo": "https://www.espressoelite.com/assets/images/ui/logo.webp",
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "+1-555-019-8472",
+    "contactType": "customer service"
+  }
+}
+</script>
 </head>
 <body class="antialiased bg-gray-50 dark:bg-dark text-gray-900 dark:text-gray-100 transition-colors duration-300">
 <!-- Navigation -->
@@ -94,18 +112,21 @@
 
                 <!-- Action Icons -->
                 <div class="flex items-center gap-2">
-                    <button id="dark-mode-toggle" class="p-2 hover:bg-black/5 dark:hover:bg-white/10 rounded-full transition relative block">
+                                        <button id="rtl-toggle" class="p-2 hover:bg-black/5 dark:hover:bg-white/10 rounded-full transition relative block" title="Toggle RTL" aria-label="Toggle RTL text direction">
+                        <i data-lucide="languages" class="w-5 h-5"></i>
+                    </button>
+<button id="dark-mode-toggle" class="p-2 hover:bg-black/5 dark:hover:bg-white/10 rounded-full transition relative block" aria-label="Toggle dark mode">
                         <i data-lucide="moon" class="w-5 h-5"></i>
                     </button>
                     <!-- Wishlist Icon -->
-                    <a href="dashboard-user.html?tab=wishlist" class="p-2 hover:bg-black/5 dark:hover:bg-white/10 rounded-full transition relative hidden sm:block">
+                    <a href="dashboard-user.html?tab=wishlist" class="p-2 hover:bg-black/5 dark:hover:bg-white/10 rounded-full transition relative hidden sm:block" aria-label="Wishlist">
                         <i data-lucide="heart" class="w-5 h-5"></i>
                     </a>
-                    <a href="cart.html" class="p-2 hover:bg-black/5 dark:hover:bg-white/10 rounded-full transition relative block">
+                    <a href="cart.html" class="p-2 hover:bg-black/5 dark:hover:bg-white/10 rounded-full transition relative block" aria-label="Shopping cart">
                         <i data-lucide="shopping-bag" class="w-5 h-5"></i>
                         <span class="absolute top-0 right-0 h-4 w-4 bg-primary text-white text-[10px] font-bold rounded-full flex items-center justify-center">2</span>
                     </a>
-                    <button id="mobile-menu-btn" class="p-2 hover:bg-black/5 dark:hover:bg-white/10 rounded-full transition lg:hidden">
+                    <button id="mobile-menu-btn" class="p-2 hover:bg-black/5 dark:hover:bg-white/10 rounded-full transition lg:hidden" aria-label="Open mobile menu">
                         <i data-lucide="menu" class="w-6 h-6"></i>
                     </button>
                 </div>
@@ -216,7 +237,7 @@
                         <input type="text" placeholder="Search orders, customers..." class="pl-10 pr-4 py-2 border border-gray-200 dark:border-gray-700 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-gray-800 w-64 lg:w-80">
                     </div>
                     
-                    <button id="dark-mode-toggle" class="p-2 text-gray-500 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-full transition"><i data-lucide="moon" class="w-5 h-5"></i></button>
+                    <button id="dark-mode-toggle" class="p-2 text-gray-500 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-full transition" aria-label="Toggle dark mode"><i data-lucide="moon" class="w-5 h-5"></i></button>
                     
                     <button class="p-2 text-gray-500 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-full transition relative block">
                         <i data-lucide="bell" class="w-5 h-5"></i>
@@ -361,7 +382,7 @@
                                 <div class="ml-auto font-bold text-sm">$3,124</div>
                             </div>
                             <div class="flex items-center gap-4">
-                                <img src="../assets/images/coffee/beans.webp" class="w-12 h-12 rounded object-cover">
+                                <img src="../assets/images/coffee/beans.webp" class="w-12 h-12 rounded object-cover" loading="lazy">
                                 <div>
                                     <h4 class="font-bold text-sm">Yirgacheffe Reserve</h4>
                                     <p class="text-xs text-gray-500">98 sales</p>
@@ -369,7 +390,7 @@
                                 <div class="ml-auto font-bold text-sm">$2,156</div>
                             </div>
                             <div class="flex items-center gap-4">
-                                <img src="../assets/images/coffee/capsule.webp" class="w-12 h-12 rounded object-cover">
+                                <img src="../assets/images/coffee/capsule.webp" class="w-12 h-12 rounded object-cover" loading="lazy">
                                 <div>
                                     <h4 class="font-bold text-sm">Twilight Swiss Water</h4>
                                     <p class="text-xs text-gray-500">67 sales</p>
