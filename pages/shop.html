@@ -7,13 +7,16 @@
     <meta name="description" content="Browse our collection of premium coffee capsules, whole beans, and brewing equipment. Free shipping on orders over $50.">
     <meta property="og:title" content="Shop Coffee | Espresso Elite">
     <meta property="og:description" content="Browse our collection of premium coffee capsules, whole beans, and brewing equipment. Free shipping on orders over $50.">
-    <meta property="og:type" content="website">
     
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="../assets/css/style.css">
     <link rel="stylesheet" href="../assets/css/dark-mode.css">
     <link rel="stylesheet" href="../assets/css/rtl.css">
+    
+    <!-- GSAP for animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 
     <script>
         tailwind.config = {
@@ -26,156 +29,375 @@
             }
         }
     </script>
-    <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  "name": "Espresso Elite",
-  "url": "https://www.espressoelite.com",
-  "logo": "https://www.espressoelite.com/assets/images/ui/logo.webp",
-  "contactPoint": {
-    "@type": "ContactPoint",
-    "telephone": "+1-555-019-8472",
-    "contactType": "customer service"
-  }
-}
-</script>
 </head>
-<body class="antialiased transition-colors duration-300">
+<body class="antialiased transition-colors duration-300 bg-background dark:bg-[#161616]">
 
-    <!-- Navbar placeholder (use the full one in production) -->
-<!-- Navigation -->
+    <!-- 1. NAVIGATION HEADER -->
     <script src="../assets/js/navbar.js"></script>
 
-    <!-- Page Header -->
-    <section class="pt-32 pb-16 bg-white dark:bg-dark border-b border-gray-200 dark:border-gray-800">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center" data-aos="fade-up">
-            <h1 class="text-4xl md:text-5xl font-heading font-bold mb-4">Our Coffee Collection</h1>
-            <p class="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">Explore our range of meticulously roasted single origins, signature blends, and compostable capsules.</p>
+    <!-- 2. SHOP HERO SECTION -->
+    <section class="relative pt-40 pb-24 overflow-hidden bg-[#F5F3EF] dark:bg-[#1C1C1C]">
+        <div class="absolute inset-0 z-0 opacity-10 dark:opacity-20">
+            <img src="../assets/images/hero/hero-1.png" alt="Coffee background" class="w-full h-full object-cover object-center filter grayscale">
+            <div class="absolute inset-0 bg-gradient-to-t from-background dark:from-[#161616] to-transparent"></div>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center" data-aos="fade-down" data-aos-duration="1000">
+            <p class="text-primary font-bold tracking-[0.2em] uppercase text-xs mb-4">Precision Roasted</p>
+            <h1 class="text-5xl md:text-7xl font-heading font-bold mb-6 text-gray-900 dark:text-white">Our Collection</h1>
+            <p class="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto leading-relaxed">Discover our range of meticulously roasted single origins, signature blends, and compostable capsules tailored to elevate your daily ritual.</p>
         </div>
     </section>
 
-    <!-- Shop Content -->
-    <section class="py-12 bg-background dark:bg-[#161616]">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-col lg:flex-row gap-8">
+    <!-- 3. FILTERS & SORTING BAR -->
+    <!-- TODO: Update the dropdown menus below to match your actual product categories and tags -->
+    <div class="border-y border-gray-200 dark:border-gray-800 bg-white/80 dark:bg-[#1C1C1C]/80 backdrop-blur-xl sticky top-[80px] z-40 transition-all duration-300 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+            <div class="flex flex-wrap items-center justify-between gap-4">
                 
-                <!-- Filters Sidebar -->
-                <aside class="w-full lg:w-1/4" data-aos="fade-right">
-                    <div class="bg-white dark:bg-[#2A2A2A] rounded-2xl p-6 shadow-sm sticky top-24 border border-gray-100 dark:border-gray-800">
-                        <div class="flex justify-between items-center mb-6">
-                            <h3 class="text-lg font-bold">Filters</h3>
-                            <button class="text-sm text-primary hover:underline">Clear All</button>
-                        </div>
-                        
-                        <!-- Roast Level -->
-                        <div class="mb-6 border-b border-gray-100 dark:border-gray-800 pb-6">
-                            <h4 class="font-semibold mb-3">Roast Level</h4>
-                            <div class="space-y-2">
-                                <label class="flex items-center gap-2 cursor-pointer"><input type="checkbox" class="accent-primary w-4 h-4"> <span class="text-sm">Light (8)</span></label>
-                                <label class="flex items-center gap-2 cursor-pointer"><input type="checkbox" class="accent-primary w-4 h-4"> <span class="text-sm">Medium (12)</span></label>
-                                <label class="flex items-center gap-2 cursor-pointer"><input type="checkbox" class="accent-primary w-4 h-4"> <span class="text-sm">Dark (6)</span></label>
-                            </div>
-                        </div>
-
-                        <!-- Origin -->
-                        <div class="mb-6 border-b border-gray-100 dark:border-gray-800 pb-6">
-                            <h4 class="font-semibold mb-3">Origin</h4>
-                            <div class="space-y-2">
-                                <label class="flex items-center gap-2 cursor-pointer"><input type="checkbox" class="accent-primary w-4 h-4"> <span class="text-sm">Ethiopia</span></label>
-                                <label class="flex items-center gap-2 cursor-pointer"><input type="checkbox" class="accent-primary w-4 h-4"> <span class="text-sm">Colombia</span></label>
-                                <label class="flex items-center gap-2 cursor-pointer"><input type="checkbox" class="accent-primary w-4 h-4"> <span class="text-sm">Brazil</span></label>
-                                <label class="flex items-center gap-2 cursor-pointer"><input type="checkbox" class="accent-primary w-4 h-4"> <span class="text-sm">Blend</span></label>
-                            </div>
-                        </div>
-
-                        <!-- Brewing Method -->
-                        <div class="mb-6 border-b border-gray-100 dark:border-gray-800 pb-6">
-                            <h4 class="font-semibold mb-3">Format & Method</h4>
-                            <div class="space-y-2">
-                                <label class="flex items-center gap-2 cursor-pointer"><input type="checkbox" class="accent-primary w-4 h-4"> <span class="text-sm">Whole Bean</span></label>
-                                <label class="flex items-center gap-2 cursor-pointer"><input type="checkbox" class="accent-primary w-4 h-4"> <span class="text-sm">Capsules</span></label>
-                                <label class="flex items-center gap-2 cursor-pointer"><input type="checkbox" class="accent-primary w-4 h-4"> <span class="text-sm">Filter / Pour Over</span></label>
-                                <label class="flex items-center gap-2 cursor-pointer"><input type="checkbox" class="accent-primary w-4 h-4"> <span class="text-sm">Espresso</span></label>
-                            </div>
-                        </div>
-
-                        <!-- Price -->
-                        <div class="mb-2">
-                            <h4 class="font-semibold mb-3">Price Range</h4>
-                            <input type="range" min="10" max="100" class="w-full accent-primary">
-                            <div class="flex justify-between text-sm text-gray-500 mt-2">
-                                <span>$10</span><span>$100</span>
-                            </div>
-                        </div>
-                    </div>
-                </aside>
-
-                <!-- Product Grid -->
-                <main class="w-full lg:w-3/4">
-                    <div class="flex justify-between items-center mb-6" data-aos="fade-up">
-                        <p class="text-sm text-gray-500">Showing 1-12 of 24 products</p>
-                        <select class="bg-white dark:bg-[#2A2A2A] border border-gray-200 dark:border-gray-800 rounded-lg px-4 py-2 text-sm focus:outline-none focus:border-primary">
-                            <option>Sort by: Featured</option>
-                            <option>Price: Low to High</option>
-                            <option>Price: High to Low</option>
-                            <option>Newest Arrivals</option>
-                        </select>
-                    </div>
-
-                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                        
-                        <!-- Item 1 -->
-                        <div class="product-card bg-white dark:bg-[#2A2A2A] rounded-2xl p-5 relative group border border-transparent dark:border-gray-800 shadow-sm" data-aos="fade-up" data-aos-delay="50">
-                            <button class="absolute top-4 right-4 text-gray-400 hover:text-primary z-10"><i data-lucide="heart"></i></button>
-                            <a href="product-single.html">
-                                <img src="../assets/images/coffee/beans.webp" alt="Coffee" class="w-full h-48 object-cover rounded-xl mb-4">
-                            </a>
-                            <div class="text-xs text-primary font-semibold mb-1">Ethiopia â€¢ Light Roast</div>
-                            <h3 class="text-lg font-bold mb-1"><a href="product-single.html" class="hover:text-primary">Yirgacheffe Reserve</a></h3>
-                            <p class="text-xs text-gray-500 dark:text-gray-400 mb-4 line-clamp-1">Jasmine, Bergamot, Honey</p>
-                            <div class="flex justify-between items-center">
-                                <span class="text-lg font-bold">$22.00</span>
-                                <button class="w-10 h-10 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white flex items-center justify-center hover:bg-primary dark:hover:bg-primary hover:text-white dark:hover:text-white transition-colors">
-                                    <i data-lucide="shopping-cart" class="w-4 h-4"></i>
-                                </button>
-                            </div>
-                        </div>
-
-                        <!-- Item 2 -->
-                        <div class="product-card bg-white dark:bg-[#2A2A2A] rounded-2xl p-5 relative group border border-transparent dark:border-gray-800 shadow-sm" data-aos="fade-up" data-aos-delay="100">
-                            <div class="absolute top-4 left-4 bg-primary text-white text-[10px] font-bold px-2 py-1 rounded-full shadow-sm z-10 uppercase tracking-wide">Capsules</div>
-                            <button class="absolute top-4 right-4 text-gray-400 hover:text-primary z-10"><i data-lucide="heart"></i></button>
-                            <a href="product-single.html">
-                                <img src="../assets/images/coffee/capsule.webp" alt="Capsules" class="w-full h-48 object-cover rounded-xl mb-4" loading="lazy">
-                            </a>
-                            <div class="text-xs text-primary font-semibold mb-1">Blend â€¢ Dark Roast</div>
-                            <h3 class="text-lg font-bold mb-1"><a href="product-single.html" class="hover:text-primary">Midnight Intenso Pods</a></h3>
-                            <p class="text-xs text-gray-500 dark:text-gray-400 mb-4 line-clamp-1">Dark Chocolate, Roasted Nuts</p>
-                            <div class="flex justify-between items-center">
-                                <span class="text-lg font-bold">$18.00</span>
-                                <button class="w-10 h-10 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white flex items-center justify-center hover:bg-primary hover:text-white transition-colors">
-                                    <i data-lucide="shopping-cart" class="w-4 h-4"></i>
-                                </button>
-                            </div>
-                        </div>
-
+                <!-- Desktop Filters -->
+                <div class="hidden lg:flex items-center gap-8">
+                    <span class="text-xs font-bold text-gray-400 uppercase tracking-widest">Filter By:</span>
+                    
+                    <div class="relative group cursor-pointer">
+                        <span class="flex items-center gap-2 text-sm font-semibold hover:text-primary transition-colors py-2">Category <i data-lucide="chevron-down" class="w-3 h-3"></i></span>
                     </div>
                     
-                    <!-- Pagination -->
-                    <div class="mt-12 flex justify-center gap-2">
-                        <button class="w-10 h-10 rounded-lg border border-gray-200 dark:border-gray-800 flex items-center justify-center hover:border-primary text-gray-500"><i data-lucide="chevron-left" class="w-5 h-5"></i></button>
-                        <button class="w-10 h-10 rounded-lg bg-primary text-white flex items-center justify-center font-bold">1</button>
-                        <button class="w-10 h-10 rounded-lg border border-gray-200 dark:border-gray-800 flex items-center justify-center hover:border-primary">2</button>
-                        <button class="w-10 h-10 rounded-lg border border-gray-200 dark:border-gray-800 flex items-center justify-center hover:border-primary">3</button>
-                        <button class="w-10 h-10 rounded-lg border border-gray-200 dark:border-gray-800 flex items-center justify-center hover:border-primary text-gray-500"><i data-lucide="chevron-right" class="w-5 h-5"></i></button>
+                    <div class="relative group cursor-pointer">
+                        <span class="flex items-center gap-2 text-sm font-semibold hover:text-primary transition-colors py-2">Roast Level <i data-lucide="chevron-down" class="w-3 h-3"></i></span>
                     </div>
 
-                </main>
+                    <div class="relative group cursor-pointer">
+                        <span class="flex items-center gap-2 text-sm font-semibold hover:text-primary transition-colors py-2">Origin <i data-lucide="chevron-down" class="w-3 h-3"></i></span>
+                    </div>
+                </div>
+                
+                <!-- Mobile Filter Button -->
+                <button class="lg:hidden flex items-center gap-2 text-sm font-bold bg-white dark:bg-[#2A2A2A] border border-gray-200 dark:border-gray-700 px-5 py-2.5 rounded-full hover:border-primary transition-colors">
+                    <i data-lucide="sliders-horizontal" class="w-4 h-4"></i> Filters
+                </button>
+
+                <!-- Sort & View Toggles -->
+                <div class="flex items-center gap-6 ml-auto">
+                    <div class="hidden sm:flex items-center text-sm gap-2 text-gray-500">
+                        <span class="font-medium text-gray-900 dark:text-white mr-2">Sort:</span>
+                        <select class="bg-transparent font-semibold text-gray-900 dark:text-white focus:outline-none cursor-pointer hover:text-primary transition-colors pr-2">
+                            <option>Featured</option>
+                            <option>Newest Arrivals</option>
+                            <option>Price: Low to High</option>
+                            <option>Price: High to Low</option>
+                        </select>
+                    </div>
+                    
+                    <div class="hidden md:flex border-l border-gray-200 dark:border-gray-700 pl-6 gap-2">
+                        <button class="p-2 text-gray-900 dark:text-white hover:text-primary transition-colors cursor-pointer opacity-50 hover:opacity-100"><i data-lucide="layout-grid" class="w-5 h-5"></i></button>
+                        <button class="p-2 text-primary cursor-default"><i data-lucide="grid-3x3" class="w-5 h-5"></i></button>
+                    </div>
+                </div>
+                
             </div>
         </div>
+    </div>
+
+    <!-- 4. PRODUCT GRID -->
+    <!-- TODO: Loop through your products and replace the placeholders below -->
+    <section class="py-20 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center mb-10">
+                <p class="text-sm font-medium text-gray-500">Showing <span class="text-gray-900 dark:text-white font-bold">8</span> of <span class="text-gray-900 dark:text-white font-bold">24</span> products</p>
+                <!-- Active Filters tags -->
+                <div class="hidden md:flex gap-2">
+                    <span class="inline-flex items-center gap-1 bg-gray-100 dark:bg-[#2A2A2A] text-xs font-semibold px-3 py-1 rounded-full">Origin: Ethiopia <button class="hover:text-red-500"><i data-lucide="x" class="w-3 h-3"></i></button></span>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-6 gap-y-12 shop-grid">
+                
+                <!-- Product 1 -->
+                <div class="group relative flex flex-col shop-item opacity-0 transform translate-y-10">
+                    <div class="relative aspect-[4/5] rounded-3xl overflow-hidden bg-[#F5F3EF] dark:bg-[#222] mb-5 border border-transparent dark:border-gray-800 group-hover:shadow-2xl transition-all duration-500 p-6 flex flex-col items-center justify-center">
+                        <div class="absolute top-4 left-4 bg-white/90 dark:bg-black/80 backdrop-blur-md text-[10px] font-bold px-3 py-1.5 rounded-full uppercase tracking-widest text-gray-900 dark:text-white z-10 shadow-sm border border-black/5 dark:border-white/10">Bestseller</div>
+                        <button class="absolute top-4 right-4 w-9 h-9 bg-white/90 dark:bg-black/50 backdrop-blur-md rounded-full flex items-center justify-center text-gray-400 hover:text-red-500 hover:scale-110 transition-all z-10 shadow-sm border border-transparent hover:border-red-100 dark:hover:border-red-900">
+                            <i data-lucide="heart" class="w-4 h-4"></i>
+                        </button>
+                        
+                        <a href="product-single.html" class="w-full h-full flex items-center justify-center relative z-0">
+                            <img src="../assets/images/coffee/beans.webp" alt="Yirgacheffe Reserve" class="w-full h-full object-cover mix-blend-multiply dark:mix-blend-normal transform group-hover:scale-110 group-hover:rotate-2 transition-transform duration-700 ease-in-out drop-shadow-2xl">
+                        </a>
+
+                        <div class="absolute bottom-4 left-4 right-4 opacity-0 group-hover:opacity-100 translate-y-4 group-hover:translate-y-0 transition-all duration-500 ease-out z-10">
+                            <button class="w-full bg-gray-900 dark:bg-white text-white dark:text-gray-900 py-3.5 rounded-xl font-bold flex items-center justify-center gap-2 shadow-xl hover:bg-primary dark:hover:bg-primary dark:hover:text-white transition-colors text-sm tracking-wide">
+                                <i data-lucide="plus" class="w-4 h-4"></i> Quick Add
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="flex-1 flex flex-col px-1">
+                        <div class="text-[11px] text-gray-500 font-bold tracking-widest uppercase mb-1.5">Whole Bean &bull; Ethiopia</div>
+                        <h3 class="text-xl font-heading font-bold mb-1"><a href="product-single.html" class="hover:text-primary transition-colors">Yirgacheffe Reserve</a></h3>
+                        <p class="text-sm text-gray-500 line-clamp-1 mb-3">Jasmine, Bergamot, Floral Honey</p>
+                        
+                        <div class="mt-auto flex items-center justify-between">
+                            <span class="text-lg font-bold text-gray-900 dark:text-white">$22.00</span>
+                            <div class="flex items-center gap-0.5 text-yellow-400">
+                                <i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i>
+                                <span class="text-gray-600 dark:text-gray-400 text-xs font-semibold ml-1.5 leading-none">4.9</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 2 -->
+                <div class="group relative flex flex-col shop-item opacity-0 transform translate-y-10">
+                    <div class="relative aspect-[4/5] rounded-3xl overflow-hidden bg-[#F5F3EF] dark:bg-[#222] mb-5 border border-transparent dark:border-gray-800 group-hover:shadow-2xl transition-all duration-500 p-6 flex flex-col items-center justify-center">
+                        <div class="absolute top-4 left-4 bg-primary text-[10px] font-bold px-3 py-1.5 rounded-full uppercase tracking-widest text-white z-10 shadow-sm shadow-primary/30 border border-primary/20">Capsules</div>
+                        <button class="absolute top-4 right-4 w-9 h-9 bg-white/90 dark:bg-black/50 backdrop-blur-md rounded-full flex items-center justify-center text-gray-400 hover:text-red-500 hover:scale-110 transition-all z-10 shadow-sm border border-transparent hover:border-red-100 dark:hover:border-red-900">
+                            <i data-lucide="heart" class="w-4 h-4"></i>
+                        </button>
+                        
+                        <a href="product-single.html" class="w-full h-full flex items-center justify-center relative z-0">
+                            <img src="../assets/images/coffee/capsule.webp" alt="Midnight Intenso" class="w-full h-full object-cover mix-blend-multiply dark:mix-blend-normal transform group-hover:scale-110 group-hover:-rotate-2 transition-transform duration-700 ease-in-out drop-shadow-2xl">
+                        </a>
+
+                        <div class="absolute bottom-4 left-4 right-4 opacity-0 group-hover:opacity-100 translate-y-4 group-hover:translate-y-0 transition-all duration-500 ease-out z-10">
+                            <button class="w-full bg-gray-900 dark:bg-white text-white dark:text-gray-900 py-3.5 rounded-xl font-bold flex items-center justify-center gap-2 shadow-xl hover:bg-primary dark:hover:bg-primary dark:hover:text-white transition-colors text-sm tracking-wide">
+                                <i data-lucide="plus" class="w-4 h-4"></i> Quick Add
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="flex-1 flex flex-col px-1">
+                        <div class="text-[11px] text-gray-500 font-bold tracking-widest uppercase mb-1.5">Espresso &bull; Signature Blend</div>
+                        <h3 class="text-xl font-heading font-bold mb-1"><a href="product-single.html" class="hover:text-primary transition-colors">Midnight Intenso Pods</a></h3>
+                        <p class="text-sm text-gray-500 line-clamp-1 mb-3">Dark Chocolate, Roasted Nuts, Rich</p>
+                        
+                        <div class="mt-auto flex items-center justify-between">
+                            <span class="text-lg font-bold text-gray-900 dark:text-white">$18.00</span>
+                            <div class="flex items-center gap-0.5 text-yellow-400">
+                                <i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i>
+                                <span class="text-gray-600 dark:text-gray-400 text-xs font-semibold ml-1.5 leading-none">4.7</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 3 -->
+                <div class="group relative flex flex-col shop-item opacity-0 transform translate-y-10">
+                    <div class="relative aspect-[4/5] rounded-3xl overflow-hidden bg-[#F5F3EF] dark:bg-[#222] mb-5 border border-transparent dark:border-gray-800 group-hover:shadow-2xl transition-all duration-500 p-0 flex flex-col items-center justify-center">
+                        <div class="absolute top-4 left-4 bg-red-500 text-[10px] font-bold px-3 py-1.5 rounded-full uppercase tracking-widest text-white z-10 shadow-sm border border-red-400">Sale</div>
+                        <button class="absolute top-4 right-4 w-9 h-9 bg-white/90 dark:bg-black/50 backdrop-blur-md rounded-full flex items-center justify-center text-gray-400 hover:text-red-500 hover:scale-110 transition-all z-10 shadow-sm border border-transparent hover:border-red-100 dark:hover:border-red-900">
+                            <i data-lucide="heart" class="w-4 h-4"></i>
+                        </button>
+                        
+                        <a href="product-single.html" class="w-full h-full flex items-center justify-center relative z-0">
+                            <img src="../assets/images/coffee/beans-2.png" alt="Huila Huila Special" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700 ease-in-out grayscale group-hover:grayscale-0">
+                        </a>
+
+                        <div class="absolute bottom-4 left-4 right-4 opacity-0 group-hover:opacity-100 translate-y-4 group-hover:translate-y-0 transition-all duration-500 ease-out z-10">
+                            <button class="w-full bg-gray-900 dark:bg-white text-white dark:text-gray-900 py-3.5 rounded-xl font-bold flex items-center justify-center gap-2 shadow-xl hover:bg-primary dark:hover:bg-primary dark:hover:text-white transition-colors text-sm tracking-wide">
+                                <i data-lucide="plus" class="w-4 h-4"></i> Quick Add
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="flex-1 flex flex-col px-1">
+                        <div class="text-[11px] text-gray-500 font-bold tracking-widest uppercase mb-1.5">Whole Bean &bull; Colombia</div>
+                        <h3 class="text-xl font-heading font-bold mb-1"><a href="product-single.html" class="hover:text-primary transition-colors">Huila Huila Limited</a></h3>
+                        <p class="text-sm text-gray-500 line-clamp-1 mb-3">Caramel, Red Apple, Vibrant</p>
+                        
+                        <div class="mt-auto flex items-center justify-between">
+                            <div class="flex items-center gap-2">
+                                <span class="text-lg font-bold text-red-600 dark:text-red-500">$20.00</span>
+                                <span class="text-xs text-gray-400 line-through">$25.00</span>
+                            </div>
+                            <div class="flex items-center gap-0.5 text-yellow-400">
+                                <i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i>
+                                <span class="text-gray-600 dark:text-gray-400 text-xs font-semibold ml-1.5 leading-none">4.8</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 4 -->
+                <div class="group relative flex flex-col shop-item opacity-0 transform translate-y-10">
+                    <div class="relative aspect-[4/5] rounded-3xl overflow-hidden bg-[#F5F3EF] dark:bg-[#222] mb-5 border border-transparent dark:border-gray-800 group-hover:shadow-2xl transition-all duration-500 p-0 flex flex-col items-center justify-center">
+                        <button class="absolute top-4 right-4 w-9 h-9 bg-white/90 dark:bg-black/50 backdrop-blur-md rounded-full flex items-center justify-center text-gray-400 hover:text-red-500 hover:scale-110 transition-all z-10 shadow-sm border border-transparent hover:border-red-100 dark:hover:border-red-900">
+                            <i data-lucide="heart" class="w-4 h-4"></i>
+                        </button>
+                        
+                        <a href="product-single.html" class="w-full h-full flex items-center justify-center relative z-0">
+                            <img src="../assets/images/equipment/grinder.png" alt="Precision Grinder" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700 ease-in-out">
+                        </a>
+
+                        <div class="absolute bottom-4 left-4 right-4 opacity-0 group-hover:opacity-100 translate-y-4 group-hover:translate-y-0 transition-all duration-500 ease-out z-10">
+                            <button class="w-full bg-gray-900 dark:bg-white text-white dark:text-gray-900 py-3.5 rounded-xl font-bold flex items-center justify-center gap-2 shadow-xl hover:bg-primary dark:hover:bg-primary dark:hover:text-white transition-colors text-sm tracking-wide">
+                                <i data-lucide="plus" class="w-4 h-4"></i> Quick Add
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="flex-1 flex flex-col px-1">
+                        <div class="text-[11px] text-gray-500 font-bold tracking-widest uppercase mb-1.5">Equipment &bull; Grinder</div>
+                        <h3 class="text-xl font-heading font-bold mb-1"><a href="product-single.html" class="hover:text-primary transition-colors">Precision Burr Grinder</a></h3>
+                        <p class="text-sm text-gray-500 line-clamp-1 mb-3">Stainless steel burrs, optimal consistency</p>
+                        
+                        <div class="mt-auto flex items-center justify-between">
+                            <span class="text-lg font-bold text-gray-900 dark:text-white">$89.00</span>
+                            <div class="flex items-center gap-0.5 text-yellow-400">
+                                <i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i>
+                                <span class="text-gray-600 dark:text-gray-400 text-xs font-semibold ml-1.5 leading-none">5.0</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 5 -->
+                <div class="group relative flex flex-col shop-item opacity-0 transform translate-y-10">
+                    <div class="relative aspect-[4/5] rounded-3xl overflow-hidden bg-[#F5F3EF] dark:bg-[#222] mb-5 border border-transparent dark:border-gray-800 group-hover:shadow-2xl transition-all duration-500 p-6 flex flex-col items-center justify-center">
+                        <button class="absolute top-4 right-4 w-9 h-9 bg-white/90 dark:bg-black/50 backdrop-blur-md rounded-full flex items-center justify-center text-gray-400 hover:text-red-500 hover:scale-110 transition-all z-10 shadow-sm border border-transparent hover:border-red-100 dark:hover:border-red-900">
+                            <i data-lucide="heart" class="w-4 h-4"></i>
+                        </button>
+                        
+                        <a href="product-single.html" class="w-full h-full flex items-center justify-center relative z-0">
+                            <img src="../assets/images/coffee/capsule.webp" alt="Decaf Capsules" class="w-full h-full object-cover mix-blend-multiply dark:mix-blend-normal transform group-hover:scale-110 transition-transform duration-700 ease-in-out drop-shadow-2xl">
+                        </a>
+
+                        <div class="absolute bottom-4 left-4 right-4 opacity-0 group-hover:opacity-100 translate-y-4 group-hover:translate-y-0 transition-all duration-500 ease-out z-10">
+                            <button class="w-full bg-gray-900 dark:bg-white text-white dark:text-gray-900 py-3.5 rounded-xl font-bold flex items-center justify-center gap-2 shadow-xl hover:bg-primary dark:hover:bg-primary dark:hover:text-white transition-colors text-sm tracking-wide">
+                                <i data-lucide="plus" class="w-4 h-4"></i> Quick Add
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="flex-1 flex flex-col px-1">
+                        <div class="text-[11px] text-gray-500 font-bold tracking-widest uppercase mb-1.5">Capsules &bull; Decaf</div>
+                        <h3 class="text-xl font-heading font-bold mb-1"><a href="product-single.html" class="hover:text-primary transition-colors">Twilight Swiss Water</a></h3>
+                        <p class="text-sm text-gray-500 line-clamp-1 mb-3">Vanilla, Mild Spice, Smooth</p>
+                        
+                        <div class="mt-auto flex items-center justify-between">
+                            <span class="text-lg font-bold text-gray-900 dark:text-white">$19.00</span>
+                            <div class="flex items-center gap-0.5 text-yellow-400">
+                                <i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i>
+                                <span class="text-gray-600 dark:text-gray-400 text-xs font-semibold ml-1.5 leading-none">4.5</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 6 -->
+                <div class="group relative flex flex-col shop-item opacity-0 transform translate-y-10">
+                    <div class="relative aspect-[4/5] rounded-3xl overflow-hidden bg-[#F5F3EF] dark:bg-[#222] mb-5 border border-transparent dark:border-gray-800 group-hover:shadow-2xl transition-all duration-500 p-0 flex flex-col items-center justify-center">
+                        <div class="absolute top-4 left-4 bg-white/90 dark:bg-black/80 backdrop-blur-md text-[10px] font-bold px-3 py-1.5 rounded-full uppercase tracking-widest text-gray-900 dark:text-white z-10 shadow-sm border border-black/5 dark:border-white/10">Machine</div>
+                        <button class="absolute top-4 right-4 w-9 h-9 bg-white/90 dark:bg-black/50 backdrop-blur-md rounded-full flex items-center justify-center text-gray-400 hover:text-red-500 hover:scale-110 transition-all z-10 shadow-sm border border-transparent hover:border-red-100 dark:hover:border-red-900">
+                            <i data-lucide="heart" class="w-4 h-4"></i>
+                        </button>
+                        
+                        <a href="product-single.html" class="w-full h-full flex items-center justify-center relative z-0">
+                            <img src="../assets/images/equipment/machine.webp" alt="Espresso Machine" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700 ease-in-out">
+                        </a>
+
+                        <div class="absolute bottom-4 left-4 right-4 opacity-0 group-hover:opacity-100 translate-y-4 group-hover:translate-y-0 transition-all duration-500 ease-out z-10">
+                            <button class="w-full bg-gray-900 dark:bg-white text-white dark:text-gray-900 py-3.5 rounded-xl font-bold flex items-center justify-center gap-2 shadow-xl hover:bg-primary dark:hover:bg-primary dark:hover:text-white transition-colors text-sm tracking-wide">
+                                <i data-lucide="plus" class="w-4 h-4"></i> Quick Add
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="flex-1 flex flex-col px-1">
+                        <div class="text-[11px] text-gray-500 font-bold tracking-widest uppercase mb-1.5">Equipment &bull; Espresso Maker</div>
+                        <h3 class="text-xl font-heading font-bold mb-1"><a href="product-single.html" class="hover:text-primary transition-colors">Elite Barista Pro</a></h3>
+                        <p class="text-sm text-gray-500 line-clamp-1 mb-3">Premium semi-automatic espresso machine</p>
+                        
+                        <div class="mt-auto flex items-center justify-between">
+                            <span class="text-lg font-bold text-gray-900 dark:text-white">$450.00</span>
+                            <div class="flex items-center gap-0.5 text-yellow-400">
+                                <i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i>
+                                <span class="text-gray-600 dark:text-gray-400 text-xs font-semibold ml-1.5 leading-none">4.9</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 7 -->
+                <div class="group relative flex flex-col shop-item opacity-0 transform translate-y-10">
+                    <div class="relative aspect-[4/5] rounded-3xl overflow-hidden bg-[#F5F3EF] dark:bg-[#222] mb-5 border border-transparent dark:border-gray-800 group-hover:shadow-2xl transition-all duration-500 p-6 flex flex-col items-center justify-center">
+                        <button class="absolute top-4 right-4 w-9 h-9 bg-white/90 dark:bg-black/50 backdrop-blur-md rounded-full flex items-center justify-center text-gray-400 hover:text-red-500 hover:scale-110 transition-all z-10 shadow-sm border border-transparent hover:border-red-100 dark:hover:border-red-900">
+                            <i data-lucide="heart" class="w-4 h-4"></i>
+                        </button>
+                        
+                        <a href="product-single.html" class="w-full h-full flex items-center justify-center relative z-0">
+                            <img src="../assets/images/coffee/beans.webp" alt="Brazil Cerrado" class="w-full h-full object-cover mix-blend-multiply dark:mix-blend-normal transform group-hover:scale-110 group-hover:rotate-2 transition-transform duration-700 ease-in-out drop-shadow-2xl hue-rotate-15">
+                        </a>
+
+                        <div class="absolute bottom-4 left-4 right-4 opacity-0 group-hover:opacity-100 translate-y-4 group-hover:translate-y-0 transition-all duration-500 ease-out z-10">
+                            <button class="w-full bg-gray-900 dark:bg-white text-white dark:text-gray-900 py-3.5 rounded-xl font-bold flex items-center justify-center gap-2 shadow-xl hover:bg-primary dark:hover:bg-primary dark:hover:text-white transition-colors text-sm tracking-wide">
+                                <i data-lucide="plus" class="w-4 h-4"></i> Quick Add
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="flex-1 flex flex-col px-1">
+                        <div class="text-[11px] text-gray-500 font-bold tracking-widest uppercase mb-1.5">Whole Bean &bull; Brazil</div>
+                        <h3 class="text-xl font-heading font-bold mb-1"><a href="product-single.html" class="hover:text-primary transition-colors">Brazil Cerrado</a></h3>
+                        <p class="text-sm text-gray-500 line-clamp-1 mb-3">Milk Chocolate, Hazelnut</p>
+                        
+                        <div class="mt-auto flex items-center justify-between">
+                            <span class="text-lg font-bold text-gray-900 dark:text-white">$18.50</span>
+                            <div class="flex items-center gap-0.5 text-yellow-400">
+                                <i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i>
+                                <span class="text-gray-600 dark:text-gray-400 text-xs font-semibold ml-1.5 leading-none">4.6</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 8 -->
+                <div class="group relative flex flex-col shop-item opacity-0 transform translate-y-10">
+                    <div class="relative aspect-[4/5] rounded-3xl overflow-hidden bg-[#F5F3EF] dark:bg-[#222] mb-5 border border-transparent dark:border-gray-800 group-hover:shadow-2xl transition-all duration-500 p-0 flex flex-col items-center justify-center">
+                        <div class="absolute top-4 left-4 bg-black dark:bg-white text-white dark:text-black text-[10px] font-bold px-3 py-1.5 rounded-full uppercase tracking-widest z-10 shadow-sm border border-white/10 dark:border-black/10">Limited</div>
+                        <button class="absolute top-4 right-4 w-9 h-9 bg-white/90 dark:bg-black/50 backdrop-blur-md rounded-full flex items-center justify-center text-gray-400 hover:text-red-500 hover:scale-110 transition-all z-10 shadow-sm border border-transparent hover:border-red-100 dark:hover:border-red-900">
+                            <i data-lucide="heart" class="w-4 h-4"></i>
+                        </button>
+                        
+                        <a href="product-single.html" class="w-full h-full flex items-center justify-center relative z-0">
+                            <img src="../assets/images/coffee/beans-2.png" alt="Geisha Micro-Lot" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700 ease-in-out hue-rotate-30">
+                        </a>
+
+                        <div class="absolute bottom-4 left-4 right-4 opacity-0 group-hover:opacity-100 translate-y-4 group-hover:translate-y-0 transition-all duration-500 ease-out z-10">
+                            <button class="w-full bg-gray-900 dark:bg-white text-white dark:text-gray-900 py-3.5 rounded-xl font-bold flex items-center justify-center gap-2 shadow-xl hover:bg-primary dark:hover:bg-primary dark:hover:text-white transition-colors text-sm tracking-wide">
+                                <i data-lucide="plus" class="w-4 h-4"></i> Quick Add
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="flex-1 flex flex-col px-1">
+                        <div class="text-[11px] text-gray-500 font-bold tracking-widest uppercase mb-1.5">Micro-Lot &bull; Panama</div>
+                        <h3 class="text-xl font-heading font-bold mb-1"><a href="product-single.html" class="hover:text-primary transition-colors">Esmeralda Geisha</a></h3>
+                        <p class="text-sm text-gray-500 line-clamp-1 mb-3">Sweet Peach, Jasmine, Tea-like</p>
+                        
+                        <div class="mt-auto flex items-center justify-between">
+                            <span class="text-lg font-bold text-gray-900 dark:text-white">$45.00</span>
+                            <div class="flex items-center gap-0.5 text-yellow-400">
+                                <i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i>
+                                <span class="text-gray-600 dark:text-gray-400 text-xs font-semibold ml-1.5 leading-none">5.0</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            
+            <!-- Load More / Pagination -->
+            <div class="mt-20 pt-10 border-t border-gray-200 dark:border-gray-800 flex justify-center pb-8 flex-col items-center gap-6">
+                <button class="group px-10 py-4 rounded-full border border-gray-300 dark:border-gray-700 hover:border-primary bg-white dark:bg-[#1C1C1C] text-sm font-bold tracking-wider uppercase hover:text-primary transition-all duration-300 flex items-center justify-center">
+                    Load More <i data-lucide="refresh-cw" class="w-4 h-4 inline-block ml-3 group-hover:animate-spin"></i>
+                </button>
+                <div class="text-sm font-medium text-gray-500">You've viewed 8 of 24 products</div>
+            </div>
+
+        </div>
     </section>
-    <!-- Footer -->
+
+    <!-- 5. GLOBAL FOOTER -->
     <footer class="bg-white dark:bg-[#161616] pt-24 pb-12 border-t border-gray-200 dark:border-gray-800 mt-auto">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
@@ -215,7 +437,6 @@
                         <li><a href="blog.html" class="hover:text-primary transition-colors">The Roaster's Journal</a></li>
                         <li><a href="contact.html" class="hover:text-primary transition-colors">Contact Us</a></li>
                         <li><a href="#" class="hover:text-primary transition-colors">Wholesale Partners</a></li>
-                        <li><a href="dashboard-user.html" class="hover:text-primary transition-colors">My Account</a></li>
                     </ul>
                 </div>
 
@@ -232,13 +453,11 @@
                 </div>
             </div>
 
-            <!-- Bottom Note -->
             <div class="pt-8 border-t border-gray-200 dark:border-gray-800 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-gray-400">
                 <p>&copy; 2026 Espresso Elite. All rights reserved.</p>
                 <div class="flex gap-4">
                     <a href="#" class="hover:text-primary transition-colors">Privacy Policy</a>
                     <a href="#" class="hover:text-primary transition-colors">Terms of Service</a>
-                    <a href="#" class="hover:text-primary transition-colors">Refund Policy</a>
                 </div>
             </div>
         </div>
@@ -248,11 +467,32 @@
     <script src="https://unpkg.com/lucide@latest"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="../assets/js/main.js"></script>
-    <!-- We can add assets/js/shop.js here as requested -->
-    <script src="../assets/js/shop.js"></script>
+    <script>
+        AOS.init({ duration: 800, once: true });
+        lucide.createIcons();
+
+        // GSAP Scroll Animation for shop items
+        gsap.registerPlugin(ScrollTrigger);
+        
+        // Ensure initial state
+        gsap.set('.shop-item', { y: 40, opacity: 0 });
+        
+        // Animate on scroll
+        ScrollTrigger.batch('.shop-item', {
+            interval: 0.1, // time window (in seconds) for batching to occur
+            batchMax: 4,   // max elements in a batch (matching grid cols)
+            onEnter: batch => {
+                gsap.to(batch, {
+                    opacity: 1, 
+                    y: 0, 
+                    stagger: { each: 0.1, grid: [1, 4] },
+                    duration: 0.8,
+                    ease: "power3.out",
+                    overwrite: true
+                });
+            },
+            start: "top 85%",
+        });
+    </script>
 </body>
 </html>
-
-
-
-

@@ -34,6 +34,7 @@
   "logo": "https://www.espressoelite.com/assets/images/ui/logo.webp",
   "contactPoint": {
     "@type": "ContactPoint",
+    "@type": "ContactPoint",
     "telephone": "+1-555-019-8472",
     "contactType": "customer service"
   }
@@ -42,15 +43,16 @@
 </head>
 <body class="antialiased bg-background dark:bg-dark text-gray-900 dark:text-gray-100 transition-colors duration-300">
 
-    <!-- Navbar Minimal -->
-<!-- Navigation -->
+    <!-- 1. NAVIGATION HEADER -->
     <script src="../assets/js/navbar.js"></script>
 
-    <!-- User Dashboard Layout -->
+    <!-- 2. USER DASHBOARD LAYOUT -->
+    <!-- TODO: This dashboard is static. Integrate your backend API to fetch real user data, orders, and subscriptions. -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-16">
         <div class="flex flex-col md:flex-row gap-8">
             
-            <!-- Sidebar Navigation -->
+            <!-- 3. SIDEBAR NAVIGATION -->
+            <!-- TODO: Add dynamic active state highlighting for the menu items based on the current URL hash or state -->
             <aside class="w-full md:w-64 flex-shrink-0">
                 <div class="bg-white dark:bg-[#2A2A2A] rounded-2xl shadow-sm p-6 border border-gray-100 dark:border-gray-800 sticky top-24">
                     <div class="flex items-center gap-4 mb-8">
@@ -85,11 +87,19 @@
                         <a href="#settings" data-tab="settings" class="tab-link flex items-center gap-3 px-3 py-2 rounded-lg text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
                             <i data-lucide="settings" class="w-5 h-5"></i> Account Settings
                         </a>
+                        <a href="#messages" data-tab="messages" class="tab-link flex items-center gap-3 px-3 py-2 rounded-lg text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
+                            <i data-lucide="message-square" class="w-5 h-5"></i> Messages
+                            <span class="ml-auto bg-primary text-white text-[10px] font-bold px-1.5 py-0.5 rounded-full">3</span>
+                        </a>
+                        <div class="border-t border-gray-100 dark:border-gray-800 my-4"></div>
+                        <a href="../index.html" class="flex items-center gap-3 px-3 py-2 rounded-lg text-red-600 hover:bg-red-50 dark:text-red-400 dark:hover:bg-red-900/20 transition-colors font-medium">
+                            <i data-lucide="log-out" class="w-5 h-5"></i> Logout
+                        </a>
                     </nav>
                 </div>
             </aside>
 
-            <!-- Main Content Area -->
+            <!-- 4. MAIN CONTENT AREA -->
             <main class="flex-1">
                 
                 <!-- Dashboard Tab -->
@@ -139,13 +149,12 @@
                         </div>
                         
                         <div class="space-y-4">
-                            <!-- Order Card -->
                             <div class="flex flex-col md:flex-row gap-4 items-center justify-between p-4 border border-gray-100 dark:border-gray-700 rounded-xl hover:shadow-md transition-shadow">
                                 <div class="flex items-center gap-4">
                                     <div class="p-3 bg-gray-100 dark:bg-gray-800 rounded-lg text-gray-500 shrink-0"><i data-lucide="package"></i></div>
                                     <div>
-                                        <p class="font-bold text-sm mb-1">#ORD-0921 <span class="text-gray-400 font-normal">Â· Oct 24, 2023</span></p>
-                                        <p class="text-sm text-gray-500">2 Items Â· <span class="text-green-600 dark:text-green-400 font-medium">Delivered</span></p>
+                                        <p class="font-bold text-sm mb-1">#ORD-0921 <span class="text-gray-400 font-normal">· Oct 24, 2023</span></p>
+                                        <p class="text-sm text-gray-500">2 Items · <span class="text-green-600 dark:text-green-400 font-medium">Delivered</span></p>
                                     </div>
                                 </div>
                                 <span class="font-bold">$40.00</span>
@@ -172,13 +181,12 @@
                 <div id="orders" class="tab-content hidden space-y-8">
                     <h1 class="text-3xl font-heading font-bold">Order History</h1>
                     <div class="space-y-4">
-                        <!-- Repeated Order Cards -->
-                        <div class="bg-white dark:bg-[#2A2A2A] p-6 rounded-2xl border border-gray-100 dark:border-gray-800 flex justify-between items-center">
+                        <div class="bg-white dark:bg-[#2A2A2A] p-6 rounded-2xl border border-gray-100 dark:border-gray-800 flex justify-between items-center text-sm">
                             <div class="flex items-center gap-4">
                                 <div class="p-3 bg-gray-50 dark:bg-gray-800 rounded-xl"><i data-lucide="package" class="text-gray-400"></i></div>
-                                <div><p class="font-bold">#ORD-0921</p><p class="text-xs text-gray-500">Oct 24, 2023 Â· $40.00</p></div>
+                                <div><p class="font-bold">#ORD-0921</p><p class="text-xs text-gray-500">Oct 24, 2023 · $40.00</p></div>
                             </div>
-                            <button class="px-4 py-2 border border-gray-200 dark:border-gray-700 rounded-lg text-sm font-medium">View Invoice</button>
+                            <button class="px-4 py-2 border border-gray-200 dark:border-gray-700 rounded-lg font-medium">View Invoice</button>
                         </div>
                     </div>
                 </div>
@@ -194,8 +202,8 @@
                                 <button class="bg-primary text-white px-8 rounded-xl font-bold">Track</button>
                             </div>
                         </div>
-                        <div class="p-6 bg-gray-50 dark:bg-gray-800 rounded-xl border border-dashed border-gray-200 dark:border-gray-700 text-center">
-                            <p class="text-sm text-gray-500 italic">Example track: Order #ORD-0921 is "Out for Delivery"</p>
+                        <div class="p-6 bg-gray-50 dark:bg-gray-800 rounded-xl border border-dashed border-gray-200 dark:border-gray-700 text-center text-sm">
+                            <p class="text-gray-500 italic text-sm">Example track: Order #ORD-0921 is "Out for Delivery"</p>
                         </div>
                     </div>
                 </div>
@@ -204,7 +212,7 @@
                 <div id="wishlist" class="tab-content hidden space-y-8">
                     <h1 class="text-3xl font-heading font-bold">My Wishlist</h1>
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                        <div class="bg-white dark:bg-[#2A2A2A] rounded-2xl overflow-hidden border border-gray-100 dark:border-gray-800 group shadow-sm">
+                        <div class="bg-white dark:bg-[#2A2A2A] rounded-2xl overflow-hidden border border-gray-100 dark:border-gray-800 group shadow-sm text-sm">
                             <div class="relative aspect-square bg-[#F5F3EF] dark:bg-[#161616] p-8">
                                 <img src="../assets/images/coffee/beans.webp" class="w-full h-full object-cover mix-blend-multiply dark:mix-blend-normal group-hover:scale-105 transition-transform duration-500" alt="Product" loading="lazy">
                                 <button class="absolute top-4 right-4 p-2 bg-white dark:bg-gray-800 rounded-full text-red-500 shadow-sm transition-colors"><i data-lucide="trash-2" class="w-4 h-4"></i></button>
@@ -221,7 +229,7 @@
                 <!-- Addresses Tab -->
                 <div id="addresses" class="tab-content hidden space-y-8">
                     <h1 class="text-3xl font-heading font-bold">Shipping Addresses</h1>
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 text-sm">
                         <div class="p-6 border-2 border-primary bg-primary/5 rounded-2xl relative">
                             <span class="absolute top-4 right-4 text-[10px] font-bold uppercase bg-primary text-white px-2 py-0.5 rounded">Default</span>
                             <h3 class="font-bold mb-2">Home</h3>
@@ -237,7 +245,7 @@
                 <!-- Settings Tab -->
                 <div id="settings" class="tab-content hidden space-y-8">
                     <h1 class="text-3xl font-heading font-bold">Account Settings</h1>
-                    <div class="bg-white dark:bg-[#2A2A2A] p-8 rounded-2xl border border-gray-100 dark:border-gray-800 space-y-6">
+                    <div class="bg-white dark:bg-[#2A2A2A] p-8 rounded-2xl border border-gray-100 dark:border-gray-800 space-y-6 text-sm">
                         <div class="grid grid-cols-2 gap-6">
                             <div><label class="block text-[10px] font-bold uppercase text-gray-400 mb-2">First Name</label><input type="text" value="John" class="w-full bg-gray-50 dark:bg-gray-800 rounded-xl px-4 py-3 outline-none focus:ring-1 focus:ring-primary"></div>
                             <div><label class="block text-[10px] font-bold uppercase text-gray-400 mb-2">Last Name</label><input type="text" value="Doe" class="w-full bg-gray-50 dark:bg-gray-800 rounded-xl px-4 py-3 outline-none focus:ring-1 focus:ring-primary"></div>
@@ -247,15 +255,30 @@
                     </div>
                 </div>
 
+                <!-- Messages Tab -->
+                <div id="messages" class="tab-content hidden space-y-8 text-sm">
+                    <h1 class="text-3xl font-heading font-bold">Messages</h1>
+                    <div class="space-y-4">
+                        <div class="bg-white dark:bg-[#2A2A2A] p-6 rounded-2xl border border-gray-100 dark:border-gray-800 flex flex-col md:flex-row gap-4 items-start md:items-center justify-between hover:shadow-md transition-shadow">
+                            <div class="flex items-center gap-4">
+                                <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center text-primary font-bold">S</div>
+                                <div>
+                                    <p class="font-bold text-sm">Espresso Elite Support <span class="text-gray-400 font-normal ml-2">Just now</span></p>
+                                    <p class="text-sm text-gray-500">Your order #ORD-0921 has been shipped! View tracking...</p>
+                                </div>
+                            </div>
+                            <span class="w-2 h-2 bg-primary rounded-full"></span>
+                        </div>
+                    </div>
+                </div>
+
             </main>
         </div>
     </div>
 
+    <!-- 5. SCRIPTS -->
     <script src="https://unpkg.com/lucide@latest"></script>
     <script src="../assets/js/main.js"></script>
     <script src="../assets/js/dashboard.js"></script>
 </body>
 </html>
-
-
-

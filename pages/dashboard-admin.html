@@ -34,6 +34,7 @@
   "logo": "https://www.espressoelite.com/assets/images/ui/logo.webp",
   "contactPoint": {
     "@type": "ContactPoint",
+    "@type": "ContactPoint",
     "telephone": "+1-555-019-8472",
     "contactType": "customer service"
   }
@@ -41,13 +42,15 @@
 </script>
 </head>
 <body class="antialiased bg-gray-50 dark:bg-dark text-gray-900 dark:text-gray-100 transition-colors duration-300">
-<!-- Navigation -->
+    <!-- 1. NAVIGATION HEADER -->
     <script src="../assets/js/navbar.js"></script>
 
+    <!-- 2. ADMIN DASHBOARD LAYOUT -->
+    <!-- TODO: This dashboard is a UI shell. You must connect it to your backend (e.g., Node.js, Firebase, or a CMS) to manage actual data. -->
     <div class="flex h-screen overflow-hidden">
         
-        <!-- Sidebar -->
-        <aside class="w-64 bg-white dark:bg-[#2A2A2A] border-r border-gray-200 dark:border-gray-800 flex-shrink-0 flex flex-col transition-transform duration-300" id="sidebar">
+        <!-- 3. ADMIN SIDEBAR -->
+        <aside class="w-64 bg-white dark:bg-[#2A2A2A] border-r border-gray-200 dark:border-gray-800 flex-shrink-0 flex flex-col transition-transform duration-300 md:translate-x-0 -translate-x-full fixed md:relative h-full z-50 md:z-auto" id="sidebar">
             <div class="h-16 flex items-center px-6 border-b border-gray-200 dark:border-gray-800">
                 <a href="../index.html" class="flex items-center gap-2">
                     <i data-lucide="coffee" class="text-primary w-6 h-6"></i>
@@ -82,6 +85,10 @@
                     <i data-lucide="file-text" class="w-5 h-5"></i> Blog Manager
                 </a>
                 <a href="#" class="flex items-center gap-3 px-3 py-2 rounded-lg text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
+                    <i data-lucide="message-square" class="w-5 h-5"></i> Messages
+                    <span class="ml-auto bg-primary text-white text-[10px] font-bold px-1.5 py-0.5 rounded-full">5</span>
+                </a>
+                <a href="#" class="flex items-center gap-3 px-3 py-2 rounded-lg text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
                     <i data-lucide="tag" class="w-5 h-5"></i> Discounts
                 </a>
                 
@@ -101,7 +108,7 @@
             </div>
         </aside>
 
-        <!-- Main Content -->
+        <!-- 4. MAIN ADMIN CONTENT -->
         <main class="flex-1 flex flex-col overflow-hidden">
             <!-- Header -->
             <header class="h-16 bg-white dark:bg-[#2A2A2A] border-b border-gray-200 dark:border-gray-800 flex items-center justify-between px-6 z-10 w-full">
@@ -132,7 +139,7 @@
                 </div>
             </header>
 
-            <!-- Content Scroll Area -->
+            <!-- 5. CONTENT SCROLL AREA -->
             <div class="flex-1 overflow-auto p-6 bg-gray-50 dark:bg-dark" id="content-area">
                 
                 <!-- Stats Row -->
@@ -254,7 +261,7 @@
                         <div class="p-6 border-b border-gray-100 dark:border-gray-800 flex justify-between items-center">
                             <h3 class="font-bold text-lg">Top Sellers</h3>
                         </div>
-                        <div class="p-6 space-y-6">
+                        <div class="p-6 space-y-6 text-sm">
                             <div class="flex items-center gap-4">
                                 <img src="../assets/images/coffee/capsule.webp" class="w-12 h-12 rounded object-cover">
                                 <div>
@@ -289,9 +296,6 @@
     <!-- Scripts -->
     <script src="https://unpkg.com/lucide@latest"></script>
     <script src="../assets/js/main.js"></script>
-    <!-- We can add dashboard.js here as requested -->
     <script src="../assets/js/dashboard.js"></script>
 </body>
 </html>
-
-

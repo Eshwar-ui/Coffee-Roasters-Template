@@ -35,6 +35,7 @@
   "logo": "https://www.espressoelite.com/assets/images/ui/logo.webp",
   "contactPoint": {
     "@type": "ContactPoint",
+    "@type": "ContactPoint",
     "telephone": "+1-555-019-8472",
     "contactType": "customer service"
   }
@@ -43,10 +44,10 @@
 </head>
 <body class="antialiased bg-[#F5F3EF] dark:bg-dark text-gray-900 dark:text-gray-100 transition-colors duration-300">
 
-<!-- Navigation -->
+    <!-- 1. NAVIGATION HEADER -->
     <script src="../assets/js/navbar.js"></script>
 
-    <!-- Map & Header Split -->
+    <!-- 2. CONTACT CONTENT & MAP SPLIT -->
     <section class="pt-20 lg:pt-24 border-b border-gray-200 dark:border-gray-800 bg-white dark:bg-[#161616]">
         <div class="flex flex-col lg:flex-row min-h-[600px]">
             <!-- Content Left -->
@@ -77,7 +78,7 @@
 
             <!-- Map Right -->
             <div class="w-full lg:w-1/2 bg-gray-200 dark:bg-[#2A2A2A] relative order-1 lg:order-2 overflow-hidden min-h-[400px]">
-                <!-- Placeholder for Google Map Embed -->
+                <!-- TODO: Replace the placeholder below with your Google Maps iframe embed -->
                 <div class="absolute inset-0 bg-[#F5F3EF] dark:bg-[#1C1C1C] flex flex-col items-center justify-center text-center p-8 group overflow-hidden">
                     <img src="../assets/images/ui/map-bg.webp" class="absolute inset-0 w-full h-full object-cover opacity-30 group-hover:opacity-10 dark:opacity-20 transition-opacity duration-1000">
                     <div class="relative z-10 p-6 bg-white/80 dark:bg-black/60 backdrop-blur-md rounded-2xl shadow-xl border border-white/20">
@@ -91,7 +92,7 @@
         </div>
     </section>
 
-    <!-- Contact Form Area -->
+    <!-- 3. CONTACT FORM AREA -->
     <section class="py-24 bg-[#F5F3EF] dark:bg-dark relative">
         <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="bg-white dark:bg-[#2A2A2A] rounded-3xl p-8 md:p-12 shadow-xl border border-gray-100 dark:border-gray-800 -mt-40 xl:-mt-48 mb-12" data-aos="fade-up">
@@ -137,7 +138,8 @@
             </div>
         </div>
     </section>
-    <!-- Footer -->
+
+    <!-- 4. GLOBAL FOOTER -->
     <footer class="bg-white dark:bg-[#161616] pt-24 pb-12 border-t border-gray-200 dark:border-gray-800 mt-auto">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
@@ -206,14 +208,8 @@
         </div>
     </footer>
 
-
-    
-
     <script src="https://unpkg.com/lucide@latest"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="../assets/js/main.js"></script>
 </body>
 </html>
-
-
-

@@ -1,11 +1,15 @@
 /* 
-* Coffee Roaster Template
-* Custom Styles (Tailwind overrides & base styles)
+================================================================
+* ESPRESSO ELITE - MAIN STYLESHEET
+* Custom Styles, Design Tokens, and Component Overrides
+================================================================
 */
 
+/* 1. TYPOGRAPHY & FONTS
+---------------------------------------------------------------- */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap');
 
-/* Local Font Fallbacks */
+/* TODO: replace woff2 files in /assets/fonts/ if using local font hosting */
 @font-face {
     font-family: 'Inter';
     src: url('../fonts/inter-regular.woff2') format('woff2');
@@ -22,53 +26,60 @@
     font-display: swap;
 }
 
-/* Design System Variables */
+/* 2. DESIGN SYSTEM VARIABLES
+---------------------------------------------------------------- */
 :root {
-    --primary: #6F4E37;
-    --secondary: #C4A484;
-    --accent: #D4A373;
-    --bg: #F5F3EF;
-    --text: #1C1C1C;
+    /* TODO: Modify these hex codes to change the global brand colors */
+    --primary: #6F4E37;      /* Coffee Brown */
+    --secondary: #C4A484;    /* Light Latte */
+    --accent: #D4A373;       /* Warm Caramel */
+    --bg: #F5F3EF;           /* Paper Background */
+    --text: #1C1C1C;         /* Espresso Text */
 }
 
+/* 3. BASE STYLES
+---------------------------------------------------------------- */
 html {
     scroll-behavior: smooth;
 }
 
 body {
     font-family: 'Inter', sans-serif;
-    color: #1C1C1C;
-    background-color: #F5F3EF;
+    color: var(--text);
+    background-color: var(--bg);
 }
 
 h1, h2, h3, h4, h5, h6, .font-heading {
     font-family: 'Playfair Display', serif;
 }
 
+/* 4. UI COMPONENTS & OVERRIDES
+---------------------------------------------------------------- */
+
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
     width: 8px;
 }
 ::-webkit-scrollbar-track {
-    background: #F5F3EF; 
+    background: var(--bg); 
 }
 ::-webkit-scrollbar-thumb {
-    background: #C4A484; 
+    background: var(--secondary); 
     border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-    background: #6F4E37; 
+    background: var(--primary); 
 }
 
-/* Swiper Customizations */
+/* Swiper Slider Customizations */
 .swiper-pagination-bullet {
-    background-color: #C4A484;
+    background-color: var(--secondary);
 }
 .swiper-pagination-bullet-active {
-    background-color: #6F4E37;
+    background-color: var(--primary);
 }
 .swiper-button-next, .swiper-button-prev {
-    color: #6F4E37 !important;
+    color: var(--primary) !important;
 }
 
 /* Product Card Interactions */
@@ -80,19 +91,43 @@ h1, h2, h3, h4, h5, h6, .font-heading {
     box-shadow: 0 10px 25px rgba(111, 78, 55, 0.15);
 }
 
-/* Coffee textures and gradients */
+/* Textures and Decorative Elements */
+/* TODO: Update the map-bg.webp if you want a different overlay texture */
 .texture-bg {
     background-image: url('../images/ui/map-bg.webp');
     background-size: cover;
     background-position: center;
     background-blend-mode: overlay;
-    background-color: rgba(245, 243, 239, 0.85); /* background var mixed */
-}
-.warm-gradient {
-    background: linear-gradient(135deg, #F5F3EF 0%, #D4A373 100%);
+    background-color: rgba(245, 243, 239, 0.85);
 }
 
-/* Smooth transitions */
+.warm-gradient {
+    background: linear-gradient(135deg, var(--bg) 0%, var(--accent) 100%);
+}
+
 .transition-smooth {
     transition: all 0.3s ease-in-out;
 }
+
+/* 5. LOADING STATES (SKELETONS)
+---------------------------------------------------------------- */
+.skeleton {
+    background: linear-gradient(90deg, #f0f0f0 25%, #f8f8f8 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: skeleton-loading 1.5s infinite ease-in-out;
+    border-radius: 0.5rem;
+}
+
+html.dark .skeleton {
+    background: linear-gradient(90deg, #2a2a2a 25%, #333 50%, #2a2a2a 75%);
+    background-size: 200% 100%;
+}
+
+@keyframes skeleton-loading {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+}
+
+.skeleton-text { height: 1rem; margin-bottom: 0.5rem; width: 100%; }
+.skeleton-title { height: 2rem; margin-bottom: 1rem; width: 60%; }
+.skeleton-img { height: 200px; width: 100%; }
