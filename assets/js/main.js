@@ -33,17 +33,58 @@ document.addEventListener('DOMContentLoaded', () => {
     initAOS();
 
     /**
-     * 3. MOBILE NAVIGATION
-     * Simple toggle for the mobile menu overlay.
+     * 3. MOBILE NAVIGATION (DRAWER)
+     * Handles the sliding drawer menu and background overlay.
      */
     const initMobileMenu = () => {
         const mobileMenuBtn = document.getElementById('mobile-menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
+        const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
+        const mobileMenuClose = document.getElementById('mobile-menu-close');
+
+        const toggleMenu = (isOpen) => {
+            if (isOpen) {
+                // Open drawer
+                mobileMenuOverlay.classList.remove('hidden');
+                // Force a reflow to ensure the transition works
+                mobileMenuOverlay.offsetHeight;
+                mobileMenu.classList.remove('translate-x-full');
+                mobileMenu.classList.add('translate-x-0');
+                mobileMenuOverlay.classList.remove('opacity-0', 'pointer-events-none');
+                document.body.classList.add('overflow-hidden');
+            } else {
+                // Close drawer
+                mobileMenu.classList.remove('translate-x-0');
+                mobileMenu.classList.add('translate-x-full');
+                mobileMenuOverlay.classList.add('opacity-0', 'pointer-events-none');
+                document.body.classList.remove('overflow-hidden');
+                
+                // Hide overlay after transition
+                setTimeout(() => {
+                    if (!mobileMenu.classList.contains('translate-x-0')) {
+                        mobileMenuOverlay.classList.add('hidden');
+                    }
+                }, 300);
+            }
+        };
+
         if (mobileMenuBtn && mobileMenu) {
-            mobileMenuBtn.addEventListener('click', () => {
-                mobileMenu.classList.toggle('hidden');
-            });
+            mobileMenuBtn.addEventListener('click', () => toggleMenu(true));
         }
+
+        if (mobileMenuClose) {
+            mobileMenuClose.addEventListener('click', () => toggleMenu(false));
+        }
+
+        if (mobileMenuOverlay) {
+            mobileMenuOverlay.addEventListener('click', () => toggleMenu(false));
+        }
+
+        // Close menu on link click
+        const mobileLinks = mobileMenu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => toggleMenu(false));
+        });
     };
     initMobileMenu();
 
