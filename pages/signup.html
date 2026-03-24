@@ -47,7 +47,7 @@
             <div class="w-full max-w-md space-y-8 signup-form-container py-12">
                 <div class="space-y-3">
                     <h2 class="text-3xl font-heading font-bold tracking-tight">Start Your Journey</h2>
-                    <p class="text-gray-400 font-bold text-[10px] uppercase tracking-widest">Already a master member? <a href="login.html" class="text-primary hover:underline ml-1">Join the lounge here</a></p>
+                    <p class="text-gray-400 font-bold text-[10px] uppercase tracking-widest">Already a master member? <a href="login.html" class="text-primary hover:underline ml-1">Login here</a></p>
                 </div>
 
                 <form class="space-y-5">
@@ -155,7 +155,14 @@
     </div>
 
     <!-- Scripts -->
+        <!-- Component Injection -->
+    <script src="../assets/js/components.js"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        // Inject components AFTER lucide is loaded so icons render
+        renderNavbar('../');
+        renderFooter('../');
+    </script>
     <script src="../assets/js/main.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
