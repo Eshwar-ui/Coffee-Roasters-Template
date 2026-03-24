@@ -115,14 +115,20 @@ document.addEventListener('DOMContentLoaded', () => {
         if (isRTL) {
             document.documentElement.setAttribute('dir', 'rtl');
             localStorage.setItem('dir', 'rtl');
+            if (rtlToggle) rtlToggle.innerText = 'LTR';
+            if (rtlMobileToggle) rtlMobileToggle.innerText = 'LTR';
         } else {
             document.documentElement.setAttribute('dir', 'ltr');
             localStorage.setItem('dir', 'ltr');
+            if (rtlToggle) rtlToggle.innerText = 'RTL';
+            if (rtlMobileToggle) rtlMobileToggle.innerText = 'RTL';
         }
     };
 
     if (localStorage.getItem('dir') === 'rtl') {
         setRTL(true);
+    } else {
+        setRTL(false); // Ensure button text is initialized correctly
     }
 
     const toggleRTL = () => {

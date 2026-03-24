@@ -42,3 +42,13 @@ html.dark .border-gray-200 { border-color: #404040 !important; }
 html.dark .icon-dark-invert {
     filter: invert(1) hue-rotate(180deg);
 }
+
+/* Accessible Text Overrides */
+html.dark .text-primary {
+    color: #D4A373 !important; /* Use Accent color for better visibility in Dark Mode */
+}
+
+html.dark .text-secondary {
+    color: #E2C7AB !important; /* Lighter shade of secondary */
+}
+

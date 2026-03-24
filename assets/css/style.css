@@ -7,21 +7,70 @@
 
 /* 1. TYPOGRAPHY & FONTS
 ---------------------------------------------------------------- */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap');
 
-/* TODO: replace woff2 files in /assets/fonts/ if using local font hosting */
+/* Inter - Local */
 @font-face {
     font-family: 'Inter';
-    src: url('../fonts/inter-regular.woff2') format('woff2');
+    src: url('../fonts/inter-300.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Inter';
+    src: url('../fonts/inter-400.ttf') format('truetype');
     font-weight: 400;
     font-style: normal;
     font-display: swap;
 }
+@font-face {
+    font-family: 'Inter';
+    src: url('../fonts/inter-500.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Inter';
+    src: url('../fonts/inter-600.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Inter';
+    src: url('../fonts/inter-700.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
 
+/* Playfair Display - Local */
 @font-face {
     font-family: 'Playfair Display';
-    src: url('../fonts/playfair-display-regular.woff2') format('woff2');
+    src: url('../fonts/playfair-400.ttf') format('truetype');
     font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Playfair Display';
+    src: url('../fonts/playfair-italic-400.ttf') format('truetype');
+    font-weight: 400;
+    font-style: italic;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Playfair Display';
+    src: url('../fonts/playfair-600.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Playfair Display';
+    src: url('../fonts/playfair-700.ttf') format('truetype');
+    font-weight: 700;
     font-style: normal;
     font-display: swap;
 }

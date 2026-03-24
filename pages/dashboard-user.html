@@ -3,282 +3,868 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Account | Espresso Elite</title>
-    <meta name="description" content="Manage your Espresso Elite account — view orders, saved items, messages, and account settings.">
-    <meta property="og:title" content="My Account | Espresso Elite">
-    <meta property="og:description" content="Manage your Espresso Elite account — view orders, saved items, messages, and account settings.">
-    <meta property="og:type" content="website">
+    <title>Espresso Elite | My Premium Dashboard</title>
+    <meta name="description" content="Access your Espresso Elite account profile, track shipments, and manage exclusive coffee subscriptions.">
+    <link rel="icon" type="image/png" href="../assets/images/ui/favicon.png">
+    <meta name="robots" content="noindex, nofollow">
     
     <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="../assets/css/style.css">
     <link rel="stylesheet" href="../assets/css/dark-mode.css">
     <link rel="stylesheet" href="../assets/css/rtl.css">
+
+    <!-- Animation Libs -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 
     <script>
         tailwind.config = {
             darkMode: 'class',
             theme: {
                 extend: {
-                    colors: { primary: '#6F4E37', secondary: '#C4A484', accent: '#D4A373', background: '#F5F3EF', dark: '#1C1C1C' },
+                    colors: { primary: '#6F4E37', secondary: '#C4A484', accent: '#D4A373', background: '#F5F3EF', dark: '#121212' },
                     fontFamily: { heading: ['Playfair Display', 'serif'], body: ['Inter', 'sans-serif'] }
                 }
             }
         }
     </script>
-    <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  "name": "Espresso Elite",
-  "url": "https://www.espressoelite.com",
-  "logo": "https://www.espressoelite.com/assets/images/ui/logo.webp",
-  "contactPoint": {
-    "@type": "ContactPoint",
-    "@type": "ContactPoint",
-    "telephone": "+1-555-019-8472",
-    "contactType": "customer service"
-  }
-}
-</script>
+    <style>
+        @keyframes pulsate {
+            0% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.05); opacity: 0.8; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        @keyframes pulsate-slow {
+            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(111, 78, 55, 0.4); }
+            70% { transform: scale(1.02); box-shadow: 0 0 0 20px rgba(111, 78, 55, 0); }
+            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(111, 78, 55, 0); }
+        }
+        .pulsate { animation: pulsate 2s infinite ease-in-out; }
+        .pulsate-slow { animation: pulsate-slow 3s infinite ease-in-out; }
+        
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #6F4E3744; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: #6F4E3788; }
+    </style>
 </head>
-<body class="antialiased bg-background dark:bg-dark text-gray-900 dark:text-gray-100 transition-colors duration-300">
+<body class="antialiased bg-gray-50 dark:bg-dark text-gray-900 dark:text-gray-100 transition-colors duration-300">
 
-    <!-- 1. NAVIGATION HEADER -->
-    <script src="../assets/js/navbar.js"></script>
-
-    <!-- 2. USER DASHBOARD LAYOUT -->
-    <!-- TODO: This dashboard is static. Integrate your backend API to fetch real user data, orders, and subscriptions. -->
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-16">
-        <div class="flex flex-col md:flex-row gap-8">
-            
-            <!-- 3. SIDEBAR NAVIGATION -->
-            <!-- TODO: Add dynamic active state highlighting for the menu items based on the current URL hash or state -->
-            <aside class="w-full md:w-64 flex-shrink-0">
-                <div class="bg-white dark:bg-[#2A2A2A] rounded-2xl shadow-sm p-6 border border-gray-100 dark:border-gray-800 sticky top-24">
-                    <div class="flex items-center gap-4 mb-8">
-                        <div class="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center text-primary font-bold text-xl border border-primary">
-                            JD
-                        </div>
-                        <div>
-                            <h3 class="font-bold">John Doe</h3>
-                            <p class="text-xs text-gray-500">Coffee Club Member</p>
-                        </div>
+    <div class="flex h-screen overflow-hidden">
+        
+        <!-- 1. SIDEBAR NAVIGATION (Premium Member Sidebar) -->
+        <aside class="w-72 bg-white/70 dark:bg-[#1C1C1C]/70 backdrop-blur-xl border-r border-gray-100 dark:border-gray-800 flex-shrink-0 flex flex-col transition-transform duration-300 md:translate-x-0 -translate-x-full fixed md:relative h-full z-50 md:z-auto" id="sidebar">
+            <div class="h-20 flex items-center px-8 border-b border-gray-100 dark:border-gray-800">
+                <a href="../index.html" class="flex items-center gap-3 group">
+                    <div class="w-10 h-10 bg-primary/10 rounded-xl flex items-center justify-center group-hover:bg-primary transition-all">
+                        <i data-lucide="coffee" class="text-primary group-hover:text-white w-5 h-5 transition-colors"></i>
                     </div>
-                    
-                    <nav class="flex flex-col gap-2 sidebar-nav">
-                        <a href="#dashboard" data-tab="dashboard" class="tab-link flex items-center gap-3 px-3 py-2 rounded-lg bg-primary/10 text-primary font-medium transition-colors">
-                            <i data-lucide="layout-dashboard" class="w-5 h-5"></i> Dashboard
-                        </a>
-                        <a href="#subscriptions" data-tab="subscriptions" class="tab-link flex items-center gap-3 px-3 py-2 rounded-lg text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
-                            <i data-lucide="coffee" class="w-5 h-5"></i> Subscriptions
-                        </a>
-                        <a href="#orders" data-tab="orders" class="tab-link flex items-center gap-3 px-3 py-2 rounded-lg text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
-                            <i data-lucide="shopping-bag" class="w-5 h-5"></i> Order History
-                        </a>
-                        <a href="#track" data-tab="track" class="tab-link flex items-center gap-3 px-3 py-2 rounded-lg text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
-                            <i data-lucide="truck" class="w-5 h-5"></i> Track Order
-                        </a>
-                        <a href="#wishlist" data-tab="wishlist" class="tab-link flex items-center gap-3 px-3 py-2 rounded-lg text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
-                            <i data-lucide="heart" class="w-5 h-5"></i> My Wishlist
-                        </a>
-                        <a href="#addresses" data-tab="addresses" class="tab-link flex items-center gap-3 px-3 py-2 rounded-lg text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
-                            <i data-lucide="map-pin" class="w-5 h-5"></i> Addresses
-                        </a>
-                        <a href="#settings" data-tab="settings" class="tab-link flex items-center gap-3 px-3 py-2 rounded-lg text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
-                            <i data-lucide="settings" class="w-5 h-5"></i> Account Settings
-                        </a>
-                        <a href="#messages" data-tab="messages" class="tab-link flex items-center gap-3 px-3 py-2 rounded-lg text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
-                            <i data-lucide="message-square" class="w-5 h-5"></i> Messages
-                            <span class="ml-auto bg-primary text-white text-[10px] font-bold px-1.5 py-0.5 rounded-full">3</span>
-                        </a>
-                        <div class="border-t border-gray-100 dark:border-gray-800 my-4"></div>
-                        <a href="../index.html" class="flex items-center gap-3 px-3 py-2 rounded-lg text-red-600 hover:bg-red-50 dark:text-red-400 dark:hover:bg-red-900/20 transition-colors font-medium">
-                            <i data-lucide="log-out" class="w-5 h-5"></i> Logout
-                        </a>
-                    </nav>
-                </div>
-            </aside>
+                    <div>
+                        <span class="font-heading font-bold text-lg tracking-tight block leading-none">Member</span>
+                        <span class="text-[9px] font-bold text-gray-400 uppercase tracking-widest">Console</span>
+                    </div>
+                </a>
+            </div>
+            
+            <div class="flex-1 overflow-y-auto px-6 py-8 custom-scrollbar flex flex-col">
+                <nav class="flex flex-col gap-2 sidebar-nav flex-1">
+                    <p class="text-[10px] font-bold text-gray-400 uppercase tracking-[0.3em] mb-4 px-4 font-heading">Protocol Hub</p>
+                    <a href="#dashboard" data-tab="dashboard" class="tab-link flex items-center gap-4 px-4 py-4 rounded-2xl bg-primary text-white shadow-2xl shadow-primary/30 transition-all font-bold group">
+                        <i data-lucide="layout-grid" class="w-5 h-5 group-hover:scale-110 transition-transform"></i> Dashboard
+                    </a>
+                    <a href="#subscriptions" data-tab="subscriptions" class="tab-link flex items-center gap-4 px-4 py-4 rounded-2xl text-gray-500 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-white/5 transition-all font-medium group">
+                        <i data-lucide="box" class="w-5 h-5 group-hover:rotate-12 transition-transform"></i> Brew Club
+                    </a>
+                    <a href="#orders" data-tab="orders" class="tab-link flex items-center gap-4 px-4 py-4 rounded-2xl text-gray-500 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-white/5 transition-all font-medium group">
+                        <i data-lucide="shopping-cart" class="w-5 h-5 group-hover:-translate-y-0.5 transition-transform"></i> Order History
+                        <span class="ml-auto bg-primary text-white text-[9px] font-bold px-2 py-0.5 rounded-full shadow-lg shadow-primary/20">3</span>
+                    </a>
+                    <a href="#track" data-tab="track" class="tab-link flex items-center gap-4 px-4 py-4 rounded-2xl text-gray-500 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-white/5 transition-all font-medium group">
+                        <i data-lucide="map-pin" class="w-5 h-5 group-hover:bounce transition-transform"></i> Track Delivery
+                    </a>
+                    <a href="#wishlist" data-tab="wishlist" class="tab-link flex items-center gap-4 px-4 py-4 rounded-2xl text-gray-500 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-white/5 transition-all font-medium group">
+                        <i data-lucide="heart" class="w-5 h-5 group-hover:scale-125 transition-transform text-red-400/50 group-hover:text-red-500"></i> Favorites
+                    </a>
 
-            <!-- 4. MAIN CONTENT AREA -->
-            <main class="flex-1">
+                    <p class="text-[10px] font-bold text-gray-400 uppercase tracking-[0.3em] mb-4 mt-10 px-4 font-heading">Identity</p>
+                    <a href="#settings" data-tab="settings" class="tab-link flex items-center gap-4 px-4 py-3.5 rounded-2xl text-gray-500 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-white/5 transition-all font-medium group">
+                        <i data-lucide="user-cog" class="w-5 h-5 group-hover:rotate-90 transition-transform duration-500"></i> Preferences
+                    </a>
+                    <a href="#addresses" data-tab="addresses" class="tab-link flex items-center gap-4 px-4 py-3.5 rounded-2xl text-gray-500 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-white/5 transition-all font-medium group">
+                        <i data-lucide="lock" class="w-5 h-5 group-hover:scale-110 transition-transform"></i> Security
+                    </a>
+                </nav>
+
+                <div class="mt-auto pt-10 border-t border-gray-100 dark:border-gray-800">
+                    <a href="login.html" class="flex items-center gap-4 px-4 py-4 rounded-2xl text-red-500 hover:bg-red-50 dark:hover:bg-red-500/10 transition-all font-extrabold group">
+                        <i data-lucide="log-out" class="w-5 h-5 group-hover:-translate-x-1 transition-transform"></i> Terminate Session
+                    </a>
+                </div>
+            </div>
+        </aside>
+
+        <!-- 2. MAIN CONTENT AREA -->
+        <main class="flex-1 flex flex-col overflow-hidden bg-[#FBFBFB] dark:bg-dark">
+            <header class="h-20 bg-white/80 dark:bg-[#1C1C1C]/80 backdrop-blur-md border-b border-gray-100 dark:border-gray-800 flex items-center justify-between px-8 z-20 shrink-0">
+                <div class="flex items-center gap-8 flex-1">
+                    <button class="md:hidden text-gray-500" id="admin-menu-toggle">
+                        <i data-lucide="menu" class="w-6 h-6"></i>
+                    </button>
+                    <div class="hidden md:flex items-center flex-1 max-w-md relative">
+                        <i data-lucide="search" class="absolute left-4 w-4 h-4 text-gray-400"></i>
+                        <input type="text" placeholder="Omni Search..." class="w-full bg-gray-100 dark:bg-white/5 border-transparent focus:bg-white dark:focus:bg-white/10 border-none rounded-2xl py-2.5 pl-12 pr-4 text-xs font-medium focus:ring-1 focus:ring-primary/20 transition-all outline-none">
+                    </div>
+                    <div class="md:hidden">
+                        <h2 class="text-xl font-bold font-heading">Dashboard</h2>
+                    </div>
+                </div>
+                
+                <div class="flex items-center gap-5">
+                    <div class="flex items-center gap-3">
+                         <button id="dark-mode-toggle" class="w-10 h-10 flex items-center justify-center bg-gray-100 dark:bg-white/5 text-gray-500 rounded-2xl hover:bg-primary/10 hover:text-primary transition-all">
+                            <i data-lucide="sun" class="w-4 h-4 dark:hidden"></i>
+                            <i data-lucide="moon" class="w-4 h-4 hidden dark:block"></i>
+                        </button>
+                        <button class="w-10 h-10 flex items-center justify-center bg-gray-100 dark:bg-white/5 text-gray-500 rounded-2xl hover:bg-primary/10 hover:text-primary transition-all relative">
+                            <i data-lucide="bell" class="w-4 h-4"></i>
+                            <span class="absolute top-3 right-3 w-1.5 h-1.5 bg-primary rounded-full ring-2 ring-white dark:ring-[#1C1C1C]"></span>
+                        </button>
+                    </div>
+
+                    <div class="h-8 w-px bg-gray-100 dark:bg-gray-800 mx-2"></div>
+
+                    <div class="flex items-center gap-4 cursor-pointer group">
+                        <div class="text-right hidden sm:block">
+                            <p class="text-xs font-bold font-heading group-hover:text-primary transition-colors">John Doe</p>
+                            <p class="text-[10px] text-gray-400 font-bold uppercase tracking-widest">Premium Member</p>
+                        </div>
+                        <div class="w-11 h-11 rounded-2xl bg-primary text-white flex items-center justify-center font-bold text-sm shadow-lg shadow-primary/20 group-hover:scale-105 transition-transform">JD</div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Scrollable Content -->
+            <div class="flex-1 overflow-y-auto p-8 custom-scrollbar">
                 
                 <!-- Dashboard Tab -->
-                <div id="dashboard" class="tab-content space-y-8">
-                    <h1 class="text-3xl font-heading font-bold">Welcome back, John</h1>
+                <div id="dashboard" class="tab-content space-y-12">
                     
-                    <!-- Quick Stats -->
-                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
-                        <div class="bg-white dark:bg-[#2A2A2A] rounded-xl p-6 shadow-sm border border-gray-100 dark:border-gray-800 flex items-center gap-4">
-                            <div class="p-3 bg-primary/10 text-primary rounded-lg"><i data-lucide="package-check" class="w-6 h-6"></i></div>
-                            <div><p class="text-xs text-gray-500 uppercase font-bold tracking-wider">Total Orders</p><p class="text-2xl font-bold">14</p></div>
-                        </div>
-                        <div class="bg-white dark:bg-[#2A2A2A] rounded-xl p-6 shadow-sm border border-gray-100 dark:border-gray-800 flex items-center gap-4">
-                            <div class="p-3 bg-secondary/20 text-secondary rounded-lg"><i data-lucide="star" class="w-6 h-6"></i></div>
-                            <div><p class="text-xs text-gray-500 uppercase font-bold tracking-wider">Reward Points</p><p class="text-2xl font-bold">1,250</p></div>
-                        </div>
-                        <div class="bg-white dark:bg-[#2A2A2A] rounded-xl p-6 shadow-sm border border-gray-100 dark:border-gray-800 flex items-center gap-4">
-                            <div class="p-3 bg-green-100 text-green-600 dark:bg-green-900/30 rounded-lg"><i data-lucide="refresh-cw" class="w-6 h-6"></i></div>
-                            <div><p class="text-xs text-gray-500 uppercase font-bold tracking-wider">Active Subs</p><p class="text-2xl font-bold">1</p></div>
-                        </div>
-                    </div>
-
-                    <!-- Active Subscription Timeline -->
-                    <div class="bg-white dark:bg-[#2A2A2A] rounded-2xl shadow-sm border border-gray-100 dark:border-gray-800 p-6">
-                        <div class="flex justify-between items-center mb-6">
-                            <h2 class="text-xl font-bold">Active Subscription</h2>
-                            <span class="px-3 py-1 bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400 rounded-full text-xs font-bold">Active</span>
-                        </div>
-
-                        <div class="flex flex-col md:flex-row gap-6 items-center bg-gray-50 dark:bg-gray-800/50 p-6 rounded-xl border border-gray-100 dark:border-gray-700">
-                            <div class="w-24 h-24 rounded-xl bg-white dark:bg-gray-800 p-2 shadow-sm shrink-0">
-                                <img src="../assets/images/coffee/capsule.webp" class="w-full h-full object-cover rounded-lg" alt="Subscription Box">
+                    <!-- Welcome Hero Card (Admin Style) -->
+                    <div class="relative min-h-[400px] rounded-[3rem] overflow-hidden shadow-2xl group">
+                        <img src="../dashboard_hero_bg_1773829616183.png" class="absolute inset-0 w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-[30s] ease-out" alt="System Background">
+                        <div class="absolute inset-0 bg-gradient-to-r from-black/90 via-black/40 to-transparent"></div>
+                        <div class="relative z-10 h-full flex flex-col justify-center px-16 py-20 text-white">
+                            <div class="flex items-center gap-4 mb-6" data-aos="fade-right">
+                                <div class="flex items-center gap-2 px-3 py-1 bg-primary/80 backdrop-blur-md rounded-full border border-white/10">
+                                    <span class="w-1.5 h-1.5 bg-green-500 rounded-full pulsate shadow-[0_0_10px_rgba(34,197,94,0.6)]"></span>
+                                    <span class="text-[9px] font-bold uppercase tracking-[0.2em]">Verified Member</span>
+                                </div>
+                                <span class="text-[10px] font-bold text-white/40 uppercase tracking-widest">EST. SEP 2022</span>
                             </div>
-                            <div class="flex-1">
-                                <h3 class="text-lg font-bold mb-1">Explorer Plan (Capsules)</h3>
-                                <p class="text-sm text-gray-500 dark:text-gray-400 mb-2">2 sleeves every 4 weeks. Custom selection.</p>
-                                <p class="font-bold text-primary">$36.00 / delivery</p>
+                            <h2 class="text-6xl font-heading font-bold mb-6 leading-tight" data-aos="fade-right" data-aos-delay="100">Welcome,<br><span class="text-secondary italic">John Doe</span></h2>
+                            <p class="text-white/60 max-w-lg text-base leading-relaxed mb-10 font-medium" data-aos="fade-right" data-aos-delay="200">
+                                Your luxury bean journey is yielding exceptional results. You are currently in the <span class="text-white font-bold">top 5% of members</span> this month.
+                            </p>
+                            
+                            <div class="flex flex-wrap gap-5" data-aos="fade-up" data-aos-delay="300">
+                                <button class="px-10 py-4 bg-primary text-white rounded-2xl font-bold text-xs uppercase tracking-widest shadow-2xl shadow-primary/40 hover:scale-105 active:scale-95 transition-all">Order New Batch</button>
+                                <button class="px-10 py-4 bg-white/5 backdrop-blur-xl border border-white/10 text-white rounded-2xl font-bold text-xs uppercase tracking-widest hover:bg-white/10 transition-all">Member Perks</button>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Recent Orders List -->
-                    <div class="bg-white dark:bg-[#2A2A2A] rounded-2xl shadow-sm border border-gray-100 dark:border-gray-800 p-6">
-                        <div class="flex justify-between items-center mb-6">
-                            <h2 class="text-xl font-bold">Recent Orders</h2>
-                            <a href="#orders" class="text-sm font-medium text-primary hover:underline">View All</a>
+                    <!-- Enhanced Stats Row (Admin Style) -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                         <div class="bg-white dark:bg-[#1C1C1C] p-8 rounded-[2.5rem] border border-gray-100 dark:border-gray-800 shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 group">
+                            <div class="flex justify-between items-start mb-6">
+                                <div class="w-14 h-14 bg-primary/10 text-primary rounded-2xl flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-all duration-500 shadow-inner">
+                                    <i data-lucide="zap" class="w-6 h-6"></i>
+                                </div>
+                                <span class="text-[10px] font-bold text-green-500 bg-green-500/10 px-2 py-1 rounded-lg">+120 pts</span>
+                            </div>
+                            <h4 class="text-3xl font-bold mb-1 font-heading">3,450</h4>
+                            <p class="text-[10px] text-gray-400 font-bold uppercase tracking-[0.2em]">Loyalty Balance</p>
                         </div>
                         
-                        <div class="space-y-4">
-                            <div class="flex flex-col md:flex-row gap-4 items-center justify-between p-4 border border-gray-100 dark:border-gray-700 rounded-xl hover:shadow-md transition-shadow">
+                        <div class="bg-white dark:bg-[#1C1C1C] p-8 rounded-[2.5rem] border border-gray-100 dark:border-gray-800 shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 group">
+                            <div class="flex justify-between items-start mb-6">
+                                <div class="w-14 h-14 bg-secondary/10 text-secondary rounded-2xl flex items-center justify-center group-hover:bg-secondary group-hover:text-white transition-all duration-500 shadow-inner">
+                                    <i data-lucide="package" class="w-6 h-6"></i>
+                                </div>
+                                <span class="text-[10px] font-bold text-primary bg-primary/10 px-2 py-1 rounded-lg">Last Hub</span>
+                            </div>
+                            <h4 class="text-3xl font-bold mb-1 font-heading">24</h4>
+                            <p class="text-[10px] text-gray-400 font-bold uppercase tracking-[0.2em]">Total Deliveries</p>
+                        </div>
+
+                        <div class="bg-white dark:bg-[#1C1C1C] p-8 rounded-[2.5rem] border border-gray-100 dark:border-gray-800 shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 group">
+                            <div class="flex justify-between items-start mb-6">
+                                <div class="w-14 h-14 bg-accent/10 text-accent rounded-2xl flex items-center justify-center group-hover:bg-accent group-hover:text-white transition-all duration-500 shadow-inner">
+                                    <i data-lucide="clock" class="w-6 h-6"></i>
+                                </div>
+                                <div class="flex -space-x-2">
+                                    <div class="w-6 h-6 rounded-full border-2 border-white dark:border-[#1C1C1C] bg-gray-200"></div>
+                                    <div class="w-6 h-6 rounded-full border-2 border-white dark:border-[#1C1C1C] bg-gray-300"></div>
+                                </div>
+                            </div>
+                            <h4 class="text-3xl font-bold mb-1 font-heading">3 Days</h4>
+                            <p class="text-[10px] text-gray-400 font-bold uppercase tracking-[0.2em]">Next Dispatch</p>
+                        </div>
+
+                        <div class="bg-primary p-8 rounded-[2.5rem] border border-primary shadow-2xl shadow-primary/30 text-white flex flex-col justify-between relative overflow-hidden group">
+                            <div class="absolute -right-4 -bottom-4 w-24 h-24 bg-white/10 rounded-full blur-2xl group-hover:scale-150 transition-transform duration-700"></div>
+                            <div class="relative z-10">
+                                <p class="text-[10px] font-bold uppercase tracking-[0.2em] opacity-60">Status Tier</p>
+                                <h4 class="text-3xl font-bold mt-2 font-heading">Elite Gold</h4>
+                                <p class="text-[10px] mt-2 opacity-80 leading-relaxed font-medium">Unlocked exclusive access to seasonal micro-lots.</p>
+                            </div>
+                            <a href="#" class="relative z-10 text-[10px] font-bold uppercase tracking-widest mt-6 flex items-center gap-2 group/link">Explore Perks <i data-lucide="arrow-right" class="w-3 h-3 group-hover/link:translate-x-1 transition-transform"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="grid lg:grid-cols-3 gap-10">
+                        <!-- Active Brew Hub Card -->
+                        <div class="lg:col-span-2 bg-white dark:bg-[#1C1C1C] rounded-[3rem] border border-gray-100 dark:border-gray-800 shadow-sm overflow-hidden flex flex-col group">
+                            <div class="p-10 border-b border-gray-50 dark:border-gray-800 flex justify-between items-center bg-gray-50/50 dark:bg-white/5">
                                 <div class="flex items-center gap-4">
-                                    <div class="p-3 bg-gray-100 dark:bg-gray-800 rounded-lg text-gray-500 shrink-0"><i data-lucide="package"></i></div>
+                                    <div class="w-3 h-3 bg-green-500 rounded-full pulsate shadow-[0_0_10px_rgba(34,197,94,0.4)]"></div>
+                                    <h3 class="font-bold text-xl font-heading">Current Brew Deployment</h3>
+                                </div>
+                                <button class="px-6 py-2.5 bg-white dark:bg-white/10 border border-gray-200 dark:border-gray-700 rounded-xl text-[10px] font-bold uppercase tracking-widest hover:bg-gray-50 transition-all">Modify Plan</button>
+                            </div>
+                            <div class="p-12 flex flex-col md:flex-row items-center gap-12">
+                                <div class="w-48 h-48 relative flex items-center justify-center p-10 bg-gray-50 dark:bg-white/5 rounded-[2.5rem] border border-gray-100 dark:border-white/10 group-hover:shadow-2xl group-hover:shadow-primary/5 transition-all shrink-0">
+                                    <img src="../assets/images/coffee/capsule.webp" class="w-full h-full object-contain drop-shadow-2xl transform group-hover:scale-110 transition-transform duration-700" alt="Capsules">
+                                    <div class="absolute -bottom-3 -right-3 w-12 h-12 bg-primary text-white rounded-2xl flex items-center justify-center shadow-2xl border-4 border-white dark:border-[#1C1C1C]"><i data-lucide="refresh-cw" class="w-5 h-5"></i></div>
+                                </div>
+                                <div class="flex-1 space-y-8 text-center md:text-left">
                                     <div>
-                                        <p class="font-bold text-sm mb-1">#ORD-0921 <span class="text-gray-400 font-normal">· Oct 24, 2023</span></p>
-                                        <p class="text-sm text-gray-500">2 Items · <span class="text-green-600 dark:text-green-400 font-medium">Delivered</span></p>
+                                        <h4 class="text-3xl font-bold mb-2 font-heading">Explorer Series</h4>
+                                        <p class="text-sm text-gray-400 font-medium">Curated selection of seasonal micro-lots delivered at peak freshness.</p>
+                                    </div>
+                                    
+                                    <div class="flex flex-wrap items-center justify-center md:justify-start gap-12">
+                                        <div class="space-y-1">
+                                            <p class="text-[10px] text-gray-400 uppercase font-bold tracking-[0.2em] mb-1">Status</p>
+                                            <p class="text-sm font-bold flex items-center gap-2 italic uppercase">In Transit <span class="w-1.5 h-1.5 bg-primary rounded-full"></span></p>
+                                        </div>
+                                        <div class="space-y-1">
+                                            <p class="text-[10px] text-gray-400 uppercase font-bold tracking-[0.2em] mb-1">ETA</p>
+                                            <p class="text-sm font-bold text-primary italic uppercase tracking-widest">Feb 24, 2026</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="space-y-4">
+                                        <div class="flex justify-between text-[10px] font-extrabold uppercase tracking-[0.2em] text-gray-400">
+                                            <span>Transit Integrity</span>
+                                            <span class="text-primary font-heading italic text-sm leading-none">85% Complete</span>
+                                        </div>
+                                        <div class="w-full h-2.5 bg-gray-100 dark:bg-gray-800 rounded-full overflow-hidden shadow-inner">
+                                            <div class="h-full bg-primary w-[85%] rounded-full shadow-[0_0_15px_rgba(111,78,55,0.4)]"></div>
+                                        </div>
                                     </div>
                                 </div>
-                                <span class="font-bold">$40.00</span>
                             </div>
+                        </div>
+
+                        <!-- Side Metrics -->
+                        <div class="space-y-8">
+                             <!-- Quick Insight -->
+                             <div class="bg-dark p-10 rounded-[3rem] text-white shadow-2xl relative overflow-hidden group">
+                                <div class="absolute -right-10 -bottom-10 w-40 h-40 bg-primary/10 rounded-full blur-[60px] group-hover:bg-primary/20 transition-all duration-700"></div>
+                                <i data-lucide="sparkles" class="text-accent w-10 h-10 mb-6 group-hover:rotate-12 transition-transform"></i>
+                                <h4 class="font-bold text-xl mb-3 font-heading leading-tight">Elite Insight</h4>
+                                <p class="text-sm text-white/50 leading-relaxed mb-10 font-medium italic">"The Yirgacheffe harvest is showing 15% higher acidity than last year's vintage..."</p>
+                                <a href="blog.html" class="text-[10px] font-bold text-accent uppercase tracking-[0.2em] flex items-center gap-3 group/link">View Archives <i data-lucide="arrow-right" class="w-4 h-4 group-hover/link:translate-x-2 transition-transform"></i></a>
+                            </div>
+
+                            <!-- Reward Vault -->
+                            <div class="bg-white dark:bg-[#1C1C1C] p-10 rounded-[3rem] border border-gray-100 dark:border-gray-800 shadow-sm flex flex-col items-center text-center group">
+                                <div class="w-24 h-24 relative mb-6">
+                                    <svg class="w-full h-full transform -rotate-90">
+                                        <circle cx="48" cy="48" r="42" stroke="currentColor" stroke-width="6" fill="transparent" class="text-gray-50 dark:text-gray-800/50" />
+                                        <circle cx="48" cy="48" r="42" stroke="currentColor" stroke-width="6" fill="transparent" stroke-dasharray="264" stroke-dashoffset="66" class="text-primary transition-all duration-1000 group-hover:scale-105" />
+                                    </svg>
+                                    <div class="absolute inset-0 flex items-center justify-center font-bold text-xl font-heading">75%</div>
+                                </div>
+                                <h4 class="font-bold text-lg mb-1 font-heading">Diamond Access</h4>
+                                <p class="text-[10px] text-gray-400 font-bold uppercase tracking-[0.2em] mb-8 italic">250 LUX to Upgrade</p>
+                                <button class="w-full py-4 bg-gray-50 dark:bg-white/5 rounded-[1.5rem] border border-gray-100 dark:border-white/10 text-[10px] font-bold uppercase tracking-widest hover:bg-primary hover:text-white hover:shadow-xl hover:shadow-primary/20 transition-all">Access Vault</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Recent Transmissions Table -->
+                    <div class="bg-white dark:bg-[#1C1C1C] rounded-[3rem] border border-gray-100 dark:border-gray-800 shadow-sm overflow-hidden">
+                        <div class="p-10 border-b border-gray-50 dark:border-gray-800 flex justify-between items-center bg-gray-50/50 dark:bg-white/5">
+                            <div>
+                                <h3 class="font-bold text-2xl font-heading mb-1 leading-none">Recent Transmissions</h3>
+                                <p class="text-[10px] text-gray-400 font-bold uppercase tracking-[0.2em]">Latest order activities & notifications</p>
+                            </div>
+                            <a href="#orders" data-tab="orders" class="tab-link-internal text-[10px] font-bold text-primary uppercase tracking-[0.2em] hover:underline cursor-pointer flex items-center gap-2 group">Archives <i data-lucide="external-link" class="w-3 h-3 group-hover:scale-110 transition-transform"></i></a>
+                        </div>
+                        <div class="overflow-x-auto">
+                            <table class="w-full text-left">
+                                <thead>
+                                    <tr class="text-[10px] font-bold uppercase tracking-[0.2em] text-gray-400 border-b border-gray-50 dark:border-gray-800 bg-gray-100/30 dark:bg-black/10">
+                                        <th class="px-10 py-6">Reference ID</th>
+                                        <th class="px-10 py-6">Timeline</th>
+                                        <th class="px-10 py-6">Status</th>
+                                        <th class="px-10 py-6 text-right">Value</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="text-sm divide-y divide-gray-50 dark:divide-gray-800 font-medium">
+                                    <tr class="hover:bg-gray-50 dark:hover:bg-white/5 transition-colors group cursor-pointer">
+                                        <td class="px-10 py-8 font-extrabold text-base group-hover:text-primary transition-colors">#ORD-0925</td>
+                                        <td class="px-10 py-8 text-gray-400 font-bold">Feb 18, 2026</td>
+                                        <td class="px-10 py-8">
+                                            <span class="px-3 py-1 bg-green-500/10 text-green-500 rounded-full text-[9px] font-bold uppercase tracking-widest border border-green-500/20">Authorized</span>
+                                        </td>
+                                        <td class="px-10 py-8 text-right font-extrabold text-base">$124.50</td>
+                                    </tr>
+                                    <tr class="hover:bg-gray-50 dark:hover:bg-white/5 transition-colors group cursor-pointer">
+                                        <td class="px-10 py-8 font-extrabold text-base group-hover:text-primary transition-colors">#ORD-0882</td>
+                                        <td class="px-10 py-8 text-gray-400 font-bold">Feb 02, 2026</td>
+                                        <td class="px-10 py-8">
+                                            <span class="px-3 py-1 bg-primary/10 text-primary rounded-full text-[9px] font-bold uppercase tracking-widest border border-primary/20">Dispatched</span>
+                                        </td>
+                                        <td class="px-10 py-8 text-right font-extrabold text-base">$22.00</td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>
 
                 <!-- Subscriptions Tab -->
-                <div id="subscriptions" class="tab-content hidden space-y-8">
-                    <h1 class="text-3xl font-heading font-bold">Manage Subscriptions</h1>
-                    <div class="bg-white dark:bg-[#2A2A2A] p-12 rounded-2xl text-center border border-gray-100 dark:border-gray-800">
-                        <i data-lucide="coffee" class="w-12 h-12 text-gray-300 mx-auto mb-4"></i>
-                        <h3 class="text-xl font-bold mb-2">Explorer Plan (Capsules)</h3>
-                        <p class="text-gray-500 mb-6 text-sm">Next delivery: Nov 12, 2023</p>
-                        <div class="flex justify-center gap-4">
-                            <button class="px-6 py-2 bg-primary text-white rounded-lg font-medium">Pause for now</button>
-                            <button class="px-6 py-2 border border-gray-200 dark:border-gray-700 rounded-lg font-medium">Cancel Plan</button>
+                <div id="subscriptions" class="tab-content hidden space-y-12">
+                    <div class="bg-white dark:bg-[#1C1C1C] rounded-[3rem] border border-gray-100 dark:border-gray-800 shadow-sm overflow-hidden">
+                        <div class="px-12 py-16 border-b border-gray-50 dark:border-gray-800 flex flex-col md:flex-row justify-between items-center gap-10 bg-gray-50/50 dark:bg-white/5">
+                            <div>
+                                <h2 class="text-4xl font-heading font-bold mb-3">Brew Club Membership</h2>
+                                <p class="text-gray-400 text-sm font-medium">Managing your elite recurring specialty coffee experiences.</p>
+                            </div>
+                            <div class="flex flex-wrap gap-4">
+                                <button class="px-8 py-3.5 bg-primary text-white rounded-2xl font-bold text-[10px] uppercase tracking-[0.2em] shadow-2xl shadow-primary/20 hover:scale-105 active:scale-95 transition-all">Pause Deployment</button>
+                                <button class="px-8 py-3.5 bg-white dark:bg-white/5 border border-gray-200 dark:border-gray-700 rounded-2xl text-[10px] font-bold uppercase tracking-[0.2em] hover:bg-gray-50 transition-all">Cancel Protocols</button>
+                            </div>
+                        </div>
+                        <div class="p-12">
+                            <div class="grid lg:grid-cols-3 gap-12">
+                                <div class="lg:col-span-1">
+                                    <div class="aspect-square rounded-[2.5rem] bg-gray-50 dark:bg-white/5 p-12 border border-gray-100 dark:border-white/10 flex items-center justify-center relative group overflow-hidden">
+                                        <div class="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                                        <img src="../assets/images/coffee/capsule.webp" class="w-full h-full object-contain drop-shadow-2xl group-hover:scale-110 transition-transform duration-700" alt="Explorer Plan">
+                                        <div class="absolute top-6 left-6 px-4 py-1.5 bg-green-500 text-white text-[9px] font-bold uppercase rounded-full tracking-widest shadow-xl">Status: Active</div>
+                                    </div>
+                                </div>
+                                <div class="lg:col-span-2 space-y-10">
+                                    <div class="grid sm:grid-cols-2 gap-8">
+                                        <div class="p-8 bg-gray-50 dark:bg-white/5 rounded-[2rem] border border-gray-100 dark:border-white/5 group hover:bg-white dark:hover:bg-white/10 transition-all">
+                                            <p class="text-[10px] text-gray-400 font-bold uppercase tracking-[0.2em] mb-3">Active Selection</p>
+                                            <p class="font-bold text-lg mb-1">Explorer Selection</p>
+                                            <p class="text-xs text-gray-400">2x Signature Sleeves</p>
+                                            <button class="text-[10px] text-primary font-bold mt-4 uppercase tracking-widest hover:underline flex items-center gap-2">Configure Selection <i data-lucide="chevron-right" class="w-3 h-3"></i></button>
+                                        </div>
+                                        <div class="p-8 bg-gray-50 dark:bg-white/5 rounded-[2rem] border border-gray-100 dark:border-white/5 group hover:bg-white dark:hover:bg-white/10 transition-all">
+                                            <p class="text-[10px] text-gray-400 font-bold uppercase tracking-[0.2em] mb-3">Next Dispatch</p>
+                                            <p class="font-bold text-lg mb-1">Feb 24, 2026</p>
+                                            <p class="text-xs text-gray-400">Priority Shipping</p>
+                                            <button class="text-[10px] text-primary font-bold mt-4 uppercase tracking-widest hover:underline flex items-center gap-2">Reschedule Ship <i data-lucide="calendar" class="w-3 h-3"></i></button>
+                                        </div>
+                                        <div class="p-8 bg-gray-50 dark:bg-white/5 rounded-[2rem] border border-gray-100 dark:border-white/5">
+                                            <p class="text-[10px] text-gray-400 font-bold uppercase tracking-[0.2em] mb-3">Billing Cycle</p>
+                                            <p class="font-bold text-lg">Every 28 Days</p>
+                                        </div>
+                                        <div class="p-8 bg-gray-50 dark:bg-white/5 rounded-[2rem] border border-gray-100 dark:border-white/5">
+                                            <p class="text-[10px] text-gray-400 font-bold uppercase tracking-[0.2em] mb-3">Recurring Value</p>
+                                            <p class="font-bold text-2xl text-primary font-heading">$36.00 <span class="text-xs text-gray-400 font-normal">/ month</span></p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="p-8 bg-primary/5 rounded-[2rem] border border-primary/10 flex flex-col sm:flex-row items-center justify-between gap-6">
+                                        <div class="flex items-center gap-5">
+                                            <div class="w-12 h-12 bg-primary/10 text-primary rounded-xl flex items-center justify-center">
+                                                <i data-lucide="truck" class="w-6 h-6"></i>
+                                            </div>
+                                            <div>
+                                                <p class="text-[10px] font-bold uppercase tracking-widest text-gray-400 mb-1">Primary Deployment Port</p>
+                                                <p class="text-sm font-bold">482 Coffee Lane, Suite 102, NY 10001</p>
+                                            </div>
+                                        </div>
+                                        <button class="px-6 py-2 bg-white dark:bg-white/10 rounded-xl text-[10px] font-bold uppercase tracking-widest border border-gray-100 dark:border-white/10 hover:bg-gray-50 transition-all">Re-Route</button>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Orders Tab -->
-                <div id="orders" class="tab-content hidden space-y-8">
-                    <h1 class="text-3xl font-heading font-bold">Order History</h1>
-                    <div class="space-y-4">
-                        <div class="bg-white dark:bg-[#2A2A2A] p-6 rounded-2xl border border-gray-100 dark:border-gray-800 flex justify-between items-center text-sm">
-                            <div class="flex items-center gap-4">
-                                <div class="p-3 bg-gray-50 dark:bg-gray-800 rounded-xl"><i data-lucide="package" class="text-gray-400"></i></div>
-                                <div><p class="font-bold">#ORD-0921</p><p class="text-xs text-gray-500">Oct 24, 2023 · $40.00</p></div>
+                <!-- My Orders Tab -->
+                <div id="orders" class="tab-content hidden space-y-12">
+                    <div class="bg-white dark:bg-[#1C1C1C] rounded-[3rem] border border-gray-100 dark:border-gray-800 shadow-sm overflow-hidden">
+                        <div class="p-12 border-b border-gray-50 dark:border-gray-800 flex flex-col lg:flex-row justify-between items-center gap-8 bg-gray-50/50 dark:bg-white/5">
+                            <div>
+                                <h3 class="text-3xl font-heading font-bold mb-2 leading-tight">Order Archives</h3>
+                                <p class="text-sm text-gray-400 font-medium tracking-wide">Secure history of all luxury batch acquisitions.</p>
                             </div>
-                            <button class="px-4 py-2 border border-gray-200 dark:border-gray-700 rounded-lg font-medium">View Invoice</button>
+                            <div class="flex flex-wrap gap-5 w-full lg:w-auto">
+                                <div class="relative flex-1 lg:flex-none min-w-[300px]">
+                                    <i data-lucide="search" class="absolute left-5 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400"></i>
+                                    <input type="text" placeholder="Search reference ID..." class="w-full bg-white dark:bg-white/5 border border-gray-100 dark:border-gray-700 rounded-2xl py-3.5 pl-14 pr-6 text-[10px] font-bold uppercase tracking-widest focus:ring-1 focus:ring-primary/20 outline-none transition-all">
+                                </div>
+                                <select class="px-6 py-3.5 bg-white dark:bg-white/5 border border-gray-100 dark:border-gray-700 rounded-2xl text-[10px] font-bold uppercase tracking-widest outline-none cursor-pointer">
+                                    <option>Cycle: 2026</option>
+                                    <option>Cycle: 2025</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="overflow-x-auto">
+                            <table class="w-full text-left">
+                                <thead>
+                                    <tr class="text-[10px] font-bold uppercase tracking-[0.2em] text-gray-400 border-b border-gray-50 dark:border-gray-800 bg-gray-100/30 dark:bg-white/5">
+                                        <th class="px-12 py-8">Batch Reference</th>
+                                        <th class="px-12 py-8">Timestamp</th>
+                                        <th class="px-12 py-8">Manifest</th>
+                                        <th class="px-12 py-8">Integrity Status</th>
+                                        <th class="px-12 py-8 text-right">Credit Value</th>
+                                        <th class="px-12 py-8 text-center">Protocol</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="text-sm divide-y divide-gray-50 dark:divide-gray-800 font-medium">
+                                    <tr class="hover:bg-gray-50 dark:hover:bg-white/5 transition-all group">
+                                        <td class="px-12 py-10 font-extrabold text-base">#ORD-0925</td>
+                                        <td class="px-12 py-10 text-gray-400 font-bold uppercase tracking-widest text-[10px]">Feb 18, 2026</td>
+                                        <td class="px-12 py-10 max-w-xs truncate font-heading italic text-gray-600">Explorer Plan Selection + 1 Ethiopia Specialty</td>
+                                        <td class="px-12 py-10">
+                                            <span class="px-4 py-1.5 bg-blue-500/10 text-blue-500 rounded-full text-[9px] font-bold uppercase tracking-[0.2em] border border-blue-500/20">Authenticated</span>
+                                        </td>
+                                        <td class="px-12 py-10 text-right font-extrabold text-base">$124.50</td>
+                                        <td class="px-12 py-10 text-center">
+                                            <button class="w-10 h-10 bg-primary/5 text-primary rounded-xl flex items-center justify-center hover:bg-primary hover:text-white transition-all mx-auto"><i data-lucide="maximize-2" class="w-4 h-4"></i></button>
+                                        </td>
+                                    </tr>
+                                    <tr class="hover:bg-gray-50 dark:hover:bg-white/5 transition-all group">
+                                        <td class="px-12 py-10 font-extrabold text-base">#ORD-0882</td>
+                                        <td class="px-12 py-10 text-gray-400 font-bold uppercase tracking-widest text-[10px]">Feb 02, 2026</td>
+                                        <td class="px-12 py-10 max-w-xs truncate font-heading italic text-gray-600">Signature Blend Capsules (x3), Decaf Reserve</td>
+                                        <td class="px-12 py-10">
+                                            <span class="px-4 py-1.5 bg-green-500/10 text-green-500 rounded-full text-[9px] font-bold uppercase tracking-[0.2em] border border-green-500/20">Secured Arrival</span>
+                                        </td>
+                                        <td class="px-12 py-10 text-right font-extrabold text-base">$45.00</td>
+                                        <td class="px-12 py-10 text-center">
+                                            <button class="w-10 h-10 bg-primary/5 text-primary rounded-xl flex items-center justify-center hover:bg-primary hover:text-white transition-all mx-auto"><i data-lucide="maximize-2" class="w-4 h-4"></i></button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>
 
-                <!-- Track Orders Tab -->
-                <div id="track" class="tab-content hidden space-y-8">
-                    <h1 class="text-3xl font-heading font-bold">Track Shipment</h1>
-                    <div class="bg-white dark:bg-[#2A2A2A] p-8 rounded-2xl border border-gray-100 dark:border-gray-800">
-                        <div class="mb-8">
-                            <label class="block text-xs font-bold uppercase tracking-widest text-gray-400 mb-2">Enter Order or Tracking Number</label>
-                            <div class="flex gap-2">
-                                <input type="text" placeholder="e.g. #ORD-0921 or 1Z99..." class="flex-1 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl px-4 py-3 outline-none focus:border-primary transition-colors">
-                                <button class="bg-primary text-white px-8 rounded-xl font-bold">Track</button>
+                <!-- Track Delivery Tab -->
+                <div id="track" class="tab-content hidden space-y-12">
+                    <div class="bg-white dark:bg-[#1C1C1C] p-12 rounded-[3.5rem] border border-gray-100 dark:border-gray-800 shadow-sm relative overflow-hidden">
+                        <!-- Tracking Abstract Decor -->
+                        <div class="absolute -right-20 -top-20 w-96 h-96 bg-primary/5 rounded-full blur-[120px]"></div>
+                        
+                        <div class="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-10 mb-20 relative z-10">
+                            <div>
+                                <div class="flex items-center gap-3 mb-4">
+                                    <span class="w-2.5 h-2.5 bg-primary rounded-full pulsate"></span>
+                                    <p class="text-[10px] font-extrabold uppercase tracking-[0.3em] text-primary">Deployment Status: In Transit</p>
+                                </div>
+                                <h3 class="text-5xl font-heading font-bold mb-3 tracking-tight">#ORD-9902</h3>
+                                <p class="text-sm text-gray-400 font-medium italic">Estimated Port Arrival &bull; <span class="text-gray-900 dark:text-white font-bold not-italic">Feb 24, 2026</span></p>
+                            </div>
+                            <div class="flex flex-wrap gap-5">
+                                <div class="px-10 py-5 bg-gray-50 dark:bg-white/5 rounded-[2rem] border border-gray-100 dark:border-white/5 text-center min-w-[160px]">
+                                    <p class="text-[9px] text-gray-400 font-bold uppercase tracking-[0.2em] mb-2">Logistics Carrier</p>
+                                    <p class="font-bold text-lg">Elite Express</p>
+                                </div>
+                                <div class="px-10 py-5 bg-gray-50 dark:bg-white/5 rounded-[2rem] border border-gray-100 dark:border-white/5 text-center min-w-[160px]">
+                                    <p class="text-[9px] text-gray-400 font-bold uppercase tracking-[0.2em] mb-2">Service Protocol</p>
+                                    <p class="font-bold text-lg">Priority Brew</p>
+                                </div>
                             </div>
                         </div>
-                        <div class="p-6 bg-gray-50 dark:bg-gray-800 rounded-xl border border-dashed border-gray-200 dark:border-gray-700 text-center text-sm">
-                            <p class="text-gray-500 italic text-sm">Example track: Order #ORD-0921 is "Out for Delivery"</p>
+
+                        <!-- Enhanced Tracking Visual -->
+                        <div class="relative py-24 mb-12">
+                             <div class="absolute top-1/2 left-0 w-full h-1.5 bg-gray-100 dark:bg-white/10 -translate-y-1/2 rounded-full overflow-hidden">
+                                <div class="h-full bg-primary w-2/3 shadow-[0_0_30px_rgba(111,78,55,0.6)]"></div>
+                             </div>
+                             
+                             <div class="relative flex justify-between px-4">
+                                <div class="flex flex-col items-center group">
+                                    <div class="w-16 h-16 bg-primary text-white rounded-3xl flex items-center justify-center shadow-2xl z-10 ring-8 ring-white dark:ring-[#1C1C1C] group-hover:scale-110 group-hover:rotate-3 transition-all duration-500">
+                                        <i data-lucide="file-check" class="w-7 h-7"></i>
+                                    </div>
+                                    <span class="text-[9px] font-extrabold uppercase tracking-[0.3em] mt-8 text-gray-400 group-hover:text-primary transition-colors">Initiated</span>
+                                </div>
+                                <div class="flex flex-col items-center group">
+                                    <div class="w-16 h-16 bg-primary text-white rounded-3xl flex items-center justify-center shadow-2xl z-10 ring-8 ring-white dark:ring-[#1C1C1C] group-hover:scale-110 group-hover:rotate-3 transition-all duration-500">
+                                        <i data-lucide="package-check" class="w-7 h-7"></i>
+                                    </div>
+                                    <span class="text-[9px] font-extrabold uppercase tracking-[0.3em] mt-8 text-gray-400 group-hover:text-primary transition-colors">Manifested</span>
+                                </div>
+                                <div class="flex flex-col items-center group">
+                                    <div class="w-20 h-20 -mt-2 bg-primary text-white rounded-[1.5rem] flex items-center justify-center shadow-[0_20px_50px_rgba(111,78,55,0.4)] z-10 ring-[15px] ring-primary/10 pulsate-slow group-hover:scale-110 transition-all duration-500">
+                                        <i data-lucide="truck" class="w-9 h-9"></i>
+                                    </div>
+                                    <span class="text-[9px] font-extrabold uppercase tracking-[0.3em] mt-8 text-primary group-hover:scale-110 transition-all">Deployment</span>
+                                </div>
+                                <div class="flex flex-col items-center group opacity-30 grayscale blur-[1px]">
+                                    <div class="w-16 h-16 bg-gray-100 dark:bg-white/5 text-gray-400 rounded-3xl flex items-center justify-center border border-gray-200 dark:border-white/10 z-10 ring-8 ring-white dark:ring-[#1C1C1C]">
+                                        <i data-lucide="home" class="w-7 h-7"></i>
+                                    </div>
+                                    <span class="text-[9px] font-extrabold uppercase tracking-[0.3em] mt-8 text-gray-400">Secured</span>
+                                </div>
+                             </div>
+                        </div>
+
+                        <div class="mt-20 grid lg:grid-cols-2 gap-16">
+                            <div class="space-y-10">
+                                <h4 class="text-[10px] font-extrabold uppercase tracking-[0.4em] text-gray-400 mb-8 border-l-4 border-primary pl-4">Tactical Log Updates</h4>
+                                <div class="space-y-12 relative pl-10">
+                                    <div class="absolute left-[3px] top-2 bottom-2 w-px bg-gradient-to-b from-primary via-gray-200 to-transparent dark:via-gray-800"></div>
+                                    
+                                    <div class="relative group">
+                                        <div class="absolute -left-[35px] top-1 w-3 h-3 bg-primary rounded-full ring-4 ring-white dark:ring-[#1C1C1C] shadow-lg group-hover:scale-125 transition-transform"></div>
+                                        <p class="text-base font-extrabold tracking-tight">Arrival at Strategic Hub</p>
+                                        <p class="text-[10px] text-gray-400 font-bold uppercase mt-2 tracking-widest leading-none">Today, 2:45 PM &bull; NY DEPLOYMENT HUB</p>
+                                    </div>
+                                    <div class="relative group opacity-60">
+                                        <div class="absolute -left-[35px] top-1 w-3 h-3 bg-gray-300 dark:bg-gray-700 rounded-full ring-4 ring-white dark:ring-[#1C1C1C]"></div>
+                                        <p class="text-base font-bold text-gray-500">Clearance at Processing Facility</p>
+                                        <p class="text-[10px] text-gray-400 font-bold uppercase mt-2 tracking-widest leading-none">Feb 21, 9:20 AM &bull; NJ LOGISTICS CENTER</p>
+                                    </div>
+                                    <div class="relative group opacity-40">
+                                        <div class="absolute -left-[35px] top-1 w-3 h-3 bg-gray-300 dark:bg-gray-700 rounded-full ring-4 ring-white dark:ring-[#1C1C1C]"></div>
+                                        <p class="text-base font-bold text-gray-500">Manifest Initiation</p>
+                                        <p class="text-[10px] text-gray-400 font-bold uppercase mt-2 tracking-widest leading-none">Feb 20, 4:15 PM &bull; BROOKLYN CORE LAB</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="flex flex-col gap-10">
+                                <div class="bg-gray-50 dark:bg-white/5 p-12 rounded-[2.5rem] border border-gray-100 dark:border-white/5 relative overflow-hidden group">
+                                    <div class="absolute top-0 right-0 p-8 opacity-5 group-hover:scale-110 transition-transform">
+                                        <i data-lucide="info" class="w-32 h-32 text-primary"></i>
+                                    </div>
+                                    <div class="relative z-10">
+                                        <h4 class="text-[10px] font-extrabold uppercase tracking-[0.4em] text-gray-400 mb-8">Shipment Manifest</h4>
+                                        <div class="space-y-6">
+                                            <div class="flex justify-between items-center pb-4 border-b border-gray-200/50 dark:border-white/5">
+                                                <span class="text-[10px] text-gray-400 font-bold uppercase tracking-widest">Gross Weight</span>
+                                                <span class="text-sm font-extrabold">1.28 KG / 2.82 LBS</span>
+                                            </div>
+                                            <div class="flex justify-between items-center pb-4 border-b border-gray-200/50 dark:border-white/5">
+                                                <span class="text-[10px] text-gray-400 font-bold uppercase tracking-widest">Dimensions</span>
+                                                <span class="text-sm font-extrabold">20 x 15 x 10.5 CM</span>
+                                            </div>
+                                            <div class="flex justify-between items-center">
+                                                <span class="text-[10px] text-gray-400 font-bold uppercase tracking-widest">Inventory Type</span>
+                                                <span class="text-sm font-extrabold">PREMIUM ELITE BOX</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button class="w-full py-6 bg-white dark:bg-white/5 border border-gray-200 dark:border-gray-700 rounded-[2rem] text-[10px] font-extrabold uppercase tracking-[0.3em] hover:bg-red-500 hover:text-white hover:border-red-500 transition-all shadow-xl active:scale-95">Initiate Support Protocol</button>
+                            </div>
                         </div>
                     </div>
-                </div>
+                </div>div>
 
                 <!-- Wishlist Tab -->
-                <div id="wishlist" class="tab-content hidden space-y-8">
-                    <h1 class="text-3xl font-heading font-bold">My Wishlist</h1>
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                        <div class="bg-white dark:bg-[#2A2A2A] rounded-2xl overflow-hidden border border-gray-100 dark:border-gray-800 group shadow-sm text-sm">
-                            <div class="relative aspect-square bg-[#F5F3EF] dark:bg-[#161616] p-8">
-                                <img src="../assets/images/coffee/beans.webp" class="w-full h-full object-cover mix-blend-multiply dark:mix-blend-normal group-hover:scale-105 transition-transform duration-500" alt="Product" loading="lazy">
-                                <button class="absolute top-4 right-4 p-2 bg-white dark:bg-gray-800 rounded-full text-red-500 shadow-sm transition-colors"><i data-lucide="trash-2" class="w-4 h-4"></i></button>
+                <div id="wishlist" class="tab-content hidden space-y-12">
+                    <div class="flex flex-col sm:flex-row justify-between items-center bg-white dark:bg-[#1C1C1C] p-12 rounded-[3rem] border border-gray-100 dark:border-gray-800 shadow-sm gap-8 relative overflow-hidden">
+                        <div class="absolute -left-10 -bottom-10 w-40 h-40 bg-primary/5 rounded-full blur-3xl"></div>
+                        <div class="relative z-10">
+                            <h3 class="text-3xl font-heading font-bold mb-2 leading-none">Curated Collection</h3>
+                            <p class="text-sm text-gray-400 font-medium tracking-wide">Refined selections saved for your future brewing rituals.</p>
+                        </div>
+                        <button class="relative z-10 px-10 py-4 bg-primary text-white rounded-2xl text-[10px] font-bold uppercase tracking-[0.2em] shadow-2xl shadow-primary/20 hover:scale-105 active:scale-95 transition-all">Depoly All to Registry</button>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                        <!-- Product Item 1 -->
+                        <div class="bg-white dark:bg-[#1C1C1C] rounded-[3rem] border border-gray-100 dark:border-gray-800 shadow-sm group overflow-hidden flex flex-col hover:shadow-2xl hover:-translate-y-2 transition-all duration-500">
+                            <div class="h-80 bg-gray-50 dark:bg-white/5 relative overflow-hidden flex items-center justify-center p-16">
+                                <div class="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                                <img src="../assets/images/coffee/beans.webp" class="w-full h-full object-contain drop-shadow-2xl group-hover:scale-110 transition-transform duration-700" alt="Yirgacheffe">
+                                <button class="absolute top-8 right-8 w-12 h-12 bg-white/80 dark:bg-black/80 backdrop-blur-md rounded-full text-red-500 hover:bg-red-500 hover:text-white transition-all flex items-center justify-center shadow-2xl border border-white/20">
+                                    <i data-lucide="x" class="w-5 h-5"></i>
+                                </button>
+                                <div class="absolute top-8 left-8 px-4 py-1.5 bg-primary text-white text-[8px] font-bold uppercase rounded-full tracking-widest shadow-2xl">Vintage 2026</div>
                             </div>
-                            <div class="p-6 text-center">
-                                <h3 class="font-bold mb-1">Yirgacheffe Reserve</h3>
-                                <p class="text-primary font-bold mb-4">$22.00</p>
-                                <button class="w-full py-2 bg-primary text-white text-sm font-bold rounded-lg">Add to Cart</button>
+                            <div class="p-10 flex flex-col flex-1">
+                                <div class="flex justify-between items-start mb-3">
+                                    <h4 class="font-bold text-2xl font-heading leading-none">Ethiopia Yirgacheffe</h4>
+                                    <span class="font-bold text-primary font-heading text-xl">$18.00</span>
+                                </div>
+                                <p class="text-[10px] text-gray-400 mb-8 uppercase tracking-[0.2em] font-extrabold flex items-center gap-2">Whole Bean <span class="w-1 h-1 bg-gray-300 rounded-full"></span> 250g Container</p>
+                                <div class="mt-auto pt-8 border-t border-gray-50 dark:border-gray-800">
+                                    <button class="w-full py-4 bg-dark dark:bg-white text-white dark:text-black text-[10px] font-bold uppercase tracking-[0.2em] rounded-2xl hover:bg-primary dark:hover:bg-primary dark:hover:text-white transition-all shadow-2xl">Transfer to Hub</button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Product Item 2 -->
+                        <div class="bg-white dark:bg-[#1C1C1C] rounded-[3rem] border border-gray-100 dark:border-gray-800 shadow-sm group overflow-hidden flex flex-col hover:shadow-2xl hover:-translate-y-2 transition-all duration-500">
+                            <div class="h-80 bg-gray-50 dark:bg-white/5 relative overflow-hidden flex items-center justify-center p-16">
+                                <div class="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                                <img src="../assets/images/coffee/capsule.webp" class="w-full h-full object-contain drop-shadow-2xl group-hover:scale-110 transition-transform duration-700" alt="Midnight Intenso">
+                                <button class="absolute top-8 right-8 w-12 h-12 bg-white/80 dark:bg-black/80 backdrop-blur-md rounded-full text-red-500 hover:bg-red-500 hover:text-white transition-all flex items-center justify-center shadow-2xl border border-white/20">
+                                    <i data-lucide="x" class="w-5 h-5"></i>
+                                </button>
+                            </div>
+                            <div class="p-10 flex flex-col flex-1">
+                                <div class="flex justify-between items-start mb-3">
+                                    <h4 class="font-bold text-2xl font-heading leading-none">Midnight Intenso</h4>
+                                    <span class="font-bold text-primary font-heading text-xl">$12.50</span>
+                                </div>
+                                <p class="text-[10px] text-gray-400 mb-8 uppercase tracking-[0.2em] font-extrabold flex items-center gap-2">Elite Pods <span class="w-1 h-1 bg-gray-300 rounded-full"></span> 10 Count</p>
+                                <div class="mt-auto pt-8 border-t border-gray-50 dark:border-gray-800">
+                                    <button class="w-full py-4 bg-dark dark:bg-white text-white dark:text-black text-[10px] font-bold uppercase tracking-[0.2em] rounded-2xl hover:bg-primary dark:hover:bg-primary dark:hover:text-white transition-all shadow-2xl">Transfer to Hub</button>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
 
                 <!-- Addresses Tab -->
-                <div id="addresses" class="tab-content hidden space-y-8">
-                    <h1 class="text-3xl font-heading font-bold">Shipping Addresses</h1>
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 text-sm">
-                        <div class="p-6 border-2 border-primary bg-primary/5 rounded-2xl relative">
-                            <span class="absolute top-4 right-4 text-[10px] font-bold uppercase bg-primary text-white px-2 py-0.5 rounded">Default</span>
-                            <h3 class="font-bold mb-2">Home</h3>
-                            <p class="text-sm text-gray-500 leading-relaxed">John Doe<br>123 Coffee Lane<br>Seattle, WA 98101<br>United States</p>
+                <div id="addresses" class="tab-content hidden space-y-10">
+                    <div class="flex justify-between items-center bg-white dark:bg-[#1C1C1C] p-8 rounded-[2rem] border border-gray-100 dark:border-gray-800 shadow-sm">
+                         <div>
+                            <h3 class="text-2xl font-heading font-bold mb-1">Shipping Ports</h3>
+                            <p class="text-sm text-gray-400">Manage where your gourmet batches are delivered.</p>
+                         </div>
+                         <button class="px-6 py-3 bg-primary text-white rounded-xl text-xs font-bold hover:bg-primary/90 transition-all shadow-lg shadow-primary/20">Add Address</button>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                        <div class="bg-white dark:bg-[#1C1C1C] p-10 rounded-[2.5rem] border-2 border-primary shadow-xl relative overflow-hidden group">
+                            <div class="absolute -right-6 -top-6 w-32 h-32 bg-primary/5 rounded-full flex items-center justify-center group-hover:bg-primary/10 transition-colors">
+                                <i data-lucide="home" class="text-primary w-8 h-8 opacity-40"></i>
+                            </div>
+                            <div class="flex items-center gap-3 mb-6 relative z-10">
+                                <h4 class="font-bold text-xl">The Penthouse</h4>
+                                <span class="px-3 py-1 bg-primary text-white text-[8px] font-bold rounded-full uppercase tracking-[0.2em] shadow-lg">Primary</span>
+                            </div>
+                            <div class="space-y-2 text-gray-500 mb-8 relative z-10 leading-relaxed font-medium">
+                                <p>482 Coffee Lane, Suite 102</p>
+                                <p>Manhattan, New York</p>
+                                <p>NY 10001, United States</p>
+                            </div>
+                            <div class="flex gap-6 relative z-10">
+                                <button class="text-xs font-bold text-gray-900 dark:text-white hover:text-primary transition-colors flex items-center gap-1.5"><i data-lucide="edit-3" class="w-3.5 h-3.5"></i> Edit</button>
+                                <button class="text-xs font-bold text-red-500 hover:text-red-600 transition-colors flex items-center gap-1.5"><i data-lucide="trash-2" class="w-3.5 h-3.5"></i> Remove</button>
+                            </div>
                         </div>
-                        <button class="border-2 border-dashed border-gray-200 dark:border-gray-700 rounded-2xl flex flex-col items-center justify-center p-6 text-gray-400 hover:text-primary hover:border-primary transition-colors">
-                            <i data-lucide="plus" class="w-8 h-8 mb-2"></i>
-                            <span class="text-sm font-bold uppercase tracking-widest">Add New Address</span>
-                        </button>
+
+                         <div class="bg-white dark:bg-[#1C1C1C] p-10 rounded-[2.5rem] border border-gray-100 dark:border-gray-800 shadow-sm group hover:shadow-lg transition-all">
+                            <div class="flex items-center gap-3 mb-6">
+                                <h4 class="font-bold text-xl text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white transition-colors">Corporate HQ</h4>
+                            </div>
+                            <div class="space-y-2 text-gray-400 group-hover:text-gray-500 transition-colors mb-8 leading-relaxed font-medium">
+                                <p>25 Tech Plaza, Ground Floor</p>
+                                <p>Brooklyn, New York</p>
+                                <p>NY 11201, United States</p>
+                            </div>
+                            <div class="flex gap-6">
+                                <button class="text-xs font-bold text-gray-400 hover:text-primary transition-colors">Edit Address</button>
+                                <button class="text-xs font-bold text-red-400 hover:text-red-500 transition-colors">Delete</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
                 <!-- Settings Tab -->
-                <div id="settings" class="tab-content hidden space-y-8">
-                    <h1 class="text-3xl font-heading font-bold">Account Settings</h1>
-                    <div class="bg-white dark:bg-[#2A2A2A] p-8 rounded-2xl border border-gray-100 dark:border-gray-800 space-y-6 text-sm">
-                        <div class="grid grid-cols-2 gap-6">
-                            <div><label class="block text-[10px] font-bold uppercase text-gray-400 mb-2">First Name</label><input type="text" value="John" class="w-full bg-gray-50 dark:bg-gray-800 rounded-xl px-4 py-3 outline-none focus:ring-1 focus:ring-primary"></div>
-                            <div><label class="block text-[10px] font-bold uppercase text-gray-400 mb-2">Last Name</label><input type="text" value="Doe" class="w-full bg-gray-50 dark:bg-gray-800 rounded-xl px-4 py-3 outline-none focus:ring-1 focus:ring-primary"></div>
-                        </div>
-                        <div><label class="block text-[10px] font-bold uppercase text-gray-400 mb-2">Email Address</label><input type="email" value="john@example.com" class="w-full bg-gray-50 dark:bg-gray-800 rounded-xl px-4 py-3 outline-none focus:ring-1 focus:ring-primary"></div>
-                        <button class="bg-primary text-white px-8 py-3 rounded-xl font-bold">Save Changes</button>
-                    </div>
-                </div>
-
-                <!-- Messages Tab -->
-                <div id="messages" class="tab-content hidden space-y-8 text-sm">
-                    <h1 class="text-3xl font-heading font-bold">Messages</h1>
-                    <div class="space-y-4">
-                        <div class="bg-white dark:bg-[#2A2A2A] p-6 rounded-2xl border border-gray-100 dark:border-gray-800 flex flex-col md:flex-row gap-4 items-start md:items-center justify-between hover:shadow-md transition-shadow">
-                            <div class="flex items-center gap-4">
-                                <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center text-primary font-bold">S</div>
-                                <div>
-                                    <p class="font-bold text-sm">Espresso Elite Support <span class="text-gray-400 font-normal ml-2">Just now</span></p>
-                                    <p class="text-sm text-gray-500">Your order #ORD-0921 has been shipped! View tracking...</p>
+                <div id="settings" class="tab-content hidden space-y-12">
+                     <div class="max-w-4xl mx-auto bg-white dark:bg-[#1C1C1C] p-16 rounded-[3rem] border border-gray-100 dark:border-gray-800 shadow-2xl relative overflow-hidden">
+                        <div class="absolute -right-20 -top-20 w-80 h-80 bg-primary/5 rounded-full blur-[100px]"></div>
+                        
+                        <div class="relative z-10">
+                            <div class="flex flex-col sm:flex-row items-center gap-8 mb-16 pb-12 border-b border-gray-50 dark:border-white/5">
+                                <div class="w-24 h-24 rounded-[2rem] bg-primary text-white flex items-center justify-center text-4xl font-heading font-bold shadow-2xl shadow-primary/20 relative group overflow-hidden">
+                                     <span class="relative z-10">JD</span>
+                                     <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center cursor-pointer">
+                                        <i data-lucide="camera" class="w-6 h-6"></i>
+                                     </div>
+                                </div>
+                                <div class="text-center sm:text-left">
+                                    <h3 class="text-4xl font-heading font-bold mb-2">Identity Configuration</h3>
+                                    <p class="text-sm text-gray-400 font-medium tracking-wide italic">Securely manage your Espresso Elite credentials and preferences.</p>
                                 </div>
                             </div>
-                            <span class="w-2 h-2 bg-primary rounded-full"></span>
+
+                            <div class="space-y-12">
+                                <div class="grid md:grid-cols-2 gap-10">
+                                    <div class="space-y-4">
+                                        <label class="text-[10px] font-extrabold uppercase tracking-[0.3em] text-gray-400 px-2">Primary Identity</label>
+                                        <input type="text" value="John" class="w-full bg-gray-50 dark:bg-white/5 border border-transparent focus:border-primary/20 focus:bg-white dark:focus:bg-white/10 px-8 py-5 rounded-[1.5rem] outline-none transition-all font-bold text-base shadow-inner">
+                                    </div>
+                                    <div class="space-y-4">
+                                        <label class="text-[10px] font-extrabold uppercase tracking-[0.3em] text-gray-400 px-2">Family Designation</label>
+                                        <input type="text" value="Doe" class="w-full bg-gray-50 dark:bg-white/5 border border-transparent focus:border-primary/20 focus:bg-white dark:focus:bg-white/10 px-8 py-5 rounded-[1.5rem] outline-none transition-all font-bold text-base shadow-inner">
+                                    </div>
+                                </div>
+                                <div class="space-y-4">
+                                    <label class="text-[10px] font-extrabold uppercase tracking-[0.3em] text-gray-400 px-2">Authenticated Interface</label>
+                                    <input type="email" value="john@espressoelite.com" class="w-full bg-gray-50 dark:bg-white/5 border border-transparent focus:border-primary/20 focus:bg-white dark:focus:bg-white/10 px-8 py-5 rounded-[1.5rem] outline-none transition-all font-bold text-base shadow-inner">
+                                </div>
+                                
+                                <div class="pt-12 flex flex-col sm:flex-row gap-6">
+                                    <button class="flex-1 py-5 bg-primary text-white rounded-[2rem] font-bold text-[10px] uppercase tracking-[0.25em] shadow-2xl shadow-primary/40 hover:scale-[1.02] active:scale-95 transition-all">Synchronize Profiles</button>
+                                    <button class="px-12 py-5 bg-gray-100 dark:bg-white/5 rounded-[2rem] font-extrabold text-[10px] uppercase tracking-[0.25em] hover:bg-gray-200 transition-all">Revert to Source</button>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-            </main>
-        </div>
+                <!-- Security Tab -->
+                <div id="addresses" class="tab-content hidden space-y-12">
+                     <div class="max-w-4xl mx-auto space-y-12">
+                        <div class="bg-white dark:bg-[#1C1C1C] p-16 rounded-[3rem] border border-gray-100 dark:border-gray-800 shadow-2xl relative overflow-hidden">
+                            <div class="absolute -right-20 -bottom-20 w-80 h-80 bg-primary/5 rounded-full blur-[100px]"></div>
+                            <div class="relative z-10">
+                                <h3 class="text-3xl font-heading font-bold mb-10 flex items-center gap-4">
+                                    <div class="w-12 h-12 bg-primary/10 rounded-2xl flex items-center justify-center text-primary">
+                                        <i data-lucide="shield-check" class="w-6 h-6"></i>
+                                    </div>
+                                    Authentication Protocols
+                                </h3>
+                                <div class="space-y-10">
+                                    <div class="grid md:grid-cols-2 gap-10">
+                                        <div class="space-y-4">
+                                            <label class="text-[10px] font-extrabold uppercase tracking-[0.3em] text-gray-400 px-2">Current Access Code</label>
+                                            <input type="password" placeholder="••••••••" class="w-full bg-gray-50 dark:bg-white/5 border border-transparent focus:border-primary/20 focus:bg-white dark:focus:bg-white/10 px-8 py-5 rounded-[1.5rem] outline-none transition-all font-bold text-base shadow-inner">
+                                        </div>
+                                        <div class="space-y-4">
+                                            <label class="text-[10px] font-extrabold uppercase tracking-[0.3em] text-gray-400 px-2">New Security Sequence</label>
+                                            <input type="password" placeholder="••••••••" class="w-full bg-gray-50 dark:bg-white/5 border border-transparent focus:border-primary/20 focus:bg-white dark:focus:bg-white/10 px-8 py-5 rounded-[1.5rem] outline-none transition-all font-bold text-base shadow-inner">
+                                        </div>
+                                    </div>
+                                    <button class="px-12 py-5 bg-dark dark:bg-white text-white dark:text-black rounded-[2rem] font-extrabold text-[10px] uppercase tracking-[0.25em] hover:bg-primary dark:hover:bg-primary dark:hover:text-white transition-all shadow-xl active:scale-95">Synchronize Credentials</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-primary/5 p-12 rounded-[3.5rem] border border-primary/10 flex flex-col md:flex-row items-center justify-between gap-10 group relative overflow-hidden">
+                            <div class="absolute inset-0 bg-white/50 dark:bg-black/20 backdrop-blur-3xl -z-10"></div>
+                            <div class="flex items-center gap-8">
+                                <div class="w-24 h-24 bg-primary text-white rounded-[2.5rem] flex items-center justify-center shadow-2xl shadow-primary/40 group-hover:rotate-6 transition-transform">
+                                    <i data-lucide="smartphone" class="w-10 h-10"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-3xl font-heading font-bold mb-3 tracking-tight">Multi-Factor Security</h4>
+                                    <p class="text-sm text-gray-400 max-w-md font-medium leading-relaxed">Add a tactical second layer to your account. Secure every session with mobile verification protocols.</p>
+                                </div>
+                            </div>
+                            <button class="px-12 py-6 bg-primary text-white rounded-[2rem] font-extrabold text-[10px] uppercase tracking-[0.3em] shadow-[0_15px_40px_rgba(111,78,55,0.3)] hover:scale-105 active:scale-95 transition-all whitespace-nowrap">Initialize 2FA</button>
+                        </div>
+                     </div>
+                </div>
+
+                <!-- Footer (Admin Style) -->
+                <footer class="mt-12 py-8 border-t border-gray-100 dark:border-gray-800 flex flex-col md:flex-row justify-between items-center text-xs text-gray-400 gap-4">
+                    <p>&copy; 2026 Espresso Elite Portal. All rights reserved.</p>
+                    <div class="flex gap-6 font-bold uppercase tracking-widest">
+                        <a href="#" class="hover:text-primary transition-colors">Privacy Policy</a>
+                        <a href="#" class="hover:text-primary transition-colors">Terms of Service</a>
+                        <a href="#" class="hover:text-primary transition-colors">Help Center</a>
+                    </div>
+                </footer>
+            </div>
+        </main>
     </div>
 
-    <!-- 5. SCRIPTS -->
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
     <script src="../assets/js/main.js"></script>
-    <script src="../assets/js/dashboard.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const adminMenuToggle = document.getElementById('admin-menu-toggle');
+            const sidebar = document.getElementById('sidebar');
+            const tabLinks = document.querySelectorAll('.tab-link');
+            const tabContents = document.querySelectorAll('.tab-content');
+            const pageTitle = document.getElementById('page-title');
+
+            // Sidebar toggle for mobile
+            if (adminMenuToggle && sidebar) {
+                adminMenuToggle.addEventListener('click', () => {
+                    sidebar.classList.toggle('-translate-x-full');
+                });
+            }
+
+            // Tab navigation logic
+            function switchTab(tabId) {
+                if (!tabId) return;
+
+                tabLinks.forEach(link => {
+                    if (link.dataset.tab === tabId) {
+                        link.classList.add('bg-primary', 'text-white', 'shadow-lg', 'shadow-primary/20');
+                        link.classList.remove('text-gray-500', 'hover:bg-gray-50', 'dark:text-gray-400', 'dark:hover:bg-white/5');
+                        
+                        // Update title
+                        const label = link.textContent.trim();
+                        pageTitle.textContent = label;
+                    } else {
+                        link.classList.remove('bg-primary', 'text-white', 'shadow-lg', 'shadow-primary/20');
+                        link.classList.add('text-gray-500', 'hover:bg-gray-50', 'dark:text-gray-400', 'dark:hover:bg-white/5');
+                    }
+                });
+
+                tabContents.forEach(content => {
+                    if (content.id === tabId) {
+                        content.classList.remove('hidden');
+                        gsap.fromTo(content, { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.4, ease: 'power2.out' });
+                    } else {
+                        content.classList.add('hidden');
+                    }
+                });
+
+                // Auto hide sidebar on mobile after click
+                if (window.innerWidth < 768) {
+                    sidebar.classList.add('-translate-x-full');
+                }
+            }
+
+            tabLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const tabId = link.dataset.tab;
+                    switchTab(tabId);
+                    window.location.hash = tabId;
+                });
+            });
+
+            // Handle internal tab links (like "Full History" button)
+            document.querySelectorAll('.tab-link-internal').forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const tabId = link.dataset.tab;
+                    switchTab(tabId);
+                    window.location.hash = tabId;
+                });
+            });
+
+            // Handle Hash
+            const hash = window.location.hash.replace('#', '');
+            if (hash) switchTab(hash);
+            
+            // Handle Dark Mode within iframe/standalone
+            const dmToggle = document.getElementById('dark-mode-toggle');
+            if(dmToggle) {
+                dmToggle.addEventListener('click', () => {
+                    window.dispatchEvent(new CustomEvent('toggleDarkMode'));
+                });
+            }
+        });
+    </script>
 </body>
 </html>

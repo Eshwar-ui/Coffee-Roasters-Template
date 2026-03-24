@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Join the Elite Coffee Club | Espresso Elite Sign Up</title>
+    <meta name="description" content="Start your specialty coffee journey. Join Espresso Elite to access rare micro-lot beans, 100% compostable capsules, and exclusive member rewards.">
+    <link rel="icon" type="image/png" href="../assets/images/ui/favicon.png">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/dark-mode.css">
+    <link rel="stylesheet" href="../assets/css/rtl.css">
+
+    <!-- Animation Libs -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: { primary: '#6F4E37', secondary: '#C4A484', accent: '#D4A373', background: '#F5F3EF', dark: '#121212' },
+                    fontFamily: { heading: ['Playfair Display', 'serif'], body: ['Inter', 'sans-serif'] }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="antialiased bg-gray-50 dark:bg-dark text-gray-900 dark:text-gray-100 transition-colors duration-300">
+
+    <div class="flex min-h-screen">
+        
+        <!-- 1. FORM SIDE (LEFT ON SIGNUP) -->
+        <div class="flex-1 flex flex-col items-center justify-center p-6 sm:p-12 md:p-24 bg-white dark:bg-dark relative overflow-hidden">
+            <!-- Mobile Header -->
+            <div class="lg:hidden absolute top-10 left-10 flex items-center gap-2">
+                 <i data-lucide="coffee" class="text-primary w-6 h-6"></i>
+                 <span class="font-heading font-bold text-xl tracking-tight">Espresso Elite</span>
+            </div>
+
+            <div class="absolute top-10 left-10 flex gap-3 z-20">
+                 <button id="rtl-toggle" class="px-2.5 py-1 bg-primary/10 text-primary rounded-lg text-[9px] font-bold uppercase tracking-widest border border-primary/20">RTL</button>
+                 <button id="dark-mode-toggle" class="p-2 text-gray-500 hover:bg-gray-100 dark:hover:bg-white/5 rounded-lg transition"><i data-lucide="moon" class="w-4 h-4"></i></button>
+            </div>
+
+            <div class="w-full max-w-md space-y-8 signup-form-container py-12">
+                <div class="space-y-3">
+                    <h2 class="text-3xl font-heading font-bold tracking-tight">Start Your Journey</h2>
+                    <p class="text-gray-400 font-bold text-[10px] uppercase tracking-widest">Already a master member? <a href="login.html" class="text-primary hover:underline ml-1">Join the lounge here</a></p>
+                </div>
+
+                <form class="space-y-5">
+                    <div class="space-y-2">
+                        <label for="name" class="text-[10px] font-bold text-gray-400 uppercase tracking-widest ml-1">Legal Full Name</label>
+                        <div class="relative group">
+                            <span class="absolute inset-y-0 left-0 pl-4 flex items-center text-gray-400 group-focus-within:text-primary transition-colors"><i data-lucide="user" class="w-4 h-4"></i></span>
+                            <input type="text" id="name" placeholder="Johnathan Doe" class="w-full pl-12 pr-4 py-3.5 bg-gray-50 dark:bg-white/5 border border-transparent focus:border-primary/50 focus:bg-white dark:focus:bg-black rounded-2xl text-sm outline-none transition-all shadow-inner">
+                        </div>
+                    </div>
+
+                    <div class="space-y-2">
+                        <label for="email" class="text-[10px] font-bold text-gray-400 uppercase tracking-widest ml-1">Master Email</label>
+                        <div class="relative group">
+                            <span class="absolute inset-y-0 left-0 pl-4 flex items-center text-gray-400 group-focus-within:text-primary transition-colors"><i data-lucide="mail" class="w-4 h-4"></i></span>
+                            <input type="email" id="email" placeholder="concierge@example.com" class="w-full pl-12 pr-4 py-3.5 bg-gray-50 dark:bg-white/5 border border-transparent focus:border-primary/50 focus:bg-white dark:focus:bg-black rounded-2xl text-sm outline-none transition-all shadow-inner">
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="space-y-2">
+                            <label for="password" class="text-[10px] font-bold text-gray-400 uppercase tracking-widest ml-1 font-body">Input PIN</label>
+                            <input type="password" id="password" placeholder="••••••••" class="w-full px-4 py-3.5 bg-gray-50 dark:bg-white/5 border border-transparent focus:border-primary/50 focus:bg-white dark:focus:bg-black rounded-2xl text-sm outline-none transition-all shadow-inner">
+                        </div>
+                        <div class="space-y-2">
+                            <label for="confirm" class="text-[10px] font-bold text-gray-400 uppercase tracking-widest ml-1 font-body">Confirm PIN</label>
+                            <input type="password" id="confirm" placeholder="••••••••" class="w-full px-4 py-3.5 bg-gray-50 dark:bg-white/5 border border-transparent focus:border-primary/50 focus:bg-white dark:focus:bg-black rounded-2xl text-sm outline-none transition-all shadow-inner">
+                        </div>
+                    </div>
+
+                    <div class="space-y-4 pt-2">
+                        <div class="flex items-start">
+                            <input type="checkbox" id="terms" class="mt-1 w-4 h-4 text-primary border-gray-300 dark:border-gray-800 rounded focus:ring-primary accent-primary cursor-pointer">
+                            <label for="terms" class="ml-3 text-[11px] font-bold text-gray-500 dark:text-gray-400 leading-relaxed select-none cursor-pointer">
+                                I solemnly agree to the <a href="#" class="text-primary hover:underline">Membership Agreement</a> & the <a href="#" class="text-primary hover:underline">Coffee Connoisseur Terms</a>.
+                            </label>
+                        </div>
+                        <div class="flex items-start">
+                            <input type="checkbox" id="newsletter" checked class="mt-1 w-4 h-4 text-primary border-gray-300 dark:border-gray-800 rounded focus:ring-primary accent-primary cursor-pointer">
+                            <label for="newsletter" class="ml-3 text-[11px] font-bold text-gray-500 dark:text-gray-400 leading-relaxed select-none cursor-pointer">
+                                Notify me of new seasonal roasts and exclusive limited editions.
+                            </label>
+                        </div>
+                    </div>
+
+                    <button type="submit" onclick="window.location.href='dashboard-user.html'; return false;" class="group w-full py-4 bg-[#6F4E37] text-white font-bold rounded-2xl shadow-xl shadow-[#6F4E37]/20 hover:shadow-[#6F4E37]/40 hover:-translate-y-0.5 active:translate-y-0 transition-all flex items-center justify-center gap-3 relative z-10">
+                        Join Membership <i data-lucide="chevrons-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+                    </button>
+                </form>
+
+                <div class="relative flex items-center py-2">
+                    <div class="flex-grow border-t border-gray-100 dark:border-gray-800"></div>
+                </div>
+
+                <div class="flex justify-center gap-6 pt-4 grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition-all cursor-not-allowed">
+                     <i data-lucide="shield-check" class="w-5 h-5"></i>
+                     <i data-lucide="award" class="w-5 h-5"></i>
+                     <i data-lucide="badge-check" class="w-5 h-5"></i>
+                </div>
+            </div>
+            
+            <p class="absolute bottom-10 text-[9px] text-gray-300 font-bold uppercase tracking-widest text-center">
+                Member of Global Specialty Coffee Association <br>
+                EST. 2026 • DIGITAL ELITE
+            </p>
+        </div>
+
+        <!-- 2. VISUAL SIDE -->
+        <div class="hidden lg:flex w-1/2 relative bg-[#6F4E37] overflow-hidden items-center justify-center p-12">
+            <div class="absolute inset-0 z-0">
+                <img src="../assets/images/ui/signup-bg.png" alt="Coffee Craft" class="w-full h-full object-cover mix-blend-overlay opacity-40">
+            </div>
+            
+            <div class="relative z-10 max-w-lg space-y-10 text-white">
+                <div class="space-y-4">
+                    <div class="w-fit px-3 py-1 bg-white/10 backdrop-blur-md rounded-full text-[9px] font-bold uppercase tracking-[0.2em] text-accent border border-white/10">The Gold Standard</div>
+                    <h1 class="text-6xl font-heading font-bold leading-tight">Craft Your <br> <span class="italic text-accent">Perfection.</span></h1>
+                </div>
+
+                <ul class="space-y-6">
+                    <li class="flex items-start gap-4">
+                        <div class="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center border border-white/20 shrink-0"><i data-lucide="zap" class="w-5 h-5 text-accent"></i></div>
+                        <div>
+                            <p class="font-bold text-lg">Instant Profile</p>
+                            <p class="text-sm font-light text-white/60">Define your flavor notes and get customized monthly blends.</p>
+                        </div>
+                    </li>
+                     <li class="flex items-start gap-4">
+                        <div class="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center border border-white/20 shrink-0"><i data-lucide="truck" class="w-5 h-5 text-accent"></i></div>
+                        <div>
+                            <p class="font-bold text-lg">Priority Dispatch</p>
+                            <p class="text-sm font-light text-white/60">Members get first access to rare micro-lot beans.</p>
+                        </div>
+                    </li>
+                     <li class="flex items-start gap-4">
+                        <div class="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center border border-white/20 shrink-0"><i data-lucide="percent" class="w-5 h-5 text-accent"></i></div>
+                        <div>
+                            <p class="font-bold text-lg">Exclusive Rewards</p>
+                            <p class="text-sm font-light text-white/60">Earn points for every sip and unlock brewing hardware.</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="../assets/js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+             // Entrance animations
+             gsap.from(".signup-form-container", { opacity: 0, x: -25, duration: 1.2, ease: 'power4.out' });
+             gsap.from("form > div, form > button, .relative", { opacity: 0, y: 20, stagger: 0.12, duration: 0.8, ease: 'power3.out', delay: 0.4 });
+             
+             const visualItems = document.querySelectorAll('.lg\\:flex li');
+             gsap.from(visualItems, { opacity: 0, x: 40, stagger: 0.2, duration: 1, ease: 'back.out(1.7)', delay: 0.8 });
+        });
+    </script>
+</body>
+</html>

@@ -3,10 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shop | Espresso Elite</title>
-    <meta name="description" content="Browse our collection of premium coffee capsules, whole beans, and brewing equipment. Free shipping on orders over $50.">
-    <meta property="og:title" content="Shop Coffee | Espresso Elite">
-    <meta property="og:description" content="Browse our collection of premium coffee capsules, whole beans, and brewing equipment. Free shipping on orders over $50.">
+    <link rel="icon" type="image/png" href="../assets/images/ui/favicon.png">
+    <title>Shop Premium Coffee & Sustainable Pods | Espresso Elite</title>
+    <meta name="description" content="Shop the finest specialty coffee beans and 100% compostable espresso pods. Free shipping on orders over $50. Artisanal roasts delivered to your door.">
+    <meta name="keywords" content="buy coffee online, specialty coffee pods, compostable capsules, coffee beans subscription">
+    <link rel="canonical" href="https://espresso-elite.com/pages/shop.html" />
+
+    <meta property="og:title" content="Shop Premium Coffee & Sustainable Pods | Espresso Elite">
+    <meta property="og:description" content="Shop the finest specialty coffee beans and 100% compostable espresso pods.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://espresso-elite.com/pages/shop.html">
+    <meta property="og:image" content="https://espresso-elite.com/assets/images/coffee/beans.webp">
     
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
@@ -33,7 +40,135 @@
 <body class="antialiased transition-colors duration-300 bg-background dark:bg-[#161616]">
 
     <!-- 1. NAVIGATION HEADER -->
-    <script src="../assets/js/navbar.js"></script>
+    <nav class="fixed w-full z-50 bg-white/90 dark:bg-[#161616]/90 backdrop-blur-md border-b border-gray-200 dark:border-gray-800 transition-colors duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <!-- Logo -->
+                <a href="../index.html" class="flex items-center gap-2">
+                    <i data-lucide="coffee" class="text-primary h-8 w-8"></i>
+                    <span class="font-heading font-bold text-2xl tracking-tight hidden sm:block">Espresso Elite</span>
+                </a>
+
+                <!-- Desktop Menu -->
+                <div class="hidden lg:flex items-center gap-6">
+                    
+                    <!-- Home -->
+                    <div class="relative group">
+                        <button class="text-sm font-medium hover:text-primary dark:hover:text-accent transition flex items-center gap-1 py-8">Home <i data-lucide="chevron-down" class="w-4 h-4"></i></button>
+                        <div class="absolute top-20 left-0 w-48 bg-white dark:bg-[#2A2A2A] border border-gray-100 dark:border-gray-800 rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 flex flex-col pt-2 pb-2">
+                            <a href="../index.html" class="px-4 py-2 text-sm hover:text-primary dark:hover:text-accent hover:bg-gray-50 dark:hover:bg-white/5 transition-colors">Home 1 (Capsules)</a>
+                            <a href="index-2.html" class="px-4 py-2 text-sm hover:text-primary dark:hover:text-accent hover:bg-gray-50 dark:hover:bg-white/5 transition-colors">Home 2 (Story)</a>
+                        </div>
+                    </div>
+
+                    <!-- Shop -->
+                    <div class="relative group">
+                        <button class="text-sm font-bold text-primary dark:text-accent transition flex items-center gap-1 py-8">Shop <i data-lucide="chevron-down" class="w-4 h-4"></i></button>
+                        <div class="absolute top-20 left-0 w-48 bg-white dark:bg-[#2A2A2A] border border-gray-100 dark:border-gray-800 rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 flex flex-col pt-2 pb-2">
+                            <a href="shop.html" class="px-4 py-2 text-sm text-primary dark:text-accent font-bold hover:bg-gray-50 dark:hover:bg-white/5 transition-colors">Shop Grid</a>
+                            <a href="product-single.html" class="px-4 py-2 text-sm hover:text-primary dark:hover:text-accent hover:bg-gray-50 dark:hover:bg-white/5 transition-colors">Product Details</a>
+                            <a href="cart.html" class="px-4 py-2 text-sm hover:text-primary dark:hover:text-accent hover:bg-gray-50 dark:hover:bg-white/5 transition-colors">Cart</a>
+                            <a href="checkout.html" class="px-4 py-2 text-sm hover:text-primary dark:hover:text-accent hover:bg-gray-50 dark:hover:bg-white/5 transition-colors">Checkout</a>
+                        </div>
+                    </div>
+
+                    <!-- Categories -->
+                    <div class="relative group">
+                        <a href="categories.html" class="text-sm font-medium hover:text-primary dark:hover:text-accent transition flex items-center gap-1 py-8">Categories <i data-lucide="chevron-down" class="w-4 h-4"></i></a>
+                        <div class="absolute top-20 left-0 w-48 bg-white dark:bg-[#2A2A2A] border border-gray-100 dark:border-gray-800 rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 flex flex-col pt-2 pb-2">
+                            <a href="shop.html?category=capsules" class="px-4 py-2 text-sm hover:text-primary dark:hover:text-accent hover:bg-gray-50 dark:hover:bg-white/5 transition-colors">Coffee Capsules</a>
+                            <a href="shop.html?category=beans" class="px-4 py-2 text-sm hover:text-primary dark:hover:text-accent hover:bg-gray-50 dark:hover:bg-white/5 transition-colors">Whole Beans</a>
+                            <a href="shop.html?category=equipment" class="px-4 py-2 text-sm hover:text-primary dark:hover:text-accent hover:bg-gray-50 dark:hover:bg-white/5 transition-colors">Brewing Equipment</a>
+                        </div>
+                    </div>
+
+                    <!-- Deals -->
+                    <a href="deals.html" class="text-sm font-medium hover:text-primary dark:hover:text-accent transition py-8 flex items-center gap-1">Deals <span class="bg-red-500 text-white text-[10px] font-bold px-1.5 py-0.5 rounded uppercase">Sale</span></a>
+
+                    <!-- Blog -->
+                    <div class="relative group">
+                        <button class="text-sm font-medium hover:text-primary dark:hover:text-accent transition flex items-center gap-1 py-8">Blog <i data-lucide="chevron-down" class="w-4 h-4"></i></button>
+                        <div class="absolute top-20 left-0 w-48 bg-white dark:bg-[#2A2A2A] border border-gray-100 dark:border-gray-800 rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 flex flex-col pt-2 pb-2">
+                            <a href="blog.html" class="px-4 py-2 text-sm hover:text-primary dark:hover:text-accent hover:bg-gray-50 dark:hover:bg-white/5 transition-colors">Journal Grid</a>
+                            <a href="blog-single.html" class="px-4 py-2 text-sm hover:text-primary dark:hover:text-accent hover:bg-gray-50 dark:hover:bg-white/5 transition-colors">Single Post</a>
+                        </div>
+                    </div>
+
+                    <!-- Account -->
+                    <div class="relative group">
+                        <button class="text-sm font-medium hover:text-primary dark:hover:text-accent transition flex items-center gap-1 py-8">Account <i data-lucide="chevron-down" class="w-4 h-4"></i></button>
+                        <div class="absolute top-20 right-0 w-48 bg-white dark:bg-[#2A2A2A] border border-gray-100 dark:border-gray-800 rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 flex flex-col pt-2 pb-2">
+                            <a href="dashboard-user.html" class="px-4 py-2 text-sm hover:text-primary dark:hover:text-accent hover:bg-gray-50 dark:hover:bg-white/5 transition-colors">User Dashboard</a>
+                            <a href="dashboard-admin.html" class="px-4 py-2 text-sm hover:text-primary dark:hover:text-accent hover:bg-gray-50 dark:hover:bg-white/5 transition-colors">Admin Dashboard</a>
+                            <div class="border-t border-gray-100 dark:border-gray-800 my-1"></div>
+                            <a href="dashboard-user.html?tab=orders" class="px-4 py-2 text-sm hover:text-primary dark:hover:text-accent hover:bg-gray-50 dark:hover:bg-white/5 transition-colors">Track Order</a>
+                            <a href="dashboard-user.html?tab=wishlist" class="px-4 py-2 text-sm hover:text-primary dark:hover:text-accent hover:bg-gray-50 dark:hover:bg-white/5 transition-colors">My Wishlist</a>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Action Icons -->
+                <div class="flex items-center gap-2">
+                    <button id="rtl-toggle" class="px-3 py-2 bg-primary text-white rounded-lg text-[10px] font-bold transition-all hover:bg-gray-900 dark:hover:bg-primary/80 uppercase tracking-widest shadow-sm hover:shadow-md" title="Toggle RTL" aria-label="Toggle RTL text direction">
+                        RTL
+                    </button>
+                    <button id="dark-mode-toggle" class="p-2 hover:bg-black/5 dark:hover:bg-white/10 rounded-full transition relative block" aria-label="Toggle dark mode">
+                        <i data-lucide="moon" class="w-5 h-5"></i>
+                    </button>
+                    <!-- Wishlist Icon -->
+                    <a href="dashboard-user.html?tab=wishlist" class="p-2 hover:bg-black/5 dark:hover:bg-white/10 rounded-full transition relative hidden sm:block" aria-label="Wishlist">
+                        <i data-lucide="heart" class="w-5 h-5"></i>
+                    </a>
+                    <a href="cart.html" class="p-2 hover:bg-black/5 dark:hover:bg-white/10 rounded-full transition relative block" aria-label="Shopping cart">
+                        <i data-lucide="shopping-bag" class="w-5 h-5"></i>
+                        <span class="absolute top-0 right-0 h-4 w-4 bg-primary text-white text-[10px] font-bold rounded-full flex items-center justify-center">2</span>
+                    </a>
+                    <button id="mobile-menu-btn" class="p-2 hover:bg-black/5 dark:hover:bg-white/10 rounded-full transition lg:hidden" aria-label="Open mobile menu">
+                        <i data-lucide="menu" class="w-6 h-6"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Placeholder -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-white dark:bg-[#161616] border-t border-gray-200 dark:border-gray-800 p-4 absolute w-full transition-all duration-300 shadow-xl overflow-y-auto max-h-[80vh]">
+             <div class="flex flex-col gap-2 pb-6">
+                  <div class="font-bold text-gray-400 uppercase tracking-wider text-[10px] pt-4 pb-2 border-b border-gray-100 dark:border-gray-800">Home</div>
+                  <a href="../index.html" class="text-sm font-medium hover:text-primary dark:hover:text-accent pl-2 py-1">Home 1 (Capsules)</a>
+                  <a href="index-2.html" class="text-sm font-medium hover:text-primary dark:hover:text-accent pl-2 py-1">Home 2 (Story)</a>
+                  
+                  <div class="font-bold text-gray-400 uppercase tracking-wider text-[10px] pt-4 pb-2 border-b border-gray-100 dark:border-gray-800">Shop</div>
+                  <a href="shop.html" class="text-sm font-bold text-primary dark:text-accent pl-2 py-1">Shop Grid</a>
+                  <a href="product-single.html" class="text-sm font-medium hover:text-primary dark:hover:text-accent pl-2 py-1">Product Details</a>
+                  
+                  <div class="font-bold text-gray-400 uppercase tracking-wider text-[10px] pt-4 pb-2 border-b border-gray-100 dark:border-gray-800">Categories</div>
+                  <a href="categories.html" class="text-sm font-medium hover:text-primary dark:hover:text-accent pl-2 py-1">View All Categories</a>
+                  <a href="shop.html?category=capsules" class="text-sm font-medium hover:text-primary dark:hover:text-accent pl-2 py-1">Coffee Capsules</a>
+                  <a href="shop.html?category=beans" class="text-sm font-medium hover:text-primary dark:hover:text-accent pl-2 py-1">Whole Beans</a>
+                  
+                  <a href="deals.html" class="font-bold text-primary dark:text-accent tracking-wider text-[12px] pt-4 pb-2 border-b border-gray-100 dark:border-gray-800 uppercase flex items-center gap-2">Deals <span class="bg-red-500 text-white px-1.5 py-0.5 rounded">Sale</span></a>
+                  
+                  <div class="font-bold text-gray-400 uppercase tracking-wider text-[10px] pt-4 pb-2 border-b border-gray-100 dark:border-gray-800">Blog</div>
+                  <a href="blog.html" class="text-sm font-medium hover:text-primary dark:hover:text-accent pl-2 py-1">Journal Grid</a>
+                  <a href="blog-single.html" class="text-sm font-medium hover:text-primary dark:hover:text-accent pl-2 py-1">Single Post</a>
+                  
+                  <div class="font-bold text-gray-400 uppercase tracking-wider text-[10px] pt-4 pb-2 border-b border-gray-100 dark:border-gray-800">Account</div>
+                  <a href="dashboard-user.html" class="text-sm font-medium hover:text-primary dark:hover:text-accent pl-2 py-1">User Dashboard</a>
+                  <a href="dashboard-admin.html" class="text-sm font-medium hover:text-primary dark:hover:text-accent pl-2 py-1">Admin Dashboard</a>
+                  <a href="dashboard-user.html?tab=orders" class="text-sm font-medium hover:text-primary dark:hover:text-accent pl-2 py-1">Track Order</a>
+                  
+                  <div class="grid grid-cols-2 gap-4 mt-6">
+                      <button id="dark-mode-mobile-toggle" class="flex items-center justify-center gap-2 p-3 bg-gray-100 dark:bg-gray-800 rounded-xl text-sm font-medium">
+                          <i data-lucide="moon" class="w-4 h-4"></i> Dark Mode
+                      </button>
+                      <button id="rtl-mobile-toggle" class="flex items-center justify-center gap-2 p-3 bg-primary text-white rounded-xl text-sm font-bold shadow-md">
+                          RTL / LTR
+                      </button>
+                  </div>
+             </div>
+        </div>
+    </nav>
 
     <!-- 2. SHOP HERO SECTION -->
     <section class="relative pt-40 pb-24 overflow-hidden bg-[#F5F3EF] dark:bg-[#1C1C1C]">
@@ -114,7 +249,7 @@
                 
                 <!-- Product 1 -->
                 <div class="group relative flex flex-col shop-item opacity-0 transform translate-y-10">
-                    <div class="relative aspect-[4/5] rounded-3xl overflow-hidden bg-[#F5F3EF] dark:bg-[#222] mb-5 border border-transparent dark:border-gray-800 group-hover:shadow-2xl transition-all duration-500 p-6 flex flex-col items-center justify-center">
+                    <div class="relative aspect-[4/5] rounded-3xl overflow-hidden bg-[#F5F3EF] dark:bg-[#222] mb-5 border border-transparent dark:border-gray-800 group-hover:shadow-2xl transition-all duration-500 p-0 flex flex-col items-center justify-center">
                         <div class="absolute top-4 left-4 bg-white/90 dark:bg-black/80 backdrop-blur-md text-[10px] font-bold px-3 py-1.5 rounded-full uppercase tracking-widest text-gray-900 dark:text-white z-10 shadow-sm border border-black/5 dark:border-white/10">Bestseller</div>
                         <button class="absolute top-4 right-4 w-9 h-9 bg-white/90 dark:bg-black/50 backdrop-blur-md rounded-full flex items-center justify-center text-gray-400 hover:text-red-500 hover:scale-110 transition-all z-10 shadow-sm border border-transparent hover:border-red-100 dark:hover:border-red-900">
                             <i data-lucide="heart" class="w-4 h-4"></i>
@@ -148,7 +283,7 @@
 
                 <!-- Product 2 -->
                 <div class="group relative flex flex-col shop-item opacity-0 transform translate-y-10">
-                    <div class="relative aspect-[4/5] rounded-3xl overflow-hidden bg-[#F5F3EF] dark:bg-[#222] mb-5 border border-transparent dark:border-gray-800 group-hover:shadow-2xl transition-all duration-500 p-6 flex flex-col items-center justify-center">
+                    <div class="relative aspect-[4/5] rounded-3xl overflow-hidden bg-[#F5F3EF] dark:bg-[#222] mb-5 border border-transparent dark:border-gray-800 group-hover:shadow-2xl transition-all duration-500 p-0 flex flex-col items-center justify-center">
                         <div class="absolute top-4 left-4 bg-primary text-[10px] font-bold px-3 py-1.5 rounded-full uppercase tracking-widest text-white z-10 shadow-sm shadow-primary/30 border border-primary/20">Capsules</div>
                         <button class="absolute top-4 right-4 w-9 h-9 bg-white/90 dark:bg-black/50 backdrop-blur-md rounded-full flex items-center justify-center text-gray-400 hover:text-red-500 hover:scale-110 transition-all z-10 shadow-sm border border-transparent hover:border-red-100 dark:hover:border-red-900">
                             <i data-lucide="heart" class="w-4 h-4"></i>
@@ -189,7 +324,7 @@
                         </button>
                         
                         <a href="product-single.html" class="w-full h-full flex items-center justify-center relative z-0">
-                            <img src="../assets/images/coffee/beans-2.png" alt="Huila Huila Special" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700 ease-in-out grayscale group-hover:grayscale-0">
+                            <img src="../assets/images/coffee/beans-2.png" alt="Huila Huila Special" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700 ease-in-out">
                         </a>
 
                         <div class="absolute bottom-4 left-4 right-4 opacity-0 group-hover:opacity-100 translate-y-4 group-hover:translate-y-0 transition-all duration-500 ease-out z-10">
@@ -252,7 +387,7 @@
 
                 <!-- Product 5 -->
                 <div class="group relative flex flex-col shop-item opacity-0 transform translate-y-10">
-                    <div class="relative aspect-[4/5] rounded-3xl overflow-hidden bg-[#F5F3EF] dark:bg-[#222] mb-5 border border-transparent dark:border-gray-800 group-hover:shadow-2xl transition-all duration-500 p-6 flex flex-col items-center justify-center">
+                    <div class="relative aspect-[4/5] rounded-3xl overflow-hidden bg-[#F5F3EF] dark:bg-[#222] mb-5 border border-transparent dark:border-gray-800 group-hover:shadow-2xl transition-all duration-500 p-0 flex flex-col items-center justify-center">
                         <button class="absolute top-4 right-4 w-9 h-9 bg-white/90 dark:bg-black/50 backdrop-blur-md rounded-full flex items-center justify-center text-gray-400 hover:text-red-500 hover:scale-110 transition-all z-10 shadow-sm border border-transparent hover:border-red-100 dark:hover:border-red-900">
                             <i data-lucide="heart" class="w-4 h-4"></i>
                         </button>
@@ -319,7 +454,7 @@
 
                 <!-- Product 7 -->
                 <div class="group relative flex flex-col shop-item opacity-0 transform translate-y-10">
-                    <div class="relative aspect-[4/5] rounded-3xl overflow-hidden bg-[#F5F3EF] dark:bg-[#222] mb-5 border border-transparent dark:border-gray-800 group-hover:shadow-2xl transition-all duration-500 p-6 flex flex-col items-center justify-center">
+                    <div class="relative aspect-[4/5] rounded-3xl overflow-hidden bg-[#F5F3EF] dark:bg-[#222] mb-5 border border-transparent dark:border-gray-800 group-hover:shadow-2xl transition-all duration-500 p-0 flex flex-col items-center justify-center">
                         <button class="absolute top-4 right-4 w-9 h-9 bg-white/90 dark:bg-black/50 backdrop-blur-md rounded-full flex items-center justify-center text-gray-400 hover:text-red-500 hover:scale-110 transition-all z-10 shadow-sm border border-transparent hover:border-red-100 dark:hover:border-red-900">
                             <i data-lucide="heart" class="w-4 h-4"></i>
                         </button>
@@ -397,9 +532,9 @@
         </div>
     </section>
 
-    <!-- 5. GLOBAL FOOTER -->
+    <!-- 7. GLOBAL FOOTER -->
     <footer class="bg-white dark:bg-[#161616] pt-24 pb-12 border-t border-gray-200 dark:border-gray-800 mt-auto">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="px-4 sm:px-12 lg:px-24">
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
                 <!-- Brand Info -->
                 <div class="lg:col-span-1">
@@ -437,6 +572,7 @@
                         <li><a href="blog.html" class="hover:text-primary transition-colors">The Roaster's Journal</a></li>
                         <li><a href="contact.html" class="hover:text-primary transition-colors">Contact Us</a></li>
                         <li><a href="#" class="hover:text-primary transition-colors">Wholesale Partners</a></li>
+                        <li><a href="dashboard-user.html" class="hover:text-primary transition-colors">My Account</a></li>
                     </ul>
                 </div>
 
@@ -445,19 +581,21 @@
                     <h4 class="font-bold mb-6 uppercase tracking-wider text-sm text-gray-900 dark:text-white">Stay Awake</h4>
                     <p class="text-sm text-gray-500 mx-0 mb-4">Subscribe for early access to limited micro-lots and brew guides.</p>
                     <form class="flex gap-2 relative">
-                        <input type="email" placeholder="Email address" class="w-full bg-[#F5F3EF] dark:bg-[#2A2A2A] border border-gray-300 dark:border-gray-700 focus:border-primary rounded-xl ps-4 pe-14 py-3 text-sm outline-none transition-colors">
-                        <button class="absolute inset-y-1.5 end-2 px-3 bg-primary text-white rounded-lg hover:bg-gray-900 transition-colors flex items-center justify-center">
+                        <input type="email" placeholder="Email address" class="w-full bg-[#F5F3EF] dark:bg-[#2A2A2A] border border-gray-300 dark:border-gray-700 focus:border-primary rounded-xl px-4 py-3 text-sm outline-none transition-colors">
+                        <button class="absolute right-2 top-1.5 bottom-1.5 px-3 bg-primary text-white rounded-lg hover:bg-gray-900 transition-colors flex items-center justify-center">
                             <i data-lucide="arrow-right" class="w-4 h-4 rtl:rotate-180"></i>
                         </button>
                     </form>
                 </div>
             </div>
 
+            <!-- Bottom Note -->
             <div class="pt-8 border-t border-gray-200 dark:border-gray-800 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-gray-400">
                 <p>&copy; 2026 Espresso Elite. All rights reserved.</p>
                 <div class="flex gap-4">
                     <a href="#" class="hover:text-primary transition-colors">Privacy Policy</a>
                     <a href="#" class="hover:text-primary transition-colors">Terms of Service</a>
+                    <a href="#" class="hover:text-primary transition-colors">Refund Policy</a>
                 </div>
             </div>
         </div>

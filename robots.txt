@@ -1,5 +1,4 @@
 User-agent: *
 Allow: /
 
-# Sitemaps
-Sitemap: https://www.espressoelite.com/sitemap.xml
+Sitemap: https://espresso-elite.com/sitemap.xml

@@ -74,8 +74,8 @@
 
                 <!-- Action Icons -->
                 <div class="flex items-center gap-2">
-                    <button id="rtl-toggle" class="p-2 hover:bg-black/5 dark:hover:bg-white/10 rounded-full transition relative block" title="Toggle RTL" aria-label="Toggle RTL text direction">
-                        <i data-lucide="languages" class="w-5 h-5"></i>
+                    <button id="rtl-toggle" class="px-3 py-2 bg-primary text-white rounded-lg text-[10px] font-bold transition-all hover:bg-gray-900 dark:hover:bg-primary/80 uppercase tracking-widest shadow-sm hover:shadow-md" title="Toggle RTL" aria-label="Toggle RTL text direction">
+                        RTL
                     </button>
                     <button id="dark-mode-toggle" class="p-2 hover:bg-black/5 dark:hover:bg-white/10 rounded-full transition relative block" aria-label="Toggle dark mode">
                         <i data-lucide="moon" class="w-5 h-5"></i>
@@ -126,8 +126,8 @@
                       <button id="dark-mode-mobile-toggle" class="flex items-center justify-center gap-2 p-3 bg-gray-100 dark:bg-gray-800 rounded-xl text-sm font-medium">
                           <i data-lucide="moon" class="w-4 h-4"></i> Dark Mode
                       </button>
-                      <button id="rtl-mobile-toggle" class="flex items-center justify-center gap-2 p-3 bg-gray-100 dark:bg-gray-800 rounded-xl text-sm font-medium">
-                          <i data-lucide="languages" class="w-4 h-4"></i> RTL/LTR
+                      <button id="rtl-mobile-toggle" class="flex items-center justify-center gap-2 p-3 bg-primary text-white rounded-xl text-sm font-bold shadow-md">
+                          RTL / LTR
                       </button>
                   </div>
              </div>

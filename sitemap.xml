@@ -1,27 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://www.espressoelite.com/index.html</loc>
-    <lastmod>2023-10-25</lastmod>
-    <changefreq>monthly</changefreq>
+    <loc>https://espresso-elite.com/index.html</loc>
+    <lastmod>2026-03-18</lastmod>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://www.espressoelite.com/pages/about.html</loc>
-    <lastmod>2023-10-25</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.espressoelite.com/pages/shop.html</loc>
-    <lastmod>2023-10-25</lastmod>
-    <changefreq>weekly</changefreq>
+    <loc>https://espresso-elite.com/pages/index-2.html</loc>
+    <lastmod>2026-03-18</lastmod>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.espressoelite.com/pages/contact.html</loc>
-    <lastmod>2023-10-25</lastmod>
-    <changefreq>monthly</changefreq>
+    <loc>https://espresso-elite.com/pages/shop.html</loc>
+    <lastmod>2026-03-18</lastmod>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://espresso-elite.com/pages/about.html</loc>
+    <lastmod>2026-03-18</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://espresso-elite.com/pages/blog.html</loc>
+    <lastmod>2026-03-18</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://espresso-elite.com/pages/contact.html</loc>
+    <lastmod>2026-03-18</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://espresso-elite.com/pages/categories.html</loc>
+    <lastmod>2026-03-18</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://espresso-elite.com/pages/subscriptions.html</loc>
+    <lastmod>2026-03-18</lastmod>
     <priority>0.7</priority>
   </url>
 </urlset>

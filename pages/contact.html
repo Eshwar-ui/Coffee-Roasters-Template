@@ -3,11 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us | Espresso Elite</title>
-    <meta name="description" content="Get in touch with Espresso Elite. Visit our roastery, reach out for wholesale partnerships, or ask about subscriptions.">
-    <meta property="og:title" content="Contact Us | Espresso Elite">
-    <meta property="og:description" content="Get in touch with Espresso Elite. Visit our roastery, reach out for wholesale partnerships, or ask about subscriptions.">
+    <title>Contact Espresso Elite | Support & Wholesale Inquiries</title>
+    <meta name="description" content="Get in touch with Espresso Elite's roasting team. Inquire about wholesale partnerships, order support, or membership questions. We are here to help.">
+    <meta name="keywords" content="contact coffee roaster, coffee wholesale inquiry, espresso support, b2b coffee">
+    <link rel="icon" type="image/png" href="../assets/images/ui/favicon.png">
+    <link rel="canonical" href="https://espresso-elite.com/pages/contact.html" />
+
+    <meta property="og:title" content="Contact Espresso Elite | Support & Wholesale">
+    <meta property="og:description" content="Reach out to us for any coffee-related support or wholesale inquiries.">
     <meta property="og:type" content="website">
+    <meta property="og:url" content="https://espresso-elite.com/pages/contact.html">
     
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
@@ -45,7 +50,135 @@
 <body class="antialiased bg-[#F5F3EF] dark:bg-dark text-gray-900 dark:text-gray-100 transition-colors duration-300">
 
     <!-- 1. NAVIGATION HEADER -->
-    <script src="../assets/js/navbar.js"></script>
+    <nav class="fixed w-full z-50 bg-white/90 dark:bg-[#161616]/90 backdrop-blur-md border-b border-gray-200 dark:border-gray-800 transition-colors duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <!-- Logo -->
+                <a href="../index.html" class="flex items-center gap-2">
+                    <i data-lucide="coffee" class="text-primary h-8 w-8"></i>
+                    <span class="font-heading font-bold text-2xl tracking-tight hidden sm:block">Espresso Elite</span>
+                </a>
+
+                <!-- Desktop Menu -->
+                <div class="hidden lg:flex items-center gap-6">
+                    
+                    <!-- Home -->
+                    <div class="relative group">
+                        <button class="text-sm font-medium hover:text-primary dark:hover:text-accent transition flex items-center gap-1 py-8">Home <i data-lucide="chevron-down" class="w-4 h-4"></i></button>
+                        <div class="absolute top-20 left-0 w-48 bg-white dark:bg-[#2A2A2A] border border-gray-100 dark:border-gray-800 rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 flex flex-col pt-2 pb-2">
+                            <a href="../index.html" class="px-4 py-2 text-sm hover:text-primary dark:hover:text-accent hover:bg-gray-50 dark:hover:bg-white/5 transition-colors">Home 1 (Capsules)</a>
+                            <a href="index-2.html" class="px-4 py-2 text-sm hover:text-primary dark:hover:text-accent hover:bg-gray-50 dark:hover:bg-white/5 transition-colors">Home 2 (Story)</a>
+                        </div>
+                    </div>
+
+                    <!-- Shop -->
+                    <div class="relative group">
+                        <button class="text-sm font-medium hover:text-primary dark:hover:text-accent transition flex items-center gap-1 py-8">Shop <i data-lucide="chevron-down" class="w-4 h-4"></i></button>
+                        <div class="absolute top-20 left-0 w-48 bg-white dark:bg-[#2A2A2A] border border-gray-100 dark:border-gray-800 rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 flex flex-col pt-2 pb-2">
+                            <a href="shop.html" class="px-4 py-2 text-sm hover:text-primary dark:hover:text-accent hover:bg-gray-50 dark:hover:bg-white/5 transition-colors">Shop Grid</a>
+                            <a href="product-single.html" class="px-4 py-2 text-sm hover:text-primary dark:hover:text-accent hover:bg-gray-50 dark:hover:bg-white/5 transition-colors">Product Details</a>
+                            <a href="cart.html" class="px-4 py-2 text-sm hover:text-primary dark:hover:text-accent hover:bg-gray-50 dark:hover:bg-white/5 transition-colors">Cart</a>
+                            <a href="checkout.html" class="px-4 py-2 text-sm hover:text-primary dark:hover:text-accent hover:bg-gray-50 dark:hover:bg-white/5 transition-colors">Checkout</a>
+                        </div>
+                    </div>
+
+                    <!-- Categories -->
+                    <div class="relative group">
+                        <a href="categories.html" class="text-sm font-medium hover:text-primary dark:hover:text-accent transition flex items-center gap-1 py-8">Categories <i data-lucide="chevron-down" class="w-4 h-4"></i></a>
+                        <div class="absolute top-20 left-0 w-48 bg-white dark:bg-[#2A2A2A] border border-gray-100 dark:border-gray-800 rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 flex flex-col pt-2 pb-2">
+                            <a href="shop.html?category=capsules" class="px-4 py-2 text-sm hover:text-primary dark:hover:text-accent hover:bg-gray-50 dark:hover:bg-white/5 transition-colors">Coffee Capsules</a>
+                            <a href="shop.html?category=beans" class="px-4 py-2 text-sm hover:text-primary dark:hover:text-accent hover:bg-gray-50 dark:hover:bg-white/5 transition-colors">Whole Beans</a>
+                            <a href="shop.html?category=equipment" class="px-4 py-2 text-sm hover:text-primary dark:hover:text-accent hover:bg-gray-50 dark:hover:bg-white/5 transition-colors">Brewing Equipment</a>
+                        </div>
+                    </div>
+
+                    <!-- Deals -->
+                    <a href="deals.html" class="text-sm font-medium hover:text-primary dark:hover:text-accent transition py-8 flex items-center gap-1">Deals <span class="bg-red-500 text-white text-[10px] font-bold px-1.5 py-0.5 rounded uppercase">Sale</span></a>
+
+                    <!-- Blog -->
+                    <div class="relative group">
+                        <button class="text-sm font-medium hover:text-primary dark:hover:text-accent transition flex items-center gap-1 py-8">Blog <i data-lucide="chevron-down" class="w-4 h-4"></i></button>
+                        <div class="absolute top-20 left-0 w-48 bg-white dark:bg-[#2A2A2A] border border-gray-100 dark:border-gray-800 rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 flex flex-col pt-2 pb-2">
+                            <a href="blog.html" class="px-4 py-2 text-sm hover:text-primary dark:hover:text-accent hover:bg-gray-50 dark:hover:bg-white/5 transition-colors">Journal Grid</a>
+                            <a href="blog-single.html" class="px-4 py-2 text-sm hover:text-primary dark:hover:text-accent hover:bg-gray-50 dark:hover:bg-white/5 transition-colors">Single Post</a>
+                        </div>
+                    </div>
+
+                    <!-- Account -->
+                    <div class="relative group">
+                        <button class="text-sm font-medium hover:text-primary dark:hover:text-accent transition flex items-center gap-1 py-8">Account <i data-lucide="chevron-down" class="w-4 h-4"></i></button>
+                        <div class="absolute top-20 right-0 w-48 bg-white dark:bg-[#2A2A2A] border border-gray-100 dark:border-gray-800 rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 flex flex-col pt-2 pb-2">
+                            <a href="dashboard-user.html" class="px-4 py-2 text-sm hover:text-primary dark:hover:text-accent hover:bg-gray-50 dark:hover:bg-white/5 transition-colors">User Dashboard</a>
+                            <a href="dashboard-admin.html" class="px-4 py-2 text-sm hover:text-primary dark:hover:text-accent hover:bg-gray-50 dark:hover:bg-white/5 transition-colors">Admin Dashboard</a>
+                            <div class="border-t border-gray-100 dark:border-gray-800 my-1"></div>
+                            <a href="dashboard-user.html?tab=orders" class="px-4 py-2 text-sm hover:text-primary dark:hover:text-accent hover:bg-gray-50 dark:hover:bg-white/5 transition-colors">Track Order</a>
+                            <a href="dashboard-user.html?tab=wishlist" class="px-4 py-2 text-sm hover:text-primary dark:hover:text-accent hover:bg-gray-50 dark:hover:bg-white/5 transition-colors">My Wishlist</a>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Action Icons -->
+                <div class="flex items-center gap-2">
+                    <button id="rtl-toggle" class="px-3 py-2 bg-primary text-white rounded-lg text-[10px] font-bold transition-all hover:bg-gray-900 dark:hover:bg-primary/80 uppercase tracking-widest shadow-sm hover:shadow-md" title="Toggle RTL" aria-label="Toggle RTL text direction">
+                        RTL
+                    </button>
+                    <button id="dark-mode-toggle" class="p-2 hover:bg-black/5 dark:hover:bg-white/10 rounded-full transition relative block" aria-label="Toggle dark mode">
+                        <i data-lucide="moon" class="w-5 h-5"></i>
+                    </button>
+                    <!-- Wishlist Icon -->
+                    <a href="dashboard-user.html?tab=wishlist" class="p-2 hover:bg-black/5 dark:hover:bg-white/10 rounded-full transition relative hidden sm:block" aria-label="Wishlist">
+                        <i data-lucide="heart" class="w-5 h-5"></i>
+                    </a>
+                    <a href="cart.html" class="p-2 hover:bg-black/5 dark:hover:bg-white/10 rounded-full transition relative block" aria-label="Shopping cart">
+                        <i data-lucide="shopping-bag" class="w-5 h-5"></i>
+                        <span class="absolute top-0 right-0 h-4 w-4 bg-primary text-white text-[10px] font-bold rounded-full flex items-center justify-center">2</span>
+                    </a>
+                    <button id="mobile-menu-btn" class="p-2 hover:bg-black/5 dark:hover:bg-white/10 rounded-full transition lg:hidden" aria-label="Open mobile menu">
+                        <i data-lucide="menu" class="w-6 h-6"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Placeholder -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-white dark:bg-[#161616] border-t border-gray-200 dark:border-gray-800 p-4 absolute w-full transition-all duration-300 shadow-xl overflow-y-auto max-h-[80vh]">
+             <div class="flex flex-col gap-2 pb-6">
+                  <div class="font-bold text-gray-400 uppercase tracking-wider text-[10px] pt-4 pb-2 border-b border-gray-100 dark:border-gray-800">Home</div>
+                  <a href="../index.html" class="text-sm font-medium hover:text-primary pl-2 py-1">Home 1 (Capsules)</a>
+                  <a href="index-2.html" class="text-sm font-medium hover:text-primary pl-2 py-1">Home 2 (Story)</a>
+                  
+                  <div class="font-bold text-gray-400 uppercase tracking-wider text-[10px] pt-4 pb-2 border-b border-gray-100 dark:border-gray-800">Shop</div>
+                  <a href="shop.html" class="text-sm font-medium hover:text-primary pl-2 py-1">Shop Grid</a>
+                  <a href="product-single.html" class="text-sm font-medium hover:text-primary pl-2 py-1">Product Details</a>
+                  
+                  <div class="font-bold text-gray-400 uppercase tracking-wider text-[10px] pt-4 pb-2 border-b border-gray-100 dark:border-gray-800">Categories</div>
+                  <a href="categories.html" class="text-sm font-medium hover:text-primary pl-2 py-1">View All Categories</a>
+                  <a href="shop.html?category=capsules" class="text-sm font-medium hover:text-primary pl-2 py-1">Coffee Capsules</a>
+                  <a href="shop.html?category=beans" class="text-sm font-medium hover:text-primary pl-2 py-1">Whole Beans</a>
+                  
+                  <a href="deals.html" class="font-bold text-primary tracking-wider text-[12px] pt-4 pb-2 border-b border-gray-100 dark:border-gray-800 uppercase flex items-center gap-2">Deals <span class="bg-red-500 text-white px-1.5 py-0.5 rounded">Sale</span></a>
+                  
+                  <div class="font-bold text-gray-400 uppercase tracking-wider text-[10px] pt-4 pb-2 border-b border-gray-100 dark:border-gray-800">Blog</div>
+                  <a href="blog.html" class="text-sm font-medium hover:text-primary pl-2 py-1">Journal Grid</a>
+                  <a href="blog-single.html" class="text-sm font-medium hover:text-primary pl-2 py-1">Single Post</a>
+                  
+                  <div class="font-bold text-gray-400 uppercase tracking-wider text-[10px] pt-4 pb-2 border-b border-gray-100 dark:border-gray-800">Account</div>
+                  <a href="dashboard-user.html" class="text-sm font-medium hover:text-primary pl-2 py-1">User Dashboard</a>
+                  <a href="dashboard-admin.html" class="text-sm font-medium hover:text-primary pl-2 py-1">Admin Dashboard</a>
+                  <a href="dashboard-user.html?tab=orders" class="text-sm font-medium hover:text-primary pl-2 py-1">Track Order</a>
+                  
+                  <div class="grid grid-cols-2 gap-4 mt-6">
+                      <button id="dark-mode-mobile-toggle" class="flex items-center justify-center gap-2 p-3 bg-gray-100 dark:bg-gray-800 rounded-xl text-sm font-medium">
+                          <i data-lucide="moon" class="w-4 h-4"></i> Dark Mode
+                      </button>
+                      <button id="rtl-mobile-toggle" class="flex items-center justify-center gap-2 p-3 bg-primary text-white rounded-xl text-sm font-bold shadow-md">
+                          RTL / LTR
+                      </button>
+                  </div>
+             </div>
+        </div>
+    </nav>
 
     <!-- 2. CONTACT CONTENT & MAP SPLIT -->
     <section class="pt-20 lg:pt-24 border-b border-gray-200 dark:border-gray-800 bg-white dark:bg-[#161616]">
@@ -139,70 +272,70 @@
         </div>
     </section>
 
-    <!-- 4. GLOBAL FOOTER -->
+    <!-- 6. GLOBAL FOOTER -->
     <footer class="bg-white dark:bg-[#161616] pt-24 pb-12 border-t border-gray-200 dark:border-gray-800 mt-auto">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
                 <!-- Brand Info -->
                 <div class="lg:col-span-1">
                     <a href="../index.html" class="flex items-center gap-2 mb-6">
-                        <i data-lucide="coffee" class="text-primary w-8 h-8"></i>
+                        <i data-lucide="coffee" class="w-8 h-8 text-primary"></i>
                         <span class="font-heading font-bold text-2xl tracking-tight">Espresso Elite</span>
                     </a>
                     <p class="text-gray-500 text-sm leading-relaxed mb-6">
                         Ethically sourced, precision roasted specialty coffee. Delivering the perfect cup directly to your door.
                     </p>
                     <div class="flex gap-4">
-                        <a href="#" class="w-10 h-10 rounded-full bg-gray-100 dark:bg-gray-800 flex items-center justify-center text-gray-500 hover:bg-primary hover:text-white transition-colors" aria-label="Instagram"><i data-lucide="instagram" class="w-5 h-5"></i></a>
-                        <a href="#" class="w-10 h-10 rounded-full bg-gray-100 dark:bg-gray-800 flex items-center justify-center text-gray-500 hover:bg-primary hover:text-white transition-colors" aria-label="Twitter"><i data-lucide="twitter" class="w-5 h-5"></i></a>
-                        <a href="#" class="w-10 h-10 rounded-full bg-gray-100 dark:bg-gray-800 flex items-center justify-center text-gray-500 hover:bg-primary hover:text-white transition-colors" aria-label="Facebook"><i data-lucide="facebook" class="w-5 h-5"></i></a>
+                        <a href="#" class="flex items-center justify-center w-10 h-10 transition-colors rounded-full bg-gray-100 dark:bg-gray-800 text-gray-500 hover:bg-primary hover:text-white" aria-label="Instagram"><i data-lucide="instagram" class="w-5 h-5"></i></a>
+                        <a href="#" class="flex items-center justify-center w-10 h-10 transition-colors rounded-full bg-gray-100 dark:bg-gray-800 text-gray-500 hover:bg-primary hover:text-white" aria-label="Twitter"><i data-lucide="twitter" class="w-5 h-5"></i></a>
+                        <a href="#" class="flex items-center justify-center w-10 h-10 transition-colors rounded-full bg-gray-100 dark:bg-gray-800 text-gray-500 hover:bg-primary hover:text-white" aria-label="Facebook"><i data-lucide="facebook" class="w-5 h-5"></i></a>
                     </div>
                 </div>
 
                 <!-- Quick Links -->
                 <div>
-                    <h4 class="font-bold mb-6 uppercase tracking-wider text-sm text-gray-900 dark:text-white">Shop</h4>
+                    <h4 class="mb-6 text-sm font-bold tracking-wider uppercase text-gray-900 dark:text-white">Shop</h4>
                     <ul class="space-y-4 text-sm text-gray-500">
-                        <li><a href="shop.html" class="hover:text-primary transition-colors">All Coffee</a></li>
-                        <li><a href="shop.html?category=capsules" class="hover:text-primary transition-colors">Espresso Capsules</a></li>
-                        <li><a href="shop.html?category=single-origin" class="hover:text-primary transition-colors">Single Origin</a></li>
-                        <li><a href="shop.html?category=equipment" class="hover:text-primary transition-colors">Brewing Equipment</a></li>
-                        <li><a href="subscriptions.html" class="hover:text-primary transition-colors">Coffee Club</a></li>
+                        <li><a href="shop.html" class="transition-colors hover:text-primary">All Coffee</a></li>
+                        <li><a href="categories.html" class="transition-colors hover:text-primary">Categories</a></li>
+                        <li><a href="deals.html" class="transition-colors hover:text-primary">Weekly Deals</a></li>
+                        <li><a href="shop.html?category=equipment" class="transition-colors hover:text-primary">Brewing Equipment</a></li>
+                        <li><a href="subscriptions.html" class="transition-colors hover:text-primary">Coffee Club</a></li>
                     </ul>
                 </div>
 
                 <!-- Keep Discovering -->
                 <div>
-                    <h4 class="font-bold mb-6 uppercase tracking-wider text-sm text-gray-900 dark:text-white">Discover</h4>
+                    <h4 class="mb-6 text-sm font-bold tracking-wider uppercase text-gray-900 dark:text-white">Discover</h4>
                     <ul class="space-y-4 text-sm text-gray-500">
-                        <li><a href="about.html" class="hover:text-primary transition-colors">Our Story</a></li>
-                        <li><a href="blog.html" class="hover:text-primary transition-colors">The Roaster's Journal</a></li>
-                        <li><a href="contact.html" class="hover:text-primary transition-colors">Contact Us</a></li>
-                        <li><a href="#" class="hover:text-primary transition-colors">Wholesale Partners</a></li>
-                        <li><a href="dashboard-user.html" class="hover:text-primary transition-colors">My Account</a></li>
+                        <li><a href="about.html" class="transition-colors hover:text-primary">Our Story</a></li>
+                        <li><a href="blog.html" class="transition-colors hover:text-primary">The Roaster's Journal</a></li>
+                        <li><a href="contact.html" class="transition-colors hover:text-primary">Contact Us</a></li>
+                        <li><a href="#" class="transition-colors hover:text-primary">Wholesale Partners</a></li>
+                        <li><a href="dashboard-user.html" class="transition-colors hover:text-primary">My Account</a></li>
                     </ul>
                 </div>
 
                 <!-- Newsletter -->
                 <div>
-                    <h4 class="font-bold mb-6 uppercase tracking-wider text-sm text-gray-900 dark:text-white">Stay Awake</h4>
-                    <p class="text-sm text-gray-500 mx-0 mb-4">Subscribe for early access to limited micro-lots and brew guides.</p>
-                    <form class="flex gap-2 relative">
-                        <input type="email" placeholder="Email address" class="w-full bg-[#F5F3EF] dark:bg-[#2A2A2A] border border-gray-300 dark:border-gray-700 focus:border-primary rounded-xl px-4 py-3 text-sm outline-none transition-colors">
-                        <button class="absolute right-2 top-1.5 bottom-1.5 px-3 bg-primary text-white rounded-lg hover:bg-gray-900 transition-colors flex items-center justify-center">
-                            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                    <h4 class="mb-6 text-sm font-bold tracking-wider uppercase text-gray-900 dark:text-white">Stay Awake</h4>
+                    <p class="mx-0 mb-4 text-sm text-gray-500">Subscribe for early access to limited micro-lots and brew guides.</p>
+                    <form class="relative flex gap-2">
+                        <input type="email" placeholder="Email address" class="w-full px-4 py-3 text-sm transition-colors border rounded-xl outline-none bg-[#F5F3EF] dark:bg-[#2A2A2A] border-gray-300 dark:border-gray-700 focus:border-primary">
+                        <button class="absolute bottom-1.5 right-2 top-1.5 flex items-center justify-center rounded-lg bg-primary px-3 text-white shadow-md transition-colors hover:bg-gray-900">
+                            <i data-lucide="arrow-right" class="w-4 h-4 rtl:rotate-180"></i>
                         </button>
                     </form>
                 </div>
             </div>
 
             <!-- Bottom Note -->
-            <div class="pt-8 border-t border-gray-200 dark:border-gray-800 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-gray-400">
+            <div class="flex flex-col items-center justify-between gap-4 pt-8 text-xs text-gray-400 border-t md:flex-row border-gray-200 dark:border-gray-800">
                 <p>&copy; 2026 Espresso Elite. All rights reserved.</p>
                 <div class="flex gap-4">
-                    <a href="#" class="hover:text-primary transition-colors">Privacy Policy</a>
-                    <a href="#" class="hover:text-primary transition-colors">Terms of Service</a>
-                    <a href="#" class="hover:text-primary transition-colors">Refund Policy</a>
+                    <a href="#" class="transition-colors hover:text-primary">Privacy Policy</a>
+                    <a href="#" class="transition-colors hover:text-primary">Terms of Service</a>
+                    <a href="#" class="transition-colors hover:text-primary">Refund Policy</a>
                 </div>
             </div>
         </div>
