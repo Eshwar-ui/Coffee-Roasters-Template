@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Espresso Elite | Track Delivery</title>
+    <meta name="description" content="Track your elite coffee shipments in real-time.">
+    <link rel="icon" type="image/png" href="../assets/images/ui/favicon.png">
+    <meta name="robots" content="noindex, nofollow">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/dark-mode.css">
+    <link rel="stylesheet" href="../assets/css/rtl.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: { primary: '#6F4E37', secondary: '#C4A484', accent: '#D4A373', background: '#F5F3EF', dark: '#121212' },
+                    fontFamily: { heading: ['Playfair Display', 'serif'], body: ['Inter', 'sans-serif'] }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="antialiased bg-gray-50 dark:bg-dark text-gray-900 dark:text-gray-100 transition-colors duration-300">
+
+    <div class="flex h-screen overflow-hidden">
+        
+        <!-- SIDEBAR -->
+        <aside class="w-72 bg-white/70 dark:bg-[#1C1C1C]/70 backdrop-blur-xl border-r border-gray-100 dark:border-gray-800 flex-shrink-0 flex flex-col transition-transform duration-300 md:translate-x-0 -translate-x-full fixed md:relative h-full z-50 md:z-auto" id="sidebar">
+            <div class="h-20 flex items-center px-8 border-b border-gray-100 dark:border-gray-800">
+                <a href="../index.html" class="flex items-center gap-3 group">
+                    <div class="w-10 h-10 bg-primary/10 rounded-xl flex items-center justify-center group-hover:bg-primary transition-all">
+                        <i data-lucide="coffee" class="text-primary group-hover:text-white w-5 h-5"></i>
+                    </div>
+                    <div>
+                        <span class="font-heading font-bold text-lg block leading-none">Member</span>
+                        <span class="text-[9px] font-bold text-gray-400 uppercase tracking-widest">Console</span>
+                    </div>
+                </a>
+            </div>
+            <div class="flex-1 overflow-y-auto px-6 py-8">
+                <nav class="flex flex-col gap-2 sidebar-nav">
+                    <p class="text-[10px] font-bold text-gray-400 uppercase tracking-[0.3em] mb-4 px-4 font-heading">Protocol Hub</p>
+                    <a href="dashboard-user.html" class="tab-link flex items-center gap-4 px-4 py-4 rounded-2xl text-gray-500 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-white/5 transition-all font-medium group">
+                        <i data-lucide="layout-grid" class="w-5 h-5"></i> Dashboard
+                    </a>
+                    <a href="dashboard-subscriptions.html" class="tab-link flex items-center gap-4 px-4 py-4 rounded-2xl text-gray-500 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-white/5 transition-all font-medium group">
+                        <i data-lucide="box" class="w-5 h-5"></i> Brew Club
+                    </a>
+                    <a href="dashboard-orders.html" class="tab-link flex items-center gap-4 px-4 py-4 rounded-2xl text-gray-500 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-white/5 transition-all font-medium group">
+                        <i data-lucide="shopping-cart" class="w-5 h-5"></i> Order History
+                    </a>
+                    <a href="dashboard-track.html" class="tab-link flex items-center gap-4 px-4 py-4 rounded-2xl bg-primary text-white shadow-2xl shadow-primary/30 transition-all font-bold group">
+                        <i data-lucide="map-pin" class="w-5 h-5"></i> Track Delivery
+                    </a>
+                    <a href="dashboard-wishlist.html" class="tab-link flex items-center gap-4 px-4 py-4 rounded-2xl text-gray-500 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-white/5 transition-all font-medium group">
+                        <i data-lucide="heart" class="w-5 h-5"></i> Favorites
+                    </a>
+                    <p class="text-[10px] font-bold text-gray-400 uppercase tracking-[0.3em] mb-4 mt-10 px-4 font-heading">Identity</p>
+                    <a href="dashboard-settings.html" class="tab-link flex items-center gap-4 px-4 py-3.5 rounded-2xl text-gray-500 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-white/5 transition-all font-medium group">
+                        <i data-lucide="user-cog" class="w-5 h-5"></i> Preferences
+                    </a>
+                    <a href="dashboard-security.html" class="tab-link flex items-center gap-4 px-4 py-3.5 rounded-2xl text-gray-500 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-white/5 transition-all font-medium group">
+                        <i data-lucide="lock" class="w-5 h-5"></i> Security
+                    </a>
+                </nav>
+            </div>
+        </aside>
+
+        <!-- MAIN CONTENT -->
+        <main class="flex-1 flex flex-col overflow-hidden bg-[#FBFBFB] dark:bg-dark">
+            <header class="h-20 bg-white/80 dark:bg-[#1C1C1C]/80 backdrop-blur-md border-b border-gray-100 dark:border-gray-800 flex items-center justify-between px-8 z-20 shrink-0">
+                <div class="flex items-center gap-8">
+                    <button class="md:hidden text-gray-500" id="admin-menu-toggle"><i data-lucide="menu" class="w-6 h-6"></i></button>
+                    <h2 class="text-xl font-bold font-heading">Track Delivery</h2>
+                </div>
+                <div class="flex items-center gap-5">
+                    <button id="dark-mode-toggle" class="w-10 h-10 flex items-center justify-center bg-gray-100 dark:bg-white/5 text-gray-500 rounded-2xl hover:bg-primary/10 hover:text-primary transition-all">
+                        <i data-lucide="sun" class="w-4 h-4 dark:hidden"></i>
+                        <i data-lucide="moon" class="w-4 h-4 hidden dark:block"></i>
+                    </button>
+                    <div class="w-11 h-11 rounded-2xl bg-primary text-white flex items-center justify-center font-bold text-sm shadow-lg shadow-primary/20">JD</div>
+                </div>
+            </header>
+
+            <div class="flex-1 overflow-y-auto p-8 custom-scrollbar">
+                <div id="track" class="space-y-12">
+                    <div class="bg-white dark:bg-[#1C1C1C] p-12 rounded-[3.5rem] border border-gray-100 dark:border-gray-800 shadow-sm relative overflow-hidden">
+                        <div class="absolute -right-20 -top-20 w-96 h-96 bg-primary/5 rounded-full blur-[120px]"></div>
+                        <div class="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-10 mb-20 relative z-10">
+                            <div>
+                                <div class="flex items-center gap-3 mb-4"><span class="w-2.5 h-2.5 bg-primary rounded-full pulsate"></span><p class="text-[10px] font-extrabold uppercase tracking-[0.3em] text-primary">Deployment Status: In Transit</p></div>
+                                <h3 class="text-5xl font-heading font-bold mb-3 tracking-tight">#ORD-9902</h3>
+                                <p class="text-sm text-gray-400 font-medium italic">Estimated Port Arrival &bull; <span class="text-gray-900 dark:text-white font-bold not-italic">Feb 24, 2026</span></p>
+                            </div>
+                            <div class="flex flex-wrap gap-5">
+                                <div class="px-10 py-5 bg-gray-50 dark:bg-white/5 rounded-[2rem] border border-gray-100 dark:border-white/5 text-center min-w-[160px]"><p class="text-[9px] text-gray-400 font-bold uppercase tracking-[0.2em] mb-2">Logistics Carrier</p><p class="font-bold text-lg">Elite Express</p></div>
+                                <div class="px-10 py-5 bg-gray-50 dark:bg-white/5 rounded-[2rem] border border-gray-100 dark:border-white/5 text-center min-w-[160px]"><p class="text-[9px] text-gray-400 font-bold uppercase tracking-[0.2em] mb-2">Service Protocol</p><p class="font-bold text-lg">Priority Brew</p></div>
+                            </div>
+                        </div>
+                        <div class="relative py-24 mb-12">
+                             <div class="absolute top-1/2 left-0 w-full h-1.5 bg-gray-100 dark:bg-white/10 -translate-y-1/2 rounded-full overflow-hidden"><div class="h-full bg-primary w-2/3 shadow-[0_0_30px_rgba(111,78,55,0.6)]"></div></div>
+                             <div class="relative flex justify-between px-4">
+                                <div class="flex flex-col items-center group"><div class="w-16 h-16 bg-primary text-white rounded-3xl flex items-center justify-center shadow-2xl z-10 ring-8 ring-white dark:ring-[#1C1C1C] transition-all"><i data-lucide="file-check" class="w-7 h-7"></i></div><span class="text-[9px] font-extrabold uppercase tracking-[0.3em] mt-8 text-gray-400">Initiated</span></div>
+                                <div class="flex flex-col items-center group"><div class="w-16 h-16 bg-primary text-white rounded-3xl flex items-center justify-center shadow-2xl z-10 ring-8 ring-white dark:ring-[#1C1C1C] transition-all"><i data-lucide="package-check" class="w-7 h-7"></i></div><span class="text-[9px] font-extrabold uppercase tracking-[0.3em] mt-8 text-gray-400">Manifested</span></div>
+                                <div class="flex flex-col items-center group"><div class="w-20 h-20 -mt-2 bg-primary text-white rounded-[1.5rem] flex items-center justify-center shadow-[0_20px_50px_rgba(111,78,55,0.4)] z-10 ring-[15px] ring-primary/10 transition-all"><i data-lucide="truck" class="w-9 h-9"></i></div><span class="text-[9px] font-extrabold uppercase tracking-[0.3em] mt-8 text-primary">Deployment</span></div>
+                                <div class="flex flex-col items-center group opacity-30 grayscale blur-[1px]"><div class="w-16 h-16 bg-gray-100 dark:bg-white/5 text-gray-400 rounded-3xl flex items-center justify-center border border-gray-200 dark:border-white/10 z-10 ring-8 ring-white dark:ring-[#1C1C1C]"><i data-lucide="home" class="w-7 h-7"></i></div><span class="text-[9px] font-extrabold uppercase tracking-[0.3em] mt-8 text-gray-400">Secured</span></div>
+                             </div>
+                        </div>
+                        <div class="mt-20 grid lg:grid-cols-2 gap-16">
+                            <div class="space-y-10">
+                                <h4 class="text-[10px] font-extrabold uppercase tracking-[0.4em] text-gray-400 mb-8 border-l-4 border-primary pl-4">Tactical Log Updates</h4>
+                                <div class="space-y-12 relative pl-10">
+                                    <div class="absolute left-[3px] top-2 bottom-2 w-px bg-gradient-to-b from-primary via-gray-200 to-transparent dark:via-gray-800"></div>
+                                    <div class="relative group"><div class="absolute -left-[35px] top-1 w-3 h-3 bg-primary rounded-full ring-4 ring-white dark:ring-[#1C1C1C] shadow-lg"></div><p class="text-base font-extrabold tracking-tight">Arrival at Strategic Hub</p><p class="text-[10px] text-gray-400 font-bold uppercase mt-2 tracking-widest leading-none">Today, 2:45 PM &bull; NY DEPLOYMENT HUB</p></div>
+                                    <div class="relative group opacity-60"><div class="absolute -left-[35px] top-1 w-3 h-3 bg-gray-300 dark:bg-gray-700 rounded-full ring-4 ring-white dark:ring-[#1C1C1C]"></div><p class="text-base font-bold text-gray-500">Clearance at Processing Facility</p><p class="text-[10px] text-gray-400 font-bold uppercase mt-2 tracking-widest leading-none">Feb 21, 9:20 AM &bull; NJ LOGISTICS CENTER</p></div>
+                                </div>
+                            </div>
+                            <div class="flex flex-col gap-10">
+                                <div class="bg-gray-50 dark:bg-white/5 p-12 rounded-[2.5rem] border border-gray-100 dark:border-white/5 relative overflow-hidden group">
+                                    <div class="relative z-10"><h4 class="text-[10px] font-extrabold uppercase tracking-[0.4em] text-gray-400 mb-8">Shipment Manifest</h4><div class="space-y-6"><div class="flex justify-between items-center pb-4 border-b border-gray-200/50 dark:border-white/5"><span class="text-[10px] text-gray-400 font-bold uppercase tracking-widest">Gross Weight</span><span class="text-sm font-extrabold">1.28 KG / 2.82 LBS</span></div><div class="flex justify-between items-center"><span class="text-[10px] text-gray-400 font-bold uppercase tracking-widest">Inventory Type</span><span class="text-sm font-extrabold">PREMIUM ELITE BOX</span></div></div></div>
+                                </div>
+                                <button class="w-full py-6 bg-white dark:bg-white/5 border border-gray-200 dark:border-gray-700 rounded-[2rem] text-[10px] font-extrabold uppercase tracking-[0.3em] hover:bg-red-500 hover:text-white transition-all shadow-xl">Initiate Support Protocol</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="../assets/js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const adminMenuToggle = document.getElementById('admin-menu-toggle');
+            const sidebar = document.getElementById('sidebar');
+            if (adminMenuToggle && sidebar) adminMenuToggle.addEventListener('click', () => sidebar.classList.toggle('-translate-x-full'));
+        });
+    </script>
+</body>
+</html>

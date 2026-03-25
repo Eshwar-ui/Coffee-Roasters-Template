@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Espresso Elite | Favorites</title>
+    <meta name="description" content="Manage your curated collection of specialty coffees.">
+    <link rel="icon" type="image/png" href="../assets/images/ui/favicon.png">
+    <meta name="robots" content="noindex, nofollow">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/dark-mode.css">
+    <link rel="stylesheet" href="../assets/css/rtl.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: { primary: '#6F4E37', secondary: '#C4A484', accent: '#D4A373', background: '#F5F3EF', dark: '#121212' },
+                    fontFamily: { heading: ['Playfair Display', 'serif'], body: ['Inter', 'sans-serif'] }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="antialiased bg-gray-50 dark:bg-dark text-gray-900 dark:text-gray-100 transition-colors duration-300">
+
+    <div class="flex h-screen overflow-hidden">
+        
+        <!-- SIDEBAR -->
+        <aside class="w-72 bg-white/70 dark:bg-[#1C1C1C]/70 backdrop-blur-xl border-r border-gray-100 dark:border-gray-800 flex-shrink-0 flex flex-col transition-transform duration-300 md:translate-x-0 -translate-x-full fixed md:relative h-full z-50 md:z-auto" id="sidebar">
+            <div class="h-20 flex items-center px-8 border-b border-gray-100 dark:border-gray-800">
+                <a href="../index.html" class="flex items-center gap-3 group">
+                    <div class="w-10 h-10 bg-primary/10 rounded-xl flex items-center justify-center group-hover:bg-primary transition-all">
+                        <i data-lucide="coffee" class="text-primary group-hover:text-white w-5 h-5"></i>
+                    </div>
+                    <div>
+                        <span class="font-heading font-bold text-lg block leading-none">Member</span>
+                        <span class="text-[9px] font-bold text-gray-400 uppercase tracking-widest">Console</span>
+                    </div>
+                </a>
+            </div>
+            <div class="flex-1 overflow-y-auto px-6 py-8">
+                <nav class="flex flex-col gap-2 sidebar-nav">
+                    <p class="text-[10px] font-bold text-gray-400 uppercase tracking-[0.3em] mb-4 px-4 font-heading">Protocol Hub</p>
+                    <a href="dashboard-user.html" class="tab-link flex items-center gap-4 px-4 py-4 rounded-2xl text-gray-500 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-white/5 transition-all font-medium group">
+                        <i data-lucide="layout-grid" class="w-5 h-5"></i> Dashboard
+                    </a>
+                    <a href="dashboard-subscriptions.html" class="tab-link flex items-center gap-4 px-4 py-4 rounded-2xl text-gray-500 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-white/5 transition-all font-medium group">
+                        <i data-lucide="box" class="w-5 h-5"></i> Brew Club
+                    </a>
+                    <a href="dashboard-orders.html" class="tab-link flex items-center gap-4 px-4 py-4 rounded-2xl text-gray-500 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-white/5 transition-all font-medium group">
+                        <i data-lucide="shopping-cart" class="w-5 h-5"></i> Order History
+                    </a>
+                    <a href="dashboard-track.html" class="tab-link flex items-center gap-4 px-4 py-4 rounded-2xl text-gray-500 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-white/5 transition-all font-medium group">
+                        <i data-lucide="map-pin" class="w-5 h-5"></i> Track Delivery
+                    </a>
+                    <a href="dashboard-wishlist.html" class="tab-link flex items-center gap-4 px-4 py-4 rounded-2xl bg-primary text-white shadow-2xl shadow-primary/30 transition-all font-bold group">
+                        <i data-lucide="heart" class="w-5 h-5"></i> Favorites
+                    </a>
+                    <p class="text-[10px] font-bold text-gray-400 uppercase tracking-[0.3em] mb-4 mt-10 px-4 font-heading">Identity</p>
+                    <a href="dashboard-settings.html" class="tab-link flex items-center gap-4 px-4 py-3.5 rounded-2xl text-gray-500 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-white/5 transition-all font-medium group">
+                        <i data-lucide="user-cog" class="w-5 h-5"></i> Preferences
+                    </a>
+                    <a href="dashboard-security.html" class="tab-link flex items-center gap-4 px-4 py-3.5 rounded-2xl text-gray-500 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-white/5 transition-all font-medium group">
+                        <i data-lucide="lock" class="w-5 h-5"></i> Security
+                    </a>
+                </nav>
+            </div>
+        </aside>
+
+        <!-- MAIN CONTENT -->
+        <main class="flex-1 flex flex-col overflow-hidden bg-[#FBFBFB] dark:bg-dark">
+            <header class="h-20 bg-white/80 dark:bg-[#1C1C1C]/80 backdrop-blur-md border-b border-gray-100 dark:border-gray-800 flex items-center justify-between px-8 z-20 shrink-0">
+                <div class="flex items-center gap-8">
+                    <button class="md:hidden text-gray-500" id="admin-menu-toggle"><i data-lucide="menu" class="w-6 h-6"></i></button>
+                    <h2 class="text-xl font-bold font-heading">Favorites</h2>
+                </div>
+                <div class="flex items-center gap-5">
+                    <button id="dark-mode-toggle" class="w-10 h-10 flex items-center justify-center bg-gray-100 dark:bg-white/5 text-gray-500 rounded-2xl hover:bg-primary/10 hover:text-primary transition-all">
+                        <i data-lucide="sun" class="w-4 h-4 dark:hidden"></i>
+                        <i data-lucide="moon" class="w-4 h-4 hidden dark:block"></i>
+                    </button>
+                    <div class="w-11 h-11 rounded-2xl bg-primary text-white flex items-center justify-center font-bold text-sm shadow-lg shadow-primary/20">JD</div>
+                </div>
+            </header>
+
+            <div class="flex-1 overflow-y-auto p-8 custom-scrollbar">
+                <div id="wishlist" class="space-y-12">
+                    <div class="flex flex-col sm:flex-row justify-between items-center bg-white dark:bg-[#1C1C1C] p-12 rounded-[3rem] border border-gray-100 dark:border-gray-800 shadow-sm gap-8 relative overflow-hidden">
+                        <div class="relative z-10">
+                            <h3 class="text-3xl font-heading font-bold mb-2 leading-none">Curated Collection</h3>
+                            <p class="text-sm text-gray-400 font-medium tracking-wide">Refined selections saved for your future brewing rituals.</p>
+                        </div>
+                        <button class="relative z-10 px-10 py-4 bg-primary text-white rounded-2xl text-[10px] font-bold uppercase tracking-[0.2em] shadow-2xl shadow-primary/20 hover:scale-105 transition-all">Depoly All to Registry</button>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                        <div class="bg-white dark:bg-[#1C1C1C] rounded-[3rem] border border-gray-100 dark:border-gray-800 shadow-sm group overflow-hidden flex flex-col hover:shadow-2xl transition-all duration-500">
+                            <div class="h-80 bg-gray-50 dark:bg-white/5 relative overflow-hidden flex items-center justify-center p-16">
+                                <img src="../assets/images/coffee/beans.webp" class="w-full h-full object-contain group-hover:scale-110 transition-transform duration-700" alt="Yirgacheffe">
+                                <button class="absolute top-8 right-8 w-12 h-12 bg-white/80 dark:bg-black/80 backdrop-blur-md rounded-full text-red-500 hover:bg-red-500 hover:text-white transition-all flex items-center justify-center shadow-2xl border border-white/20"><i data-lucide="x" class="w-5 h-5"></i></button>
+                            </div>
+                            <div class="p-10 flex flex-col flex-1">
+                                <div class="flex justify-between items-start mb-3"><h4 class="font-bold text-2xl font-heading leading-none">Ethiopia Yirgacheffe</h4><span class="font-bold text-primary font-heading text-xl">$18.00</span></div>
+                                <p class="text-[10px] text-gray-400 mb-8 uppercase tracking-[0.2em] font-extrabold flex items-center gap-2">Whole Bean <span class="w-1 h-1 bg-gray-300 rounded-full"></span> 250g Container</p>
+                                <button class="w-full py-4 bg-dark dark:bg-white text-white dark:text-black text-[10px] font-bold uppercase tracking-[0.2em] rounded-2xl hover:bg-primary dark:hover:bg-primary transition-all">Transfer to Hub</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="../assets/js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const adminMenuToggle = document.getElementById('admin-menu-toggle');
+            const sidebar = document.getElementById('sidebar');
+            if (adminMenuToggle && sidebar) adminMenuToggle.addEventListener('click', () => sidebar.classList.toggle('-translate-x-full'));
+        });
+    </script>
+</body>
+</html>
