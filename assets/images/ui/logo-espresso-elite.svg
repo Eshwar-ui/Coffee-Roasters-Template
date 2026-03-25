@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="520" height="120" viewBox="0 0 520 120" role="img" aria-label="Espresso Elite">
+  <defs>
+    <style>
+      :root { --brand: #6F4E37; }
+      .mark { stroke: var(--brand); }
+      .word { fill: #1c1c1c; font-family: "Playfair Display", Georgia, "Times New Roman", serif; font-weight: 700; }
+    </style>
+  </defs>
+
+  <!-- Cup mark -->
+  <g transform="translate(18 18)" fill="none" class="mark" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="22" cy="12" r="4"/>
+    <circle cx="38" cy="9" r="4"/>
+    <circle cx="54" cy="12" r="4"/>
+    <path d="M20 26h44"/>
+    <path d="M24 26v34c0 12 8 20 20 20h8c12 0 20-8 20-20V26"/>
+    <path d="M68 38h10c10 0 16 6 16 16s-6 16-16 16H70"/>
+    <path d="M28 88h56"/>
+  </g>
+
+  <!-- Wordmark -->
+  <text x="140" y="76" class="word" font-size="54" letter-spacing="0.3">Espresso Elite</text>
+</svg>
+

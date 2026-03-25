@@ -33,6 +33,12 @@
         
         <!-- 1. VISUAL SIDE -->
         <div class="hidden lg:flex w-1/2 relative bg-primary overflow-hidden items-center justify-center p-12">
+            <!-- Brand / Back to Home (Desktop: on image side) -->
+            <a href="../index.html" class="absolute top-10 left-10 group z-20 px-3 py-2 rounded-xl bg-black/20 backdrop-blur border border-white/10" aria-label="Back to homepage">
+                <div class="h-11">
+                    <img src="../assets/images/ui/logo-espresso-elite.svg" alt="Espresso Elite" class="h-full w-auto select-none brightness-[1.08] contrast-[1.05]">
+                </div>
+            </a>
             <div class="absolute inset-0 z-0">
                 <img src="../assets/images/ui/login-bg.png" alt="Pure Espresso" class="w-full h-full object-cover mix-blend-overlay opacity-50">
             </div>
@@ -62,18 +68,18 @@
 
         <!-- 2. FORM SIDE -->
         <div class="flex-1 flex flex-col items-center justify-center p-6 sm:p-12 md:p-24 bg-white dark:bg-dark relative overflow-hidden">
-            <!-- Mobile Header -->
-            <div class="lg:hidden absolute top-10 left-10 flex items-center gap-2">
-                 <i data-lucide="coffee" class="text-primary w-6 h-6"></i>
-                 <span class="font-heading font-bold text-xl tracking-tight">Espresso Elite</span>
-            </div>
-
             <div class="absolute top-10 right-10 flex gap-3">
                  <button id="rtl-toggle" class="px-2.5 py-1 bg-primary/10 text-primary rounded-lg text-[9px] font-bold uppercase tracking-widest border border-primary/20">RTL</button>
                  <button id="dark-mode-toggle" class="p-2 text-gray-500 hover:bg-gray-100 dark:hover:bg-white/5 rounded-lg transition"><i data-lucide="moon" class="w-4 h-4"></i></button>
             </div>
 
             <div class="w-full max-w-md space-y-10 login-form-container">
+                <!-- Brand / Back to Home (Mobile: above form, in-flow) -->
+                <a href="../index.html" class="lg:hidden inline-flex items-center justify-center w-full">
+                    <div class="h-10">
+                        <img src="../assets/images/ui/logo-espresso-elite.svg" alt="Espresso Elite" class="h-full w-auto select-none">
+                    </div>
+                </a>
                 <div class="space-y-3">
                     <h2 class="text-3xl font-heading font-bold tracking-tight">Access Your Suite</h2>
                     <p class="text-gray-400 font-bold text-[10px] uppercase tracking-widest">Don't have an account? <a href="signup.html" class="text-primary hover:underline ml-1">Sign Up here</a></p>

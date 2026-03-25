@@ -31,19 +31,19 @@
     <div class="flex min-h-screen">
         
         <!-- 1. FORM SIDE (LEFT ON SIGNUP) -->
-        <div class="flex-1 flex flex-col items-center justify-center p-6 sm:p-12 md:p-24 bg-white dark:bg-dark relative overflow-hidden">
-            <!-- Mobile Header -->
-            <div class="lg:hidden absolute top-10 left-10 flex items-center gap-2">
-                 <i data-lucide="coffee" class="text-primary w-6 h-6"></i>
-                 <span class="font-heading font-bold text-xl tracking-tight">Espresso Elite</span>
-            </div>
-
-            <div class="absolute top-10 left-10 flex gap-3 z-20">
+        <div class="flex-1 flex flex-col items-center justify-center p-6 sm:p-12 md:p-16 bg-white dark:bg-dark relative overflow-hidden">
+            <div class="absolute top-6 right-6 sm:top-10 sm:right-10 flex gap-3 z-30">
                  <button id="rtl-toggle" class="px-2.5 py-1 bg-primary/10 text-primary rounded-lg text-[9px] font-bold uppercase tracking-widest border border-primary/20">RTL</button>
                  <button id="dark-mode-toggle" class="p-2 text-gray-500 hover:bg-gray-100 dark:hover:bg-white/5 rounded-lg transition"><i data-lucide="moon" class="w-4 h-4"></i></button>
             </div>
 
-            <div class="w-full max-w-md space-y-8 signup-form-container py-12">
+            <div class="w-full max-w-md space-y-6 signup-form-container py-6">
+                <!-- Brand / Back to Home (Mobile: above form, in-flow) -->
+                <a href="../index.html" class="lg:hidden inline-flex items-center justify-center w-full">
+                    <div class="h-10">
+                        <img src="../assets/images/ui/logo-espresso-elite.svg" alt="Espresso Elite" class="h-full w-auto select-none">
+                    </div>
+                </a>
                 <div class="space-y-3">
                     <h2 class="text-3xl font-heading font-bold tracking-tight">Start Your Journey</h2>
                     <p class="text-gray-400 font-bold text-[10px] uppercase tracking-widest">Already a master member? <a href="login.html" class="text-primary hover:underline ml-1">Login here</a></p>
@@ -92,7 +92,7 @@
                         </div>
                     </div>
 
-                    <button type="submit" onclick="window.location.href='dashboard-user.html'; return false;" class="group w-full py-4 bg-[#6F4E37] text-white font-bold rounded-2xl shadow-xl shadow-[#6F4E37]/20 hover:shadow-[#6F4E37]/40 hover:-translate-y-0.5 active:translate-y-0 transition-all flex items-center justify-center gap-3 relative z-10">
+                    <button type="submit" onclick="window.location.href='dashboard-user.html'; return false;" class="group w-full py-4 bg-[#6F4E37] text-white font-bold rounded-2xl shadow-xl shadow-[#6F4E37]/20 hover:shadow-[#6F4E37]/40 hover:-translate-y-0.5 active:translate-y-0 transition-all flex items-center justify-center gap-3 relative z-10" style="background-color:#6F4E37;color:#fff;opacity:1;">
                         Join Membership <i data-lucide="chevrons-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
                     </button>
                 </form>
@@ -108,7 +108,7 @@
                 </div>
             </div>
             
-            <p class="absolute bottom-10 text-[9px] text-gray-300 font-bold uppercase tracking-widest text-center">
+            <p class="mt-10 text-[9px] text-gray-300 font-bold uppercase tracking-widest text-center">
                 Member of Global Specialty Coffee Association <br>
                 EST. 2026 • DIGITAL ELITE
             </p>
@@ -116,6 +116,12 @@
 
         <!-- 2. VISUAL SIDE -->
         <div class="hidden lg:flex w-1/2 relative bg-[#6F4E37] overflow-hidden items-center justify-center p-12">
+            <!-- Brand / Back to Home (Desktop: on image side) -->
+            <a href="../index.html" class="absolute top-10 left-10 group z-20 px-3 py-2 rounded-xl bg-black/20 backdrop-blur border border-white/10" aria-label="Back to homepage">
+                <div class="h-11">
+                    <img src="../assets/images/ui/logo-espresso-elite.svg" alt="Espresso Elite" class="h-full w-auto select-none brightness-[1.08] contrast-[1.05]">
+                </div>
+            </a>
             <div class="absolute inset-0 z-0">
                 <img src="../assets/images/ui/signup-bg.png" alt="Coffee Craft" class="w-full h-full object-cover mix-blend-overlay opacity-40">
             </div>
