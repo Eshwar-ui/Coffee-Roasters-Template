@@ -180,3 +180,20 @@ html.dark .skeleton {
 .skeleton-text { height: 1rem; margin-bottom: 0.5rem; width: 100%; }
 .skeleton-title { height: 2rem; margin-bottom: 1rem; width: 60%; }
 .skeleton-img { height: 200px; width: 100%; }
+
+/* 6. RESPONSIVE HARDENING
+---------------------------------------------------------------- */
+html, body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: clip;
+}
+
+img, svg, video {
+    max-width: 100%;
+    height: auto;
+}
+
+canvas {
+    max-width: 100%;
+}

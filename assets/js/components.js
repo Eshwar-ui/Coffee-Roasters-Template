@@ -52,8 +52,9 @@ window.renderNavbar = function (basePath) {
 
                 <div class="font-bold text-gray-400 uppercase tracking-wider text-[10px] pt-4 pb-2 border-b border-gray-100 dark:border-gray-800">Categories</div>
                 <a href="${p('pages/categories.html')}" class="text-sm font-medium hover:text-primary dark:hover:text-accent pl-1 py-1 flex items-center gap-2"><i data-lucide="layout-grid" class="w-4 h-4"></i> View All</a>
-                <a href="${p('pages/shop.html')}?category=capsules" class="text-sm font-medium hover:text-primary dark:hover:text-accent pl-2 py-1">Coffee Capsules</a>
-                <a href="${p('pages/shop.html')}?category=beans" class="text-sm font-medium hover:text-primary dark:hover:text-accent pl-2 py-1">Whole Beans</a>
+                <a href="${p('pages/categories.html')}#capsules" class="text-sm font-medium hover:text-primary dark:hover:text-accent pl-2 py-1">Coffee Capsules</a>
+                <a href="${p('pages/categories.html')}#beans" class="text-sm font-medium hover:text-primary dark:hover:text-accent pl-2 py-1">Whole Beans</a>
+                <a href="${p('pages/categories.html')}#equipment" class="text-sm font-medium hover:text-primary dark:hover:text-accent pl-2 py-1">Brewing Equipment</a>
 
                 <a href="${p('pages/deals.html')}" class="font-bold text-primary dark:text-accent tracking-wider text-[12px] pt-4 pb-2 border-b border-gray-100 dark:border-gray-800 uppercase flex items-center gap-2">Deals <span class="bg-red-500 text-white px-1.5 py-0.5 rounded text-[10px]">Sale</span></a>
 
@@ -64,8 +65,8 @@ window.renderNavbar = function (basePath) {
                 <div class="font-bold text-gray-400 uppercase tracking-wider text-[10px] pt-4 pb-2 border-b border-gray-100 dark:border-gray-800">Account</div>
                 <a href="${p('pages/login.html')}" class="text-sm font-medium hover:text-primary dark:hover:text-accent pl-2 py-1">Login</a>
                 <a href="${p('pages/signup.html')}" class="text-sm font-medium hover:text-primary dark:hover:text-accent pl-2 py-1">Create Account</a>
-                <a href="${p('pages/dashboard-user.html')}" class="text-sm font-medium hover:text-primary dark:hover:text-accent pl-2 py-1">User Dashboard</a>
-                <a href="${p('pages/dashboard-admin.html')}" class="text-sm font-medium hover:text-primary dark:hover:text-accent pl-2 py-1">Admin Dashboard</a>
+                <a href="${p('pages/dashboard-user.html')}?tab=dashboard" class="text-sm font-medium hover:text-primary dark:hover:text-accent pl-2 py-1">User Dashboard</a>
+                <a href="${p('pages/dashboard-admin.html')}?tab=dashboard" class="text-sm font-medium hover:text-primary dark:hover:text-accent pl-2 py-1">Admin Dashboard</a>
                 <a href="${p('pages/dashboard-user.html')}?tab=orders" class="text-sm font-medium hover:text-primary dark:hover:text-accent pl-2 py-1">Track Order</a>
 
                 <div class="grid grid-cols-2 gap-4 mt-8 pt-4 border-t border-gray-100 dark:border-gray-800">
@@ -121,14 +122,7 @@ window.renderNavbar = function (basePath) {
                     </div>
 
                     <!-- Categories -->
-                    <div class="relative group">
-                        <a href="${p('pages/categories.html')}" class="text-sm font-medium hover:text-primary dark:hover:text-accent transition flex items-center gap-1 py-8">Categories <i data-lucide="chevron-down" class="w-4 h-4"></i></a>
-                        <div class="absolute top-20 left-0 w-48 bg-white dark:bg-[#2A2A2A] border border-gray-100 dark:border-gray-800 rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 flex flex-col pt-2 pb-2">
-                            <a href="${p('pages/shop.html')}?category=capsules" class="px-4 py-2 text-sm hover:text-primary dark:hover:text-accent hover:bg-gray-50 dark:hover:bg-white/5 transition-colors">Coffee Capsules</a>
-                            <a href="${p('pages/shop.html')}?category=beans" class="px-4 py-2 text-sm hover:text-primary dark:hover:text-accent hover:bg-gray-50 dark:hover:bg-white/5 transition-colors">Whole Beans</a>
-                            <a href="${p('pages/shop.html')}?category=equipment" class="px-4 py-2 text-sm hover:text-primary dark:hover:text-accent hover:bg-gray-50 dark:hover:bg-white/5 transition-colors">Brewing Equipment</a>
-                        </div>
-                    </div>
+                    <a href="${p('pages/categories.html')}" class="text-sm font-medium hover:text-primary dark:hover:text-accent transition py-8 flex items-center gap-1">Categories</a>
 
                     <!-- Deals -->
                     <a href="${p('pages/deals.html')}" class="text-sm font-medium hover:text-primary dark:hover:text-accent transition py-8 flex items-center gap-1">Deals <span class="bg-red-500 text-white text-[10px] font-bold px-1.5 py-0.5 rounded uppercase">Sale</span></a>
@@ -149,8 +143,8 @@ window.renderNavbar = function (basePath) {
                             <a href="${p('pages/login.html')}" class="px-4 py-2 text-sm font-bold text-primary dark:text-accent hover:bg-primary/5 transition-colors">Sign In</a>
                             <a href="${p('pages/signup.html')}" class="px-4 py-2 text-sm hover:text-primary dark:hover:text-accent hover:bg-gray-50 dark:hover:bg-white/5 transition-colors">Create Account</a>
                             <div class="border-t border-gray-100 dark:border-gray-800 my-1"></div>
-                            <a href="${p('pages/dashboard-user.html')}" class="px-4 py-2 text-sm hover:text-primary dark:hover:text-accent hover:bg-gray-50 dark:hover:bg-white/5 transition-colors">User Dashboard</a>
-                            <a href="${p('pages/dashboard-admin.html')}" class="px-4 py-2 text-sm hover:text-primary dark:hover:text-accent hover:bg-gray-50 dark:hover:bg-white/5 transition-colors">Admin Dashboard</a>
+                            <a href="${p('pages/dashboard-user.html')}?tab=dashboard" class="px-4 py-2 text-sm hover:text-primary dark:hover:text-accent hover:bg-gray-50 dark:hover:bg-white/5 transition-colors">User Dashboard</a>
+                            <a href="${p('pages/dashboard-admin.html')}?tab=dashboard" class="px-4 py-2 text-sm hover:text-primary dark:hover:text-accent hover:bg-gray-50 dark:hover:bg-white/5 transition-colors">Admin Dashboard</a>
                             <div class="border-t border-gray-100 dark:border-gray-800 my-1"></div>
                             <a href="${p('pages/dashboard-user.html')}?tab=orders" class="px-4 py-2 text-sm hover:text-primary dark:hover:text-accent hover:bg-gray-50 dark:hover:bg-white/5 transition-colors">Track Order</a>
                             <a href="${p('pages/dashboard-user.html')}?tab=wishlist" class="px-4 py-2 text-sm hover:text-primary dark:hover:text-accent hover:bg-gray-50 dark:hover:bg-white/5 transition-colors">My Wishlist</a>
@@ -229,7 +223,7 @@ window.renderFooter = function (basePath) {
                         <li><a href="${p('pages/shop.html')}" class="hover:text-primary transition-colors">All Coffee</a></li>
                         <li><a href="${p('pages/categories.html')}" class="hover:text-primary transition-colors">Categories</a></li>
                         <li><a href="${p('pages/deals.html')}" class="hover:text-primary transition-colors">Weekly Deals</a></li>
-                        <li><a href="${p('pages/shop.html')}?category=equipment" class="hover:text-primary transition-colors">Brewing Equipment</a></li>
+                        <li><a href="${p('pages/categories.html')}#equipment" class="hover:text-primary transition-colors">Brewing Equipment</a></li>
                         <li><a href="${p('pages/subscriptions.html')}" class="hover:text-primary transition-colors">Coffee Club</a></li>
                     </ul>
                 </div>
@@ -242,7 +236,7 @@ window.renderFooter = function (basePath) {
                         <li><a href="${p('pages/blog.html')}" class="hover:text-primary transition-colors">The Roaster's Journal</a></li>
                         <li><a href="${p('pages/contact.html')}" class="hover:text-primary transition-colors">Contact Us</a></li>
                         <li><a href="#" class="hover:text-primary transition-colors">Wholesale Partners</a></li>
-                        <li><a href="${p('pages/dashboard-user.html')}" class="hover:text-primary transition-colors">My Account</a></li>
+                        <li><a href="${p('pages/dashboard-user.html')}?tab=dashboard" class="hover:text-primary transition-colors">My Account</a></li>
                     </ul>
                 </div>
 

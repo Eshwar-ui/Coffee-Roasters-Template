@@ -42,27 +42,31 @@ document.addEventListener('DOMContentLoaded', () => {
         const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
         const mobileMenuClose = document.getElementById('mobile-menu-close');
 
+        // Many pages (auth, dashboards) don't include the global drawer markup.
+        // Avoid throwing so theme/RTL logic can still initialize.
+        if (!mobileMenu) return;
+
         const toggleMenu = (isOpen) => {
             if (isOpen) {
                 // Open drawer
-                mobileMenuOverlay.classList.remove('hidden');
+                if (mobileMenuOverlay) mobileMenuOverlay.classList.remove('hidden');
                 // Force a reflow to ensure the transition works
-                mobileMenuOverlay.offsetHeight;
+                if (mobileMenuOverlay) mobileMenuOverlay.offsetHeight;
                 mobileMenu.classList.remove('translate-x-full');
                 mobileMenu.classList.add('translate-x-0');
-                mobileMenuOverlay.classList.remove('opacity-0', 'pointer-events-none');
+                if (mobileMenuOverlay) mobileMenuOverlay.classList.remove('opacity-0', 'pointer-events-none');
                 document.body.classList.add('overflow-hidden');
             } else {
                 // Close drawer
                 mobileMenu.classList.remove('translate-x-0');
                 mobileMenu.classList.add('translate-x-full');
-                mobileMenuOverlay.classList.add('opacity-0', 'pointer-events-none');
+                if (mobileMenuOverlay) mobileMenuOverlay.classList.add('opacity-0', 'pointer-events-none');
                 document.body.classList.remove('overflow-hidden');
                 
                 // Hide overlay after transition
                 setTimeout(() => {
                     if (!mobileMenu.classList.contains('translate-x-0')) {
-                        mobileMenuOverlay.classList.add('hidden');
+                        if (mobileMenuOverlay) mobileMenuOverlay.classList.add('hidden');
                     }
                 }, 300);
             }
@@ -82,9 +86,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Close menu on link click
         const mobileLinks = mobileMenu.querySelectorAll('a');
-        mobileLinks.forEach(link => {
-            link.addEventListener('click', () => toggleMenu(false));
-        });
+        mobileLinks.forEach(link => link.addEventListener('click', () => toggleMenu(false)));
     };
     initMobileMenu();
 
@@ -101,7 +103,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const enableDarkMode = () => {
         document.documentElement.classList.add('dark');
         localStorage.setItem('theme', 'dark');
-        if (darkModeToggle) darkModeToggle.innerHTML = '<i data-lucide="sun"></i>';
+        // If the page already provides a dual-icon button (sun/moon with dark:hidden),
+        // keep its markup and just toggle the global theme class.
+        if (darkModeToggle && !darkModeToggle.querySelector('.dark\\:hidden') && !darkModeToggle.querySelector('.dark\\:block')) {
+            darkModeToggle.innerHTML = '<i data-lucide="sun"></i>';
+            initIcons();
+        }
         if (darkModeMobileToggle) darkModeMobileToggle.innerHTML = '<i data-lucide="sun" class="mr-2"></i> Light Mode';
         initIcons();
     };
@@ -112,7 +119,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const disableDarkMode = () => {
         document.documentElement.classList.remove('dark');
         localStorage.setItem('theme', 'light');
-        if (darkModeToggle) darkModeToggle.innerHTML = '<i data-lucide="moon"></i>';
+        if (darkModeToggle && !darkModeToggle.querySelector('.dark\\:hidden') && !darkModeToggle.querySelector('.dark\\:block')) {
+            darkModeToggle.innerHTML = '<i data-lucide="moon"></i>';
+            initIcons();
+        }
         if (darkModeMobileToggle) darkModeMobileToggle.innerHTML = '<i data-lucide="moon" class="mr-2"></i> Dark Mode';
         initIcons();
     };

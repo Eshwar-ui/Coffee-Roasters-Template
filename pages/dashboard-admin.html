@@ -3,103 +3,329 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Espresso Elite | Administration Hub</title>
+    <title>Espresso Elite | Admin Console</title>
     <link rel="icon" type="image/png" href="../assets/images/ui/favicon.png">
     <meta name="robots" content="noindex, nofollow">
+
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="../assets/css/style.css">
     <link rel="stylesheet" href="../assets/css/dark-mode.css">
     <link rel="stylesheet" href="../assets/css/rtl.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
     <script>
         tailwind.config = {
             darkMode: 'class',
             theme: {
                 extend: {
-                    colors: { primary: '#6F4E37', secondary: '#C4A484', accent: '#D4A373', background: '#F5F3EF', dark: '#121212' },
-                    fontFamily: { heading: ['Playfair Display', 'serif'], body: ['Inter', 'sans-serif'] }
+                    colors: {
+                        primary: '#6F4E37',
+                        secondary: '#C4A484',
+                        accent: '#D4A373',
+                        background: '#F5F3EF',
+                        dark: '#121212'
+                    },
+                    fontFamily: {
+                        heading: ['Playfair Display', 'serif'],
+                        body: ['Inter', 'sans-serif']
+                    }
                 }
             }
         }
     </script>
 </head>
-<body class="antialiased bg-gray-50 dark:bg-dark text-gray-900 dark:text-gray-100 transition-colors duration-300">
-
+<body class="antialiased bg-gray-50 text-gray-900 dark:bg-[#0B0D10] dark:text-gray-100 transition-colors duration-300">
     <div class="flex h-screen overflow-hidden">
-        
-        <!-- SIDEBAR -->
-        <aside class="w-72 bg-white/70 dark:bg-[#1C1C1C]/70 backdrop-blur-xl border-r border-gray-100 dark:border-gray-800 flex-shrink-0 flex flex-col transition-transform duration-300 md:translate-x-0 -translate-x-full fixed md:relative h-full z-50 md:z-auto" id="sidebar">
-            <div class="h-20 flex items-center px-8 border-b border-gray-100 dark:border-gray-800">
+        <aside id="sidebar" class="w-72 md:w-64 bg-white dark:bg-[#0F1216] border-r border-gray-200 dark:border-white/10 flex-shrink-0 flex flex-col transition-transform duration-300 md:translate-x-0 -translate-x-full fixed md:relative inset-y-0 start-0 z-50">
+            <div class="h-16 flex items-center justify-between px-5 border-b border-gray-200 dark:border-white/10">
                 <a href="../index.html" class="flex items-center gap-3">
-                    <div class="w-10 h-10 bg-primary/10 rounded-xl flex items-center justify-center text-primary"><i data-lucide="coffee" class="w-5 h-5"></i></div>
-                    <div class="rtl:text-right">
-                        <span class="font-heading font-bold text-lg block leading-none">Console</span>
-                        <span class="text-[9px] font-bold text-gray-400 uppercase tracking-widest">Admin V3</span>
+                    <div class="w-9 h-9 rounded-xl bg-primary/10 text-primary flex items-center justify-center">
+                        <i data-lucide="coffee" class="w-5 h-5"></i>
+                    </div>
+                    <div class="leading-tight rtl:text-right">
+                        <div class="font-heading font-bold text-[15px]">Espresso Elite</div>
+                        <div class="text-[10px] font-bold uppercase tracking-widest text-gray-400">Admin Console</div>
                     </div>
                 </a>
-                <button class="md:hidden text-gray-400 absolute inset-e-6 top-8" id="close-sidebar"><i data-lucide="x" class="w-5 h-5"></i></button>
+                <button class="md:hidden text-gray-500 hover:text-gray-900 dark:hover:text-white" id="close-sidebar" aria-label="Close sidebar">
+                    <i data-lucide="x" class="w-5 h-5"></i>
+                </button>
             </div>
-            <div class="flex-1 overflow-y-auto px-6 py-8">
-                <nav class="flex flex-col gap-2 sidebar-nav">
-                    <p class="text-[10px] font-bold text-gray-400 uppercase tracking-[0.3em] mb-4 px-4 font-heading">Operations Hub</p>
-                    <a href="dashboard-admin.html" class="tab-link flex items-center gap-4 px-4 py-4 rounded-2xl bg-primary text-white shadow-2xl shadow-primary/30 transition-all font-bold group">
-                        <i data-lucide="layout-dashboard" class="w-5 h-5"></i> Dashboard
+
+            <div class="flex-1 overflow-y-auto px-4 py-5">
+                <nav class="flex flex-col gap-1">
+                    <p class="px-3 pt-2 pb-2 text-[10px] font-bold uppercase tracking-widest text-gray-400">Operations</p>
+
+                    <a href="dashboard-admin.html?tab=dashboard"
+                       data-dashboard-link data-tab="dashboard" data-title="Dashboard"
+                       data-class-active="tab-link flex items-center gap-3 px-3 py-2.5 rounded-xl bg-primary/10 text-primary dark:bg-primary/20 dark:text-accent font-semibold"
+                       data-class-inactive="tab-link flex items-center gap-3 px-3 py-2.5 rounded-xl text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-white/5 font-medium"
+                       class="tab-link flex items-center gap-3 px-3 py-2.5 rounded-xl text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-white/5 font-medium">
+                        <i data-lucide="layout-dashboard" class="w-5 h-5"></i>
+                        <span>Dashboard</span>
                     </a>
-                    <a href="dashboard-inventory.html" class="tab-link flex items-center gap-4 px-4 py-4 rounded-2xl text-gray-500 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-white/5 transition-all font-medium group">
-                        <i data-lucide="package" class="w-5 h-5"></i> Inventory Management
+
+                    <a href="dashboard-admin.html?tab=inventory"
+                       data-dashboard-link data-tab="inventory" data-title="Inventory"
+                       data-class-active="tab-link flex items-center gap-3 px-3 py-2.5 rounded-xl bg-primary/10 text-primary dark:bg-primary/20 dark:text-accent font-semibold"
+                       data-class-inactive="tab-link flex items-center gap-3 px-3 py-2.5 rounded-xl text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-white/5 font-medium"
+                       class="tab-link flex items-center gap-3 px-3 py-2.5 rounded-xl text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-white/5 font-medium">
+                        <i data-lucide="package" class="w-5 h-5"></i>
+                        <span>Inventory</span>
                     </a>
-                    <a href="dashboard-customers.html" class="tab-link flex items-center gap-4 px-4 py-4 rounded-2xl text-gray-500 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-white/5 transition-all font-medium group">
-                        <i data-lucide="users" class="w-5 h-5"></i> User Registry
+
+                    <a href="dashboard-admin.html?tab=customers"
+                       data-dashboard-link data-tab="customers" data-title="Customers"
+                       data-class-active="tab-link flex items-center gap-3 px-3 py-2.5 rounded-xl bg-primary/10 text-primary dark:bg-primary/20 dark:text-accent font-semibold"
+                       data-class-inactive="tab-link flex items-center gap-3 px-3 py-2.5 rounded-xl text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-white/5 font-medium"
+                       class="tab-link flex items-center gap-3 px-3 py-2.5 rounded-xl text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-white/5 font-medium">
+                        <i data-lucide="users" class="w-5 h-5"></i>
+                        <span>Customers</span>
                     </a>
-                    <a href="dashboard-reports.html" class="tab-link flex items-center gap-4 px-4 py-4 rounded-2xl text-gray-500 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-white/5 transition-all font-medium group">
-                        <i data-lucide="bar-chart-3" class="w-5 h-5"></i> Tactical Reports
+
+                    <a href="dashboard-admin.html?tab=reports"
+                       data-dashboard-link data-tab="reports" data-title="Reports"
+                       data-class-active="tab-link flex items-center gap-3 px-3 py-2.5 rounded-xl bg-primary/10 text-primary dark:bg-primary/20 dark:text-accent font-semibold"
+                       data-class-inactive="tab-link flex items-center gap-3 px-3 py-2.5 rounded-xl text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-white/5 font-medium"
+                       class="tab-link flex items-center gap-3 px-3 py-2.5 rounded-xl text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-white/5 font-medium">
+                        <i data-lucide="bar-chart-3" class="w-5 h-5"></i>
+                        <span>Reports</span>
                     </a>
-                    <p class="text-[10px] font-bold text-gray-400 uppercase tracking-[0.3em] mb-4 mt-10 px-4 font-heading">System Protocols</p>
-                    <a href="dashboard-config.html" class="tab-link flex items-center gap-4 px-4 py-3.5 rounded-2xl text-gray-500 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-white/5 transition-all font-medium group">
-                        <i data-lucide="settings" class="w-5 h-5"></i> System Configuration
+
+                    <p class="px-3 pt-6 pb-2 text-[10px] font-bold uppercase tracking-widest text-gray-400">System</p>
+
+                    <a href="dashboard-admin.html?tab=config"
+                       data-dashboard-link data-tab="config" data-title="Configuration"
+                       data-class-active="tab-link flex items-center gap-3 px-3 py-2.5 rounded-xl bg-primary/10 text-primary dark:bg-primary/20 dark:text-accent font-semibold"
+                       data-class-inactive="tab-link flex items-center gap-3 px-3 py-2.5 rounded-xl text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-white/5 font-medium"
+                       class="tab-link flex items-center gap-3 px-3 py-2.5 rounded-xl text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-white/5 font-medium">
+                        <i data-lucide="settings" class="w-5 h-5"></i>
+                        <span>Configuration</span>
                     </a>
                 </nav>
             </div>
+
+            <div class="p-4 border-t border-gray-200 dark:border-white/10">
+                <a href="login.html" class="flex items-center justify-center gap-2 w-full px-3 py-2.5 rounded-xl bg-gray-50 hover:bg-gray-100 dark:bg-white/5 dark:hover:bg-white/10 text-gray-700 dark:text-gray-200 font-semibold">
+                    <i data-lucide="log-out" class="w-4 h-4"></i>
+                    Log out
+                </a>
+            </div>
         </aside>
 
-        <!-- MAIN CONTENT -->
-        <main class="flex-1 flex flex-col overflow-hidden bg-[#FBFBFB] dark:bg-dark text-black dark:text-white">
-            <header class="h-16 sm:h-20 bg-white/80 dark:bg-[#1C1C1C]/80 backdrop-blur-md border-b border-gray-100 dark:border-gray-800 flex items-center justify-between px-4 sm:px-8 z-20 shrink-0">
-                <div class="flex items-center gap-4 sm:gap-8">
-                    <button class="md:hidden text-gray-500" id="admin-menu-toggle"><i data-lucide="menu" class="w-6 h-6"></i></button>
-                    <h2 class="text-lg sm:text-xl font-bold font-heading rtl:text-right">System Overview</h2>
+        <main class="flex-1 flex flex-col overflow-hidden bg-gray-50 dark:bg-[#0B0D10]">
+            <header class="sticky top-0 z-20 h-16 bg-white/85 dark:bg-[#0F1216]/85 backdrop-blur border-b border-gray-200 dark:border-white/10 px-4 sm:px-6 flex items-center justify-between">
+                <div class="flex items-center gap-3 min-w-0">
+                    <button class="md:hidden p-2 rounded-xl hover:bg-gray-100 dark:hover:bg-white/10 text-gray-600 dark:text-gray-200" id="admin-menu-toggle" aria-label="Open sidebar">
+                        <i data-lucide="menu" class="w-5 h-5"></i>
+                    </button>
+                    <div class="min-w-0">
+                        <h1 id="dashboard-page-title" class="text-base sm:text-lg font-bold font-heading truncate rtl:text-right">Dashboard</h1>
+                        <p class="hidden sm:block text-[11px] font-medium text-gray-500 dark:text-gray-400 rtl:text-right">Operations overview and system health.</p>
+                    </div>
                 </div>
-                <div class="flex items-center gap-5">
-                    <button id="dark-mode-toggle" class="w-10 h-10 flex items-center justify-center bg-gray-100 dark:bg-white/5 text-gray-500 rounded-2xl hover:bg-primary/10 hover:text-primary transition-all"><i data-lucide="sun" class="w-4 h-4 dark:hidden"></i><i data-lucide="moon" class="w-4 h-4 hidden dark:block"></i></button>
-                    <div class="h-8 w-px bg-gray-100 dark:bg-gray-800 mx-2"></div>
-                    <div class="flex items-center gap-4 cursor-pointer group"><div class="text-right hidden sm:block"><p class="text-xs font-bold font-heading">Admin Node</p><p class="text-[10px] text-gray-400 font-bold uppercase tracking-widest">Global Superuser</p></div><div class="w-11 h-11 rounded-2xl bg-primary text-white flex items-center justify-center font-bold text-sm shadow-lg shadow-primary/20">A</div></div>
+
+                <div class="flex items-center gap-2">
+                    <button id="rtl-toggle" class="hidden sm:inline-flex items-center justify-center h-10 px-3 rounded-xl bg-gray-100 hover:bg-gray-200 dark:bg-white/5 dark:hover:bg-white/10 text-gray-700 dark:text-gray-200 text-[10px] font-extrabold uppercase tracking-widest" title="Toggle RTL">RTL</button>
+                    <button id="dark-mode-toggle" class="h-10 w-10 inline-flex items-center justify-center rounded-xl bg-gray-100 hover:bg-gray-200 dark:bg-white/5 dark:hover:bg-white/10 text-gray-700 dark:text-gray-200" title="Toggle theme">
+                        <i data-lucide="sun" class="w-4 h-4 dark:hidden"></i>
+                        <i data-lucide="moon" class="w-4 h-4 hidden dark:block"></i>
+                    </button>
+                    <div class="hidden sm:flex items-center gap-2 px-3 h-10 rounded-xl bg-gray-100 dark:bg-white/5 border border-transparent dark:border-white/10">
+                        <i data-lucide="search" class="w-4 h-4 text-gray-400"></i>
+                        <input type="text" placeholder="Search..." class="w-44 bg-transparent text-sm outline-none placeholder:text-gray-400 rtl:text-right">
+                    </div>
+                    <div class="ms-2 w-10 h-10 rounded-xl bg-primary text-white flex items-center justify-center font-extrabold text-xs">A</div>
                 </div>
             </header>
-
-            <div class="flex-1 overflow-y-auto p-8 custom-scrollbar">
-                <div id="admin-dashboard" class="space-y-12">
-                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                        <div class="bg-white dark:bg-[#1C1C1C] p-10 rounded-[2.5rem] border border-gray-100 dark:border-gray-800 shadow-sm"><div class="w-14 h-14 bg-primary/10 text-primary rounded-2xl flex items-center justify-center mb-6"><i data-lucide="trending-up" class="w-7 h-7"></i></div><p class="text-[10px] text-gray-400 font-bold uppercase tracking-[0.2em] mb-2">Cycle Revenue</p><h4 class="text-3xl font-bold font-heading">$142,500</h4><p class="text-[10px] text-green-500 font-bold mt-2">+12.4% from average</p></div>
-                        <div class="bg-white dark:bg-[#1C1C1C] p-10 rounded-[2.5rem] border border-gray-100 dark:border-gray-800 shadow-sm"><div class="w-14 h-14 bg-blue-500/10 text-blue-500 rounded-2xl flex items-center justify-center mb-6"><i data-lucide="users" class="w-7 h-7"></i></div><p class="text-[10px] text-gray-400 font-bold uppercase tracking-[0.2em] mb-2">Active Cadre</p><h4 class="text-3xl font-bold font-heading">12,842</h4><p class="text-[10px] text-blue-500 font-bold mt-2">+842 units incoming</p></div>
-                        <div class="bg-white dark:bg-[#1C1C1C] p-10 rounded-[2.5rem] border border-gray-100 dark:border-gray-800 shadow-sm"><div class="w-14 h-14 bg-green-500/10 text-green-500 rounded-2xl flex items-center justify-center mb-6"><i data-lucide="shopping-bag" class="w-7 h-7"></i></div><p class="text-[10px] text-gray-400 font-bold uppercase tracking-[0.2em] mb-2">Tactical Orders</p><h4 class="text-3xl font-bold font-heading">3,450</h4><p class="text-[10px] text-green-500 font-bold mt-2">100% fulfill integrity</p></div>
-                        <div class="bg-white dark:bg-[#1C1C1C] p-10 rounded-[2.5rem] border border-gray-100 dark:border-gray-800 shadow-sm"><div class="w-14 h-14 bg-orange-500/10 text-orange-500 rounded-2xl flex items-center justify-center mb-6"><i data-lucide="activity" class="w-7 h-7"></i></div><p class="text-[10px] text-gray-400 font-bold uppercase tracking-[0.2em] mb-2">Hub Integrity</p><h4 class="text-3xl font-bold font-heading">99.9%</h4><p class="text-[10px] text-orange-500 font-bold mt-2">Nominal Performance</p></div>
-                     </div>
-                     <div class="grid lg:grid-cols-3 gap-10">
-                        <div class="lg:col-span-2 bg-white dark:bg-[#1C1C1C] p-6 sm:p-12 rounded-[2.5rem] sm:rounded-[3.5rem] border border-gray-100 dark:border-gray-800 shadow-sm">
-                            <h3 class="text-xl sm:text-2xl font-heading font-bold mb-6 sm:mb-10 border-s-4 border-primary ps-4 rtl:text-right">Revenue Visualization</h3>
-                            <div class="h-64 sm:h-80 w-full"><canvas id="revenueChart"></canvas></div>
+            <div class="flex-1 overflow-y-auto px-4 sm:px-6 py-6">
+                <section data-dashboard-panel="dashboard" class="space-y-6">
+                    <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4">
+                        <div class="rounded-2xl bg-white dark:bg-[#0F1216] border border-gray-200 dark:border-white/10 p-5">
+                            <p class="text-[11px] font-bold uppercase tracking-widest text-gray-400">Revenue</p>
+                            <p class="mt-2 text-2xl font-bold font-heading">$142,500</p>
+                            <p class="mt-1 text-sm text-gray-500 dark:text-gray-400">+12.4% vs last period</p>
                         </div>
-                        <div class="bg-white dark:bg-[#1C1C1C] p-6 sm:p-12 rounded-[2.5rem] sm:rounded-[3.5rem] border border-gray-100 dark:border-gray-800 shadow-sm">
-                            <h3 class="text-xl sm:text-2xl font-heading font-bold mb-6 sm:mb-10 border-s-4 border-primary ps-4 rtl:text-right">Inventory Alert</h3>
-                            <div class="space-y-6 sm:space-y-8">
-                                <div class="flex items-center gap-4 sm:gap-6 p-4 sm:p-6 bg-red-500/5 dark:bg-red-500/10 rounded-[1.5rem] sm:rounded-[2rem] border border-red-500/10 rtl:text-right">
-                                    <div class="w-10 h-10 sm:w-12 sm:h-12 bg-red-500 text-white rounded-xl flex items-center justify-center shadow-lg shadow-red-500/20 shrink-0"><i data-lucide="alert-triangle" class="w-5 h-5 sm:w-6 sm:h-6"></i></div>
-                                    <div><p class="text-xs sm:text-sm font-bold">Yirgacheffe micro-lot</p><p class="text-[8px] sm:text-[9px] text-red-500 font-extrabold uppercase tracking-widest mt-1">Critical Depletion < 2kg</p></div>
+                        <div class="rounded-2xl bg-white dark:bg-[#0F1216] border border-gray-200 dark:border-white/10 p-5">
+                            <p class="text-[11px] font-bold uppercase tracking-widest text-gray-400">Active Customers</p>
+                            <p class="mt-2 text-2xl font-bold font-heading">12,842</p>
+                            <p class="mt-1 text-sm text-gray-500 dark:text-gray-400">+842 this month</p>
+                        </div>
+                        <div class="rounded-2xl bg-white dark:bg-[#0F1216] border border-gray-200 dark:border-white/10 p-5">
+                            <p class="text-[11px] font-bold uppercase tracking-widest text-gray-400">Orders</p>
+                            <p class="mt-2 text-2xl font-bold font-heading">3,450</p>
+                            <p class="mt-1 text-sm text-gray-500 dark:text-gray-400">Fulfillment: 99.2%</p>
+                        </div>
+                        <div class="rounded-2xl bg-white dark:bg-[#0F1216] border border-gray-200 dark:border-white/10 p-5">
+                            <p class="text-[11px] font-bold uppercase tracking-widest text-gray-400">System Health</p>
+                            <p class="mt-2 text-2xl font-bold font-heading">99.9%</p>
+                            <p class="mt-1 text-sm text-gray-500 dark:text-gray-400">All services nominal</p>
+                        </div>
+                    </div>
+
+                    <div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-4">
+                        <div class="lg:col-span-2 rounded-2xl bg-white dark:bg-[#0F1216] border border-gray-200 dark:border-white/10 p-5">
+                            <div class="flex items-center justify-between mb-4">
+                                <div class="rtl:text-right">
+                                    <p class="text-sm font-bold">Revenue</p>
+                                    <p class="text-xs text-gray-500 dark:text-gray-400">Last 6 months</p>
+                                </div>
+                                <span class="text-[10px] font-bold uppercase tracking-widest text-gray-400">Chart</span>
+                            </div>
+                            <div class="h-64 w-full">
+                                <canvas id="revenueChart"></canvas>
+                            </div>
+                        </div>
+
+                        <div class="rounded-2xl bg-white dark:bg-[#0F1216] border border-gray-200 dark:border-white/10 p-5">
+                            <div class="rtl:text-right">
+                                <p class="text-sm font-bold">Alerts</p>
+                                <p class="text-xs text-gray-500 dark:text-gray-400">Inventory and operations</p>
+                            </div>
+                            <div class="mt-4 space-y-2">
+                                <div class="p-3 rounded-xl bg-red-500/5 border border-red-500/10">
+                                    <p class="text-sm font-semibold">Yirgacheffe micro-lot</p>
+                                    <p class="text-xs text-red-600 dark:text-red-400 font-bold uppercase tracking-widest mt-1">Critical depletion</p>
+                                </div>
+                                <div class="p-3 rounded-xl bg-amber-500/5 border border-amber-500/10">
+                                    <p class="text-sm font-semibold">Dispatch queue</p>
+                                    <p class="text-xs text-amber-700 dark:text-amber-300 font-bold uppercase tracking-widest mt-1">Delayed by 1h</p>
                                 </div>
                             </div>
                         </div>
-                     </div>
-                </div>
+                    </div>
+                </section>
+
+                <section data-dashboard-panel="inventory" class="hidden">
+                    <div class="max-w-6xl mx-auto space-y-4">
+                        <div class="flex items-end justify-between gap-3">
+                            <div class="rtl:text-right">
+                                <h2 class="text-xl font-bold font-heading">Inventory</h2>
+                                <p class="text-sm text-gray-500 dark:text-gray-400">Stock levels and logistics status</p>
+                            </div>
+                            <button class="h-10 px-4 rounded-xl bg-primary text-white text-sm font-bold">Add item</button>
+                        </div>
+
+                        <div class="rounded-2xl bg-white dark:bg-[#0F1216] border border-gray-200 dark:border-white/10 overflow-hidden">
+                            <div class="overflow-x-auto">
+                                <table class="w-full text-left">
+                                    <thead class="text-[10px] font-bold uppercase tracking-widest text-gray-400 bg-gray-50 dark:bg-white/5">
+                                        <tr>
+                                            <th class="px-5 py-3">SKU</th>
+                                            <th class="px-5 py-3">Name</th>
+                                            <th class="px-5 py-3">Status</th>
+                                            <th class="px-5 py-3 text-right">Stock</th>
+                                            <th class="px-5 py-3 text-right">Price</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="text-sm">
+                                        <tr class="border-t border-gray-200 dark:border-white/10">
+                                            <td class="px-5 py-4 font-semibold">CF-7702</td>
+                                            <td class="px-5 py-4">Yirgacheffe Micro-Lot</td>
+                                            <td class="px-5 py-4"><span class="inline-flex items-center px-2.5 py-1 rounded-full text-[10px] font-bold bg-red-500/10 text-red-600 dark:text-red-400">Critical</span></td>
+                                            <td class="px-5 py-4 text-right font-semibold">1.8 kg</td>
+                                            <td class="px-5 py-4 text-right font-semibold">$32.00</td>
+                                        </tr>
+                                        <tr class="border-t border-gray-200 dark:border-white/10">
+                                            <td class="px-5 py-4 font-semibold">CF-8821</td>
+                                            <td class="px-5 py-4">Signature Elite Selection</td>
+                                            <td class="px-5 py-4"><span class="inline-flex items-center px-2.5 py-1 rounded-full text-[10px] font-bold bg-green-500/10 text-green-700 dark:text-green-400">OK</span></td>
+                                            <td class="px-5 py-4 text-right font-semibold">142.0 kg</td>
+                                            <td class="px-5 py-4 text-right font-semibold">$18.50</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section data-dashboard-panel="customers" class="hidden">
+                    <div class="max-w-6xl mx-auto space-y-4">
+                        <div class="flex items-end justify-between gap-3">
+                            <div class="rtl:text-right">
+                                <h2 class="text-xl font-bold font-heading">Customers</h2>
+                                <p class="text-sm text-gray-500 dark:text-gray-400">Member registry and segmentation</p>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <div class="flex items-center gap-2 px-3 h-10 rounded-xl bg-white dark:bg-[#0F1216] border border-gray-200 dark:border-white/10">
+                                    <i data-lucide="search" class="w-4 h-4 text-gray-400"></i>
+                                    <input class="w-44 bg-transparent text-sm outline-none placeholder:text-gray-400 rtl:text-right" placeholder="Search">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="rounded-2xl bg-white dark:bg-[#0F1216] border border-gray-200 dark:border-white/10 overflow-hidden">
+                            <div class="overflow-x-auto">
+                                <table class="w-full text-left">
+                                    <thead class="text-[10px] font-bold uppercase tracking-widest text-gray-400 bg-gray-50 dark:bg-white/5">
+                                        <tr>
+                                            <th class="px-5 py-3">Customer</th>
+                                            <th class="px-5 py-3">Tier</th>
+                                            <th class="px-5 py-3">Since</th>
+                                            <th class="px-5 py-3 text-right">Spend</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="text-sm">
+                                        <tr class="border-t border-gray-200 dark:border-white/10">
+                                            <td class="px-5 py-4 font-semibold">John Doe <span class="block text-xs text-gray-500 dark:text-gray-400 font-normal">john.doe@espresso.com</span></td>
+                                            <td class="px-5 py-4"><span class="inline-flex items-center px-2.5 py-1 rounded-full text-[10px] font-bold bg-primary/10 text-primary">Gold</span></td>
+                                            <td class="px-5 py-4 text-gray-500 dark:text-gray-400">Feb 2026</td>
+                                            <td class="px-5 py-4 text-right font-semibold">$842.10</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section data-dashboard-panel="reports" class="hidden">
+                    <div class="max-w-6xl mx-auto space-y-4">
+                        <div class="rtl:text-right">
+                            <h2 class="text-xl font-bold font-heading">Reports</h2>
+                            <p class="text-sm text-gray-500 dark:text-gray-400">Performance and conversion insights</p>
+                        </div>
+                        <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+                            <div class="rounded-2xl bg-white dark:bg-[#0F1216] border border-gray-200 dark:border-white/10 p-6">
+                                <p class="text-sm font-bold">Conversion</p>
+                                <p class="text-3xl font-bold font-heading mt-2">84%</p>
+                                <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">New acquisition conversion</p>
+                            </div>
+                            <div class="rounded-2xl bg-white dark:bg-[#0F1216] border border-gray-200 dark:border-white/10 p-6">
+                                <p class="text-sm font-bold">Retention</p>
+                                <p class="text-3xl font-bold font-heading mt-2">96%</p>
+                                <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">Member loyalty integrity</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section data-dashboard-panel="config" class="hidden">
+                    <div class="max-w-4xl mx-auto space-y-4">
+                        <div class="rtl:text-right">
+                            <h2 class="text-xl font-bold font-heading">Configuration</h2>
+                            <p class="text-sm text-gray-500 dark:text-gray-400">Core system settings</p>
+                        </div>
+                        <div class="rounded-2xl bg-white dark:bg-[#0F1216] border border-gray-200 dark:border-white/10 p-6 space-y-3">
+                            <div class="flex items-center justify-between gap-4">
+                                <div class="rtl:text-right">
+                                    <p class="text-sm font-bold">Site status</p>
+                                    <p class="text-xs text-gray-500 dark:text-gray-400">Operations nominal</p>
+                                </div>
+                                <button class="h-10 px-4 rounded-xl bg-red-500 text-white text-sm font-bold">Disable</button>
+                            </div>
+                            <div class="h-px bg-gray-200 dark:bg-white/10"></div>
+                            <div class="flex items-center justify-between gap-4">
+                                <div class="rtl:text-right">
+                                    <p class="text-sm font-bold">SMTP gateway</p>
+                                    <p class="text-xs text-gray-500 dark:text-gray-400">Verified</p>
+                                </div>
+                                <button class="h-10 px-4 rounded-xl bg-gray-100 hover:bg-gray-200 dark:bg-white/5 dark:hover:bg-white/10 text-sm font-bold">Configure</button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
             </div>
         </main>
     </div>
