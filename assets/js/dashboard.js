@@ -6,6 +6,60 @@
  */
 
 document.addEventListener('DOMContentLoaded', () => {
+    const initIcons = () => {
+        if (typeof lucide !== 'undefined') lucide.createIcons();
+    };
+    initIcons();
+
+    const darkModeToggle = document.getElementById('dark-mode-toggle');
+    const rtlToggle = document.getElementById('rtl-toggle');
+
+    const enableDarkMode = () => {
+        document.documentElement.classList.add('dark');
+        localStorage.setItem('theme', 'dark');
+        initIcons();
+    };
+
+    const disableDarkMode = () => {
+        document.documentElement.classList.remove('dark');
+        localStorage.setItem('theme', 'light');
+        initIcons();
+    };
+
+    const toggleTheme = () => {
+        if (document.documentElement.classList.contains('dark')) disableDarkMode();
+        else enableDarkMode();
+    };
+
+    const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const localTheme = localStorage.getItem('theme');
+    if (localTheme === 'dark' || (!localTheme && systemDark)) enableDarkMode();
+    else disableDarkMode();
+
+    if (darkModeToggle) darkModeToggle.addEventListener('click', toggleTheme);
+
+    const setRTL = (isRTL) => {
+        if (isRTL) {
+            document.documentElement.setAttribute('dir', 'rtl');
+            localStorage.setItem('dir', 'rtl');
+            if (rtlToggle) rtlToggle.innerText = 'LTR';
+        } else {
+            document.documentElement.setAttribute('dir', 'ltr');
+            localStorage.setItem('dir', 'ltr');
+            if (rtlToggle) rtlToggle.innerText = 'RTL';
+        }
+    };
+
+    if (localStorage.getItem('dir') === 'rtl') setRTL(true);
+    else setRTL(false);
+
+    if (rtlToggle) {
+        rtlToggle.addEventListener('click', () => {
+            const isRTL = document.documentElement.getAttribute('dir') === 'rtl';
+            setRTL(!isRTL);
+        });
+    }
+
     const sidebar = document.getElementById('sidebar');
     const menuToggle = document.getElementById('admin-menu-toggle');
     const closeSidebar = document.getElementById('close-sidebar');

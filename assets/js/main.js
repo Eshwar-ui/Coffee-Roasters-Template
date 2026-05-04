@@ -91,10 +91,60 @@ document.addEventListener('DOMContentLoaded', () => {
     initMobileMenu();
 
     /**
+     * 3.5 ACTIVE NAVIGATION STATE
+     * Highlights the current primary navigation item based on the page URL.
+     */
+    const initActiveNav = () => {
+        const currentPath = window.location.pathname.replace(/\\/g, '/');
+        const fileName = currentPath.split('/').pop() || 'index.html';
+        const keyByFile = {
+            'index.html': 'home',
+            'index-2.html': 'home',
+            'shop.html': 'shop',
+            'product-single.html': 'shop',
+            'cart.html': 'shop',
+            'checkout.html': 'shop',
+            'subscriptions.html': 'shop',
+            'subscription-plans.html': 'shop',
+            'categories.html': 'categories',
+            'deals.html': 'deals',
+            'blog.html': 'blog',
+            'blog-single.html': 'blog',
+            'dashboard-user.html': 'account',
+            'dashboard-admin.html': 'account',
+            'services.html': 'home'
+        };
+        const activeKey = keyByFile[fileName];
+        if (!activeKey) return;
+
+        const activeClasses = ['text-primary', 'dark:text-accent', 'font-bold', 'bg-primary/10', 'dark:bg-accent/20', 'rounded-full', 'px-3', 'py-1.5', 'shadow-sm'];
+        const navLinks = document.querySelectorAll('[data-nav-key]');
+
+        navLinks.forEach((link) => {
+            const isDesktop = link.closest('.lg\\:flex');
+            link.classList.remove(...activeClasses);
+            link.removeAttribute('aria-current');
+
+            if (link.dataset.navKey === activeKey) {
+                link.classList.remove('text-sm');
+                if (isDesktop) link.classList.remove('py-8');
+                link.classList.add(...activeClasses);
+                if (link.matches('a')) {
+                    link.setAttribute('aria-current', 'page');
+                }
+            } else {
+                link.classList.add('text-sm');
+                if (isDesktop) link.classList.add('py-8');
+            }
+        });
+    };
+    initActiveNav();
+
+    /**
      * 4. THEME MANAGEMENT (DARK/LIGHT MODE)
      * Logic for toggling, applying, and persisting the color theme.
      */
-    const darkModeToggle = document.getElementById('dark-mode-toggle');
+    const darkModeToggle = document.getElementById('dark-mode-toggle') || document.getElementById('dark-mode-toggle-mobile-auth');
     const darkModeMobileToggle = document.getElementById('dark-mode-mobile-toggle');
 
     /**
@@ -155,7 +205,7 @@ document.addEventListener('DOMContentLoaded', () => {
      * 5. RTL (RIGHT-TO-LEFT) SUPPORT
      * Switches document direction for multilingual support.
      */
-    const rtlToggle = document.getElementById('rtl-toggle');
+    const rtlToggle = document.getElementById('rtl-toggle') || document.getElementById('rtl-toggle-mobile-auth');
     const rtlMobileToggle = document.getElementById('rtl-mobile-toggle');
     
     /**
